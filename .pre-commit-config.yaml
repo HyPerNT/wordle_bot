@@ -48,7 +48,7 @@ repos:
         name: docs
         language: script
         pass_filenames: false
-        entry: docs.sh
+        entry: devel/docs.sh
 - repo: local
   hooks:
       - id: tests
@@ -63,11 +63,11 @@ repos:
         name: coverage
         language: script
         pass_filenames: false
-        entry: coverage.sh
+        entry: devel/coverage.sh
 - repo: local
   hooks:
       - id: badges
         name: badges
         language: script
         pass_filenames: false
-        entry: badges.sh
+        entry: devel/badges.sh
