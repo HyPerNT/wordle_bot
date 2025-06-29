@@ -24,9 +24,9 @@
 
   <p align="center">
     A library designed for building and testing strategies for the game Wordle.
-    <!-- <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br /> -->
+    <br />
+    <a href="https://github.com/HyPerNT/wordle_bot/blob/main/docs"><strong>Explore the docs »</strong></a>
+    <br />
   </p>
 </div>
 
