@@ -9,7 +9,7 @@ generate the first guess and subsequent guesses based on the index of previous g
 from .util import GUESSES
 from .bot_behaviors import BotBehaviors
 
-# file: wordle_bot/example_bot.py
+# file: bots/example_bot.py
 
 
 class ExampleBot(BotBehaviors):
@@ -41,7 +41,7 @@ class ExampleBot(BotBehaviors):
         """
         return self.filter.all_unique_words[0]
 
-    def generate_guess(self) -> str:
+    def generate_next_guess(self) -> str:
         """
         Generate the next guess for the Wordle game based on the number of previous guesses.
 

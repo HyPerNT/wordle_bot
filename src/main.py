@@ -6,8 +6,8 @@ It also ensures that the log file is removed before starting the tests to avoid 
 existing log file.
 """
 
-from wordle_tester import Tester
-from wordle_bot import WordleBot
+from tester import WordleTester
+from bots import WordleBot
 from common.util import LOG_FILE
 import os
 
@@ -18,7 +18,7 @@ def main():
     """Main function to run the Wordle bot tests."""
     if os.path.exists(LOG_FILE):
         os.remove(LOG_FILE)
-    Tester().test(WordleBot())
+    WordleTester().test(WordleBot())
 
 
 if __name__ == "__main__":

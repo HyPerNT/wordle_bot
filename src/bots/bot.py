@@ -9,7 +9,7 @@ It inherits from BotBehaviors and provides methods to generate guesses based on 
 from .util import GUESSES, RESULTS
 from .bot_behaviors import BotBehaviors
 
-# file: wordle_bot/bot.py
+# file: bots/bot.py
 
 
 class WordleBot(BotBehaviors):
@@ -23,13 +23,16 @@ class WordleBot(BotBehaviors):
     ----------
     frequency_list : str
         A string representing the frequency of letters in the English language, ordered from most to least frequent.
+    MAX_LETTERS : int
+        The maximum number of unique letters to try for in guessing.
     """
 
     def __init__(self):
         """Initialize the WordleBot instance with a predefined frequency list of letters."""
         # Initialize the parent class
         super().__init__()
-        self.frequency_list = "EARIOTNSLCUDPMHGBFYWKVXZJQ"
+        self.frequency_list: str = "EARIOTNSLCUDPMHGBFYWKVXZJQ"
+        self.MAX_LETTERS: int = 26
 
     def generate_first_guess(self) -> str:
         """
@@ -71,8 +74,11 @@ class WordleBot(BotBehaviors):
             return self.possible_words[0]
         # TODO Make it less susceptible to repeated letters
         unique_candidates = self.filter.filter_unique_letters(self.possible_words)
+        letter_count = 0
         if len(unique_candidates) > 0:
             for letter in self.frequency_list:
+                if letter_count >= self.MAX_LETTERS:
+                    break
                 if self.filter.is_letter_possible(self.possible_words, letter):
                     filtered = self.filter.filter_containing_letter(
                         unique_candidates, letter
@@ -82,6 +88,7 @@ class WordleBot(BotBehaviors):
                     unique_candidates = self.filter.filter_containing_letter(
                         unique_candidates, letter
                     )
+                    letter_count += 1
             return self.filter.filter_unique_letters(self.possible_words)[0]
         # TODO make it more clever
         return self.possible_words[0]

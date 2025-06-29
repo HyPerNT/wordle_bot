@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 <meta name="generator" content="pdoc3 0.11.6">
-<title>wordle_bot.example_bot API documentation</title>
-<meta name="description" content="Example Bot for Wordle Game …">
+<title>bots.bot API documentation</title>
+<meta name="description" content="Wordle Bot that generates guesses based on letter frequency and previous results …">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
@@ -33,13 +33,12 @@ el.replaceWith(d);
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>wordle_bot.example_bot</code></h1>
+<h1 class="title">Module <code>bots.bot</code></h1>
 </header>
 <section id="section-intro">
-<p>Example Bot for Wordle Game.</p>
-<p>This module defines the ExampleBot class, which implements a simple Wordle bot that generates guesses
-based on a predefined list of unique words. It inherits from BotBehaviors and provides methods to
-generate the first guess and subsequent guesses based on the index of previous guesses.</p>
+<p>Wordle Bot that generates guesses based on letter frequency and previous results.</p>
+<p>This module defines the WordleBot class, which implements the behavior of a Wordle bot.</p>
+<p>It inherits from BotBehaviors and provides methods to generate guesses based on letter frequency and previous results.</p>
 </section>
 <section>
 </section>
@@ -50,72 +49,113 @@ generate the first guess and subsequent guesses based on the index of previous g
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="wordle_bot.example_bot.ExampleBot"><code class="flex name class">
-<span>class <span class="ident">ExampleBot</span></span>
+<dt id="bots.bot.WordleBot"><code class="flex name class">
+<span>class <span class="ident">WordleBot</span></span>
 </code></dt>
 <dd>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class ExampleBot(BotBehaviors):
+<pre><code class="python">class WordleBot(BotBehaviors):
     &#34;&#34;&#34;
-    A class representing a simple Wordle bot that generates guesses based on a predefined list of unique words.
+    A class representing a Wordle bot that generates guesses based on letter frequency and previous results.
 
     It inherits from BotBehaviors and implements methods to generate the first guess and subsequent guesses
-    based on the index of previous guesses.
+    based on the frequency of letters and the results of previous guesses.
 
     Attributes
     ----------
-    filter : BotBehaviors
-        An instance of BotBehaviors that provides methods for filtering and generating guesses.
+    frequency_list : str
+        A string representing the frequency of letters in the English language, ordered from most to least frequent.
+    MAX_LETTERS : int
+        The maximum number of unique letters to try for in guessing.
     &#34;&#34;&#34;
 
     def __init__(self):
-        &#34;&#34;&#34;Initialize the ExampleBot instance by calling the parent class constructor.&#34;&#34;&#34;
+        &#34;&#34;&#34;Initialize the WordleBot instance with a predefined frequency list of letters.&#34;&#34;&#34;
         # Initialize the parent class
         super().__init__()
+        self.frequency_list: str = &#34;EARIOTNSLCUDPMHGBFYWKVXZJQ&#34;
+        self.MAX_LETTERS: int = 26
 
     def generate_first_guess(self) -&gt; str:
         &#34;&#34;&#34;
         Generate the first guess for the Wordle game.
 
+        Parameters
+        ----------
+        None
+
         Returns
         -------
         str
-            The first guess word for the bot, which is the first unique word in the list.
+            The first guess word for the bot, which is hardcoded to &#34;GHOST&#34;.
         &#34;&#34;&#34;
-        return self.filter.all_unique_words[0]
+        return &#34;GHOST&#34;
 
     def generate_next_guess(self) -&gt; str:
         &#34;&#34;&#34;
-        Generate the next guess for the Wordle game based on the number of previous guesses.
+        Generate the next guess for the Wordle game based on previous guesses and results.
 
-        This method selects the next guess from the list of unique words based on the index of previous guesses.
+        This method filters the list of possible words based on the last guess and its result,
+        and then selects the next guess based on letter frequency and uniqueness.
+        Uniqueness is prioritized to avoid repeated letters in the guess.
+
+        Parameters
+        ----------
+        None
 
         Returns
         -------
         str
-            The next guess word for the bot, selected from the list of unique words.
+            The next guess word for the bot, selected from the filtered list of possible words.
         &#34;&#34;&#34;
-        return self.filter.all_unique_words[len(self.guesses[GUESSES])]</code></pre>
+        self.possible_words = self.filter.filter_compatible_with_guess(
+            self.possible_words, self.guesses[GUESSES][-1], self.guesses[RESULTS][-1]
+        )
+        num_possible = len(self.possible_words)
+        if num_possible == 1:
+            return self.possible_words[0]
+        # TODO Make it less susceptible to repeated letters
+        unique_candidates = self.filter.filter_unique_letters(self.possible_words)
+        letter_count = 0
+        if len(unique_candidates) &gt; 0:
+            for letter in self.frequency_list:
+                if letter_count &gt;= self.MAX_LETTERS:
+                    break
+                if self.filter.is_letter_possible(self.possible_words, letter):
+                    filtered = self.filter.filter_containing_letter(
+                        unique_candidates, letter
+                    )
+                    if len(filtered) == 0:
+                        return unique_candidates[0]
+                    unique_candidates = self.filter.filter_containing_letter(
+                        unique_candidates, letter
+                    )
+                    letter_count += 1
+            return self.filter.filter_unique_letters(self.possible_words)[0]
+        # TODO make it more clever
+        return self.possible_words[0]</code></pre>
 </details>
-<div class="desc"><p>A class representing a simple Wordle bot that generates guesses based on a predefined list of unique words.</p>
+<div class="desc"><p>A class representing a Wordle bot that generates guesses based on letter frequency and previous results.</p>
 <p>It inherits from BotBehaviors and implements methods to generate the first guess and subsequent guesses
-based on the index of previous guesses.</p>
+based on the frequency of letters and the results of previous guesses.</p>
 <h2 id="attributes">Attributes</h2>
 <dl>
-<dt><strong><code>filter</code></strong> :&ensp;<code>BotBehaviors</code></dt>
-<dd>An instance of BotBehaviors that provides methods for filtering and generating guesses.</dd>
+<dt><strong><code>frequency_list</code></strong> :&ensp;<code>str</code></dt>
+<dd>A string representing the frequency of letters in the English language, ordered from most to least frequent.</dd>
+<dt><strong><code>MAX_LETTERS</code></strong> :&ensp;<code>int</code></dt>
+<dd>The maximum number of unique letters to try for in guessing.</dd>
 </dl>
-<p>Initialize the ExampleBot instance by calling the parent class constructor.</p></div>
+<p>Initialize the WordleBot instance with a predefined frequency list of letters.</p></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
-<li><a title="wordle_bot.bot_behaviors.BotBehaviors" href="bot_behaviors.html#wordle_bot.bot_behaviors.BotBehaviors">BotBehaviors</a></li>
+<li><a title="bots.bot_behaviors.BotBehaviors" href="bot_behaviors.html#bots.bot_behaviors.BotBehaviors">BotBehaviors</a></li>
 </ul>
 <h3>Methods</h3>
 <dl>
-<dt id="wordle_bot.example_bot.ExampleBot.generate_first_guess"><code class="name flex">
+<dt id="bots.bot.WordleBot.generate_first_guess"><code class="name flex">
 <span>def <span class="ident">generate_first_guess</span></span>(<span>self) ‑> str</span>
 </code></dt>
 <dd>
@@ -127,21 +167,30 @@ based on the index of previous guesses.</p>
     &#34;&#34;&#34;
     Generate the first guess for the Wordle game.
 
+    Parameters
+    ----------
+    None
+
     Returns
     -------
     str
-        The first guess word for the bot, which is the first unique word in the list.
+        The first guess word for the bot, which is hardcoded to &#34;GHOST&#34;.
     &#34;&#34;&#34;
-    return self.filter.all_unique_words[0]</code></pre>
+    return &#34;GHOST&#34;</code></pre>
 </details>
 <div class="desc"><p>Generate the first guess for the Wordle game.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><code>str</code></dt>
-<dd>The first guess word for the bot, which is the first unique word in the list.</dd>
+<dd>The first guess word for the bot, which is hardcoded to "GHOST".</dd>
 </dl></div>
 </dd>
-<dt id="wordle_bot.example_bot.ExampleBot.generate_next_guess"><code class="name flex">
+<dt id="bots.bot.WordleBot.generate_next_guess"><code class="name flex">
 <span>def <span class="ident">generate_next_guess</span></span>(<span>self) ‑> str</span>
 </code></dt>
 <dd>
@@ -151,33 +200,71 @@ based on the index of previous guesses.</p>
 </summary>
 <pre><code class="python">def generate_next_guess(self) -&gt; str:
     &#34;&#34;&#34;
-    Generate the next guess for the Wordle game based on the number of previous guesses.
+    Generate the next guess for the Wordle game based on previous guesses and results.
 
-    This method selects the next guess from the list of unique words based on the index of previous guesses.
+    This method filters the list of possible words based on the last guess and its result,
+    and then selects the next guess based on letter frequency and uniqueness.
+    Uniqueness is prioritized to avoid repeated letters in the guess.
+
+    Parameters
+    ----------
+    None
 
     Returns
     -------
     str
-        The next guess word for the bot, selected from the list of unique words.
+        The next guess word for the bot, selected from the filtered list of possible words.
     &#34;&#34;&#34;
-    return self.filter.all_unique_words[len(self.guesses[GUESSES])]</code></pre>
+    self.possible_words = self.filter.filter_compatible_with_guess(
+        self.possible_words, self.guesses[GUESSES][-1], self.guesses[RESULTS][-1]
+    )
+    num_possible = len(self.possible_words)
+    if num_possible == 1:
+        return self.possible_words[0]
+    # TODO Make it less susceptible to repeated letters
+    unique_candidates = self.filter.filter_unique_letters(self.possible_words)
+    letter_count = 0
+    if len(unique_candidates) &gt; 0:
+        for letter in self.frequency_list:
+            if letter_count &gt;= self.MAX_LETTERS:
+                break
+            if self.filter.is_letter_possible(self.possible_words, letter):
+                filtered = self.filter.filter_containing_letter(
+                    unique_candidates, letter
+                )
+                if len(filtered) == 0:
+                    return unique_candidates[0]
+                unique_candidates = self.filter.filter_containing_letter(
+                    unique_candidates, letter
+                )
+                letter_count += 1
+        return self.filter.filter_unique_letters(self.possible_words)[0]
+    # TODO make it more clever
+    return self.possible_words[0]</code></pre>
 </details>
-<div class="desc"><p>Generate the next guess for the Wordle game based on the number of previous guesses.</p>
-<p>This method selects the next guess from the list of unique words based on the index of previous guesses.</p>
+<div class="desc"><p>Generate the next guess for the Wordle game based on previous guesses and results.</p>
+<p>This method filters the list of possible words based on the last guess and its result,
+and then selects the next guess based on letter frequency and uniqueness.
+Uniqueness is prioritized to avoid repeated letters in the guess.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><code>str</code></dt>
-<dd>The next guess word for the bot, selected from the list of unique words.</dd>
+<dd>The next guess word for the bot, selected from the filtered list of possible words.</dd>
 </dl></div>
 </dd>
 </dl>
 <h3>Inherited members</h3>
 <ul class="hlist">
-<li><code><b><a title="wordle_bot.bot_behaviors.BotBehaviors" href="bot_behaviors.html#wordle_bot.bot_behaviors.BotBehaviors">BotBehaviors</a></b></code>:
+<li><code><b><a title="bots.bot_behaviors.BotBehaviors" href="bot_behaviors.html#bots.bot_behaviors.BotBehaviors">BotBehaviors</a></b></code>:
 <ul class="hlist">
-<li><code><a title="wordle_bot.bot_behaviors.BotBehaviors.accept_result" href="bot_behaviors.html#wordle_bot.bot_behaviors.BotBehaviors.accept_result">accept_result</a></code></li>
-<li><code><a title="wordle_bot.bot_behaviors.BotBehaviors.generate_guess" href="bot_behaviors.html#wordle_bot.bot_behaviors.BotBehaviors.generate_guess">generate_guess</a></code></li>
-<li><code><a title="wordle_bot.bot_behaviors.BotBehaviors.reset" href="bot_behaviors.html#wordle_bot.bot_behaviors.BotBehaviors.reset">reset</a></code></li>
+<li><code><a title="bots.bot_behaviors.BotBehaviors.accept_result" href="bot_behaviors.html#bots.bot_behaviors.BotBehaviors.accept_result">accept_result</a></code></li>
+<li><code><a title="bots.bot_behaviors.BotBehaviors.generate_guess" href="bot_behaviors.html#bots.bot_behaviors.BotBehaviors.generate_guess">generate_guess</a></code></li>
+<li><code><a title="bots.bot_behaviors.BotBehaviors.reset" href="bot_behaviors.html#bots.bot_behaviors.BotBehaviors.reset">reset</a></code></li>
 </ul>
 </li>
 </ul>
@@ -192,16 +279,16 @@ based on the index of previous guesses.</p>
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="wordle_bot" href="index.html">wordle_bot</a></code></li>
+<li><code><a title="bots" href="index.html">bots</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="wordle_bot.example_bot.ExampleBot" href="#wordle_bot.example_bot.ExampleBot">ExampleBot</a></code></h4>
+<h4><code><a title="bots.bot.WordleBot" href="#bots.bot.WordleBot">WordleBot</a></code></h4>
 <ul class="">
-<li><code><a title="wordle_bot.example_bot.ExampleBot.generate_first_guess" href="#wordle_bot.example_bot.ExampleBot.generate_first_guess">generate_first_guess</a></code></li>
-<li><code><a title="wordle_bot.example_bot.ExampleBot.generate_next_guess" href="#wordle_bot.example_bot.ExampleBot.generate_next_guess">generate_next_guess</a></code></li>
+<li><code><a title="bots.bot.WordleBot.generate_first_guess" href="#bots.bot.WordleBot.generate_first_guess">generate_first_guess</a></code></li>
+<li><code><a title="bots.bot.WordleBot.generate_next_guess" href="#bots.bot.WordleBot.generate_next_guess">generate_next_guess</a></code></li>
 </ul>
 </li>
 </ul>

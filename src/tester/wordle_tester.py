@@ -1,7 +1,7 @@
 """
 Tester for Wordle Bot Functionality.
 
-This module defines the Tester class, which is used to test a Wordle bot against a list of words.
+This module defines the WordleTester class, which is used to test a Wordle bot against a list of words.
 
 It inherits from the Wordle class and provides methods to run tests, collect results, and analyze
 the performance of the bot.
@@ -17,14 +17,16 @@ from common import (
     prettify_guess,
     prettify_guess_no_color,
 )
-from wordle_bot import BotBehaviors
-from tqdm import tqdm
+from bots import BotBehaviors
+from tqdm import tqdm  # type: ignore
+
+# I've no idea why MyPy is complaining about tqdm, it works fine.
 import logging
 
-# file: wordle_tester/tester.py
+# file: tester/wordle_tester.py
 
 
-class Tester(Wordle):
+class WordleTester(Wordle):
     """
     A class to test a Wordle bot against a list of words.
 
@@ -45,7 +47,7 @@ class Tester(Wordle):
 
     def __init__(self) -> None:
         """
-        Initialize the Tester instance by calling the parent class constructor and setting up the initial state for testing.
+        Initialize the WordleTester instance by calling the parent class constructor and setting up the initial state for testing.
 
         Sets up the test results, successes, failures, and logger.
         """
@@ -55,7 +57,7 @@ class Tester(Wordle):
         self.failures: list[str] = []
         self.logger = logging.getLogger(__name__ + "." + self.__class__.__name__)
 
-    def test(self, bot: BotBehaviors) -> None:
+    def test(self, bot: BotBehaviors, print_results: bool = True) -> None:
         """
         Runs tests on the bot using a predefined list of words.
 
@@ -68,10 +70,14 @@ class Tester(Wordle):
         bot : BotBehaviors
             An instance of a bot that inherits from BotBehaviors.
             This bot will generate guesses and accept results based on the game's feedback.
+        print_results : bool, optional
+            If True, the results of the tests will be printed to the console.
+            Defaults to True.
         """
-        print("Running tests")
+        if print_results:
+            print("Running tests")
         for word in tqdm(self.word_list):
-            self.logger.warning(f"Testing {word}")
+            self.logger.debug(f"Testing {word}")
             self.start_game()
             self.secret_word = word
             while self.game_in_progress:
@@ -84,13 +90,15 @@ class Tester(Wordle):
                     "guesses": self.guesses,
                 }
             )
-            self.logger.warning(f"Result: {self.test_results[-1]}")
+            self.logger.debug(f"Result: {self.test_results[-1]}")
             if self.results[-1] == ALL_CORRECT:
                 self.successes.append(self.secret_word)
             else:
                 self.failures.append(self.secret_word)
-        print(self.get_results_str())
-        print(self.get_failures_str())
+        if print_results:
+            print(self.get_results_str())
+            print(self.get_failures_str())
+            print(self.get_wacky_failures_string())
 
     def get_results_str(self) -> str:
         """

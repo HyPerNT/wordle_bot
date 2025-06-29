@@ -10,3 +10,5 @@ It also includes the ExampleBot class for demonstration purposes.
 
 from .bot_behaviors import BotBehaviors
 from .bot import WordleBot
+from .example_bot import ExampleBot
+from .util import Filter

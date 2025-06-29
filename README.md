@@ -8,8 +8,9 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 [![Last Commit][last-commit-shield]][last-commit-url]
+[![Coverage][coverage-badge]][coverage-url]
+![Interrogate][interrogate-shield]
 [![Contributors][contributors-shield]][contributors-url]
-<!-- [![Coverage][coverage-shield]][coverage-url] -->
 [![Unlicense License][license-shield]][license-url]
 ![Size][repo-size-shield]
 
@@ -43,6 +44,7 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#running-tests">Running Tests</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -63,11 +65,11 @@ This is a Python library aimed at providing developers with adequate tooling to 
 
 There are three main modules included and intended for use.
 1. `wordle` - The Wordle game itself. This needn't be extended, but should be imported if a user wanted to augment the testing procedure.
-2. `wordle_bot` - The primary module for building bots to play the game, namely by extending the `BotBehaviors` class provided.
-3. `wordle_tester` - The primary module used for testing Wordle bots. This is used to run a bot against the full Wordle word list and provide summary results to the command-line.
+2. `bots` - The primary module for building bots to play the game, namely by extending the `BotBehaviors` class provided.
+3. `tester` - The primary module used for testing Wordle bots. This is used to run a bot against the full Wordle word list and provide summary results to the command-line.
 
 The modules provided are intended to be as slim as possible so that providing additional logic or alternative strategies is as easy as possible.
-Check out the [Example Bot](https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle_bot/example_bot.py) to see how simple they can really be!
+Check out the [Example Bot](https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/example_bot.py) to see how simple they can really be!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -85,6 +87,8 @@ Check out the [Example Bot](https://github.com/HyPerNT/wordle_bot/blob/main/src/
 * [Interrogate](int-url)
 * [Pydocstyle](pds-url)
 * [Pdoc](pdoc-url)
+* [Coverage](coverage-url)
+* [Coverage-badge](coverage-badge-url)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -109,6 +113,7 @@ It's recommended that you run this repo in a python virtual environment, such as
 ```sh
 curl -fsSL https://pyenv.run | bash\n
 ```
+
 ### Installation
 
 1. Clone the repo
@@ -125,16 +130,34 @@ curl -fsSL https://pyenv.run | bash\n
    ```sh
    pip3 install tqdm
    ```
-4. (Optional) insall additional python modules to support use of pre-commit hooks
+4. (Optional) Install additional python modules to support use of pre-commit hooks, tests, and coverage reports
    ```sh
-   pip3 install poetry mypy flake8 black pyroma xenon interrogate pdoc3
+   pip3 install poetry mypy flake8 black pyroma xenon interrogate pdoc3 pytest coverage coverage-badge
    ```
 5. Change git remote url to avoid accidental pushes to base project
    ```sh
-   git remote set-url origin github_username/repo_name
+   git remote set-url origin <github_username>/<repo_name>
    git remote -v # confirm the changes
    ```
 
+### Running Tests
+
+In order to run tests, it is necessary to install the package in editable mode:
+```sh
+  pip3 install -e .
+```
+
+Then, tests should be executable readily by PyTest:
+```sh
+  pytest
+```
+
+For code coverage:
+```sh
+  coverage run -m pytest
+  coverage report # For a short report in the command-line
+  coverage html -d cov # For HTML coverage reports
+```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -144,7 +167,7 @@ curl -fsSL https://pyenv.run | bash\n
 
 The example bot can be run using `python3 src/main.py`, and additional bots can be run using the tester by following that example script.
 
-<!-- TODO Insert a screenshot of the example output here -->
+![Screenshot of results from src/main.py](images/main_screenshot.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -155,7 +178,8 @@ The example bot can be run using `python3 src/main.py`, and additional bots can 
 
 - [x] Add README
 - [x] Add v0.1.0 source code and example project
-- [ ] Add documentation
+- [x] Add documentation
+- [x] Add tests and coverage reports
 - [ ] Add support for testing a bot against today's word
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -186,8 +210,7 @@ Project Link: [https://github.com/HyPerNT/wordle_bot](https://github.com/HyPerNt
 [contributors-url]: https://github.com/HyPerNT/wordle_bot/graphs/contributors
 [license-shield]: https://img.shields.io/github/license/HyPerNT/wordle_bot
 [license-url]: https://github.com/HyPerNT/wordle_bot/blob/main/LICENSE
-<!-- [coverage-shield]: https://img.shields.io/codecov/c/github/HyPerNT/wordle_bot
-[coverage-url]: https://github.com/HyPerNT/wordle_bot/blob/main/codecov -->
+[interrogate-shield]: ./badges/interrogate.svg
 [repo-size-shield]: https://img.shields.io/github/languages/code-size/HyPerNT/wordle_bot
 [pytest-url]: https://docs.pytest.org/en/stable/
 [black-url]: https://github.com/psf/black
@@ -199,3 +222,6 @@ Project Link: [https://github.com/HyPerNT/wordle_bot](https://github.com/HyPerNt
 [int-url]: https://interrogate.readthedocs.io/en/latest/
 [pds-url]: https://www.pydocstyle.org/en/stable/
 [pdoc-url]: https://pdoc3.github.io/pdoc/
+[coverage-url]: https://coverage.readthedocs.io/en/7.9.1/
+[coverage-badge-url]: https://pypi.org/project/coverage-badge/
+[coverage-badge]: badges/coverage.svg
