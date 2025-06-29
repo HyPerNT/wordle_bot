@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Wordle - Wordle_bot</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Wordle";
+        var mkdocs_page_input_path = "src/wordle/wordle.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Wordle_bot
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Wordle_bot Index</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Src</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Bots</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../bots/">Bots</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../bots/bot/">Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../bots/bot_behaviors/">BotBehaviors</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../bots/example_bot/">ExampleBot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../bots/util/">Util</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Common</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../common/">Common</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../common/util/">Util</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tester</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../tester/">Tester</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../tester/wordle_tester/">WordleTester</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Wordle</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../">Wordle</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Wordle</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#wordle_1">Wordle</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#attributes">Attributes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature">Signature</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#wordlecheck_error_conditions">Wordle().check_error_conditions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns">Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature_1">Signature</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#wordlegenerate_word">Wordle().generate_word</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters_1">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns_1">Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature_2">Signature</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#wordleget_all_indices">Wordle().get_all_indices</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters_2">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns_2">Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature_3">Signature</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#wordleguess">Wordle().guess</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters_3">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns_3">Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature_4">Signature</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#wordleis_misplaced_letter">Wordle().is_misplaced_letter</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters_4">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns_4">Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature_5">Signature</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#wordlestart_game">Wordle().start_game</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters_5">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns_5">Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature_6">Signature</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Wordle_bot</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Src</li>
+          <li class="breadcrumb-item">Wordle</li>
+      <li class="breadcrumb-item active">Wordle</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/HyPerNT/wordle_bot/edit/master/docs/src/wordle/wordle.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="wordle">Wordle</h1>
+<p><a href="../../../#wordle_bot-index">Wordle_bot Index</a> / <code>src</code> / <a href="../#wordle">Wordle</a> / Wordle</p>
+<blockquote>
+<p>Auto-generated documentation for <a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py">src.wordle.wordle</a> module.</p>
+</blockquote>
+<ul>
+<li><a href="#wordle">Wordle</a></li>
+<li><a href="#wordle-1">Wordle</a><ul>
+<li><a href="#wordle()check_error_conditions">Wordle().check_error_conditions</a></li>
+<li><a href="#wordle()generate_word">Wordle().generate_word</a></li>
+<li><a href="#wordle()get_all_indices">Wordle().get_all_indices</a></li>
+<li><a href="#wordle()guess">Wordle().guess</a></li>
+<li><a href="#wordle()is_misplaced_letter">Wordle().is_misplaced_letter</a></li>
+<li><a href="#wordle()start_game">Wordle().start_game</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="wordle_1">Wordle</h2>
+<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L27">Show source in wordle.py:27</a></p>
+<p>A class representing a Wordle game.</p>
+<p>It manages the game state, including the secret word, guesses, and results.
+It provides methods to start the game, make guesses, and check for errors.</p>
+<h2 id="attributes">Attributes</h2>
+<p>turns_taken : int
+    The number of turns taken in the current game.
+game_in_progress : bool
+    Indicates whether a game is currently in progress.
+guesses : list[str]
+    A list of words guessed by the player.
+results : list[list[int]]
+    A list of results corresponding to each guess, where each result is a list of integers
+    representing the status of each letter in the guess (correct, misplaced, or incorrect).
+word_list : list[str]
+    A list of valid words that can be used in the game.
+logger : logging.Logger
+    A logger instance for logging game events and errors.</p>
+<h2 id="methods">Methods</h2>
+<p>generate_word() -&gt; str
+    Generate a random word from the word list to be used as the secret word for the game
+get_all_indices(list: list[int]) -&gt; list[int]
+    Returns a list of indices where the value is 1 in the given list.
+is_misplaced_letter(letter: str, word: str, result: list[int], index: int) -&gt; bool
+    Check if a letter in the guessed word is misplaced compared to the secret word.
+check_error_conditions(word: str) -&gt; dict
+    Check for error conditions before making a guess and returns a dictionary with the result and message.
+guess(word: str) -&gt; dict
+    Process a guess, updates the game state, and returns the result of the guess.
+start_game() -&gt; None
+    Initialize a new game by selecting a secret word and resetting the game state.</p>
+<h4 id="signature">Signature</h4>
+<pre><code class="language-python">class Wordle:
+    def __init__(self) -&gt; None: ...
+</code></pre>
+<h3 id="wordlecheck_error_conditions">Wordle().check_error_conditions</h3>
+<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L167">Show source in wordle.py:167</a></p>
+<p>Check for error conditions before making a guess.</p>
+<p>This method verifies if the game is in progress and if the guessed word is valid.</p>
+<h2 id="parameters">Parameters</h2>
+<p>word : str
+    The word to be guessed.</p>
+<h2 id="returns">Returns</h2>
+<p>dict
+    A dictionary containing the result and a message.
+    If there are no errors, the result is None and the message is None.
+    If there are errors, the result is None and the message describes the error.</p>
+<h4 id="signature_1">Signature</h4>
+<pre><code class="language-python">def check_error_conditions(self, word: str) -&gt; dict: ...
+</code></pre>
+<h3 id="wordlegenerate_word">Wordle().generate_word</h3>
+<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L87">Show source in wordle.py:87</a></p>
+<p>Select a random word from the word list to be used as the secret word for the game.</p>
+<h2 id="parameters_1">Parameters</h2>
+<p>None</p>
+<h2 id="returns_1">Returns</h2>
+<p>str
+    A randomly selected word from the word list.</p>
+<h4 id="signature_2">Signature</h4>
+<pre><code class="language-python">def generate_word(self) -&gt; str: ...
+</code></pre>
+<h3 id="wordleget_all_indices">Wordle().get_all_indices</h3>
+<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L102">Show source in wordle.py:102</a></p>
+<p>Returns a list of indices where the value is 1 in the given list.</p>
+<p>This is used to find the positions of correct letters in the result list.</p>
+<h2 id="parameters_2">Parameters</h2>
+<p>list : list[int]
+    A list of integers where 1 indicates the presence of a correct letter.</p>
+<h2 id="returns_2">Returns</h2>
+<p>list[int]
+    A list of indices where the value is 1 in the input list.</p>
+<h4 id="signature_3">Signature</h4>
+<pre><code class="language-python">def get_all_indices(self, list: list[int]) -&gt; list[int]: ...
+</code></pre>
+<h3 id="wordleguess">Wordle().guess</h3>
+<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L193">Show source in wordle.py:193</a></p>
+<p>Process a guess, updates the game state, and returns the result of the guess.</p>
+<p>This method checks for error conditions, compares the guessed word with the secret word,
+and updates the results accordingly. It also checks if the player has won or lost the game.</p>
+<h2 id="parameters_3">Parameters</h2>
+<p>word : str
+    The word guessed by the player.</p>
+<h2 id="returns_3">Returns</h2>
+<p>dict
+    A dictionary containing the result of the guess and a message.
+    If the guess is valid, the result is a list indicating the status of each letter
+    (correct, misplaced, or incorrect). If the player wins, the message indicates a win.
+    If the player loses, the message indicates a loss.
+    If there are errors, the result is None and the message describes the error.</p>
+<h4 id="signature_4">Signature</h4>
+<pre><code class="language-python">def guess(self, word: str) -&gt; dict: ...
+</code></pre>
+<h3 id="wordleis_misplaced_letter">Wordle().is_misplaced_letter</h3>
+<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L120">Show source in wordle.py:120</a></p>
+<p>Check if a letter in the guessed word is misplaced compared to the secret word.</p>
+<p>A letter is considered misplaced if it exists in the secret word but is not in the correct position
+and the number of occurrences in the secret word is greater than or equal to the number of
+occurrences in the guessed word up to the current index.</p>
+<h2 id="parameters_4">Parameters</h2>
+<p>letter : str
+    The letter to check for being misplaced.
+word : str
+    The guessed word.
+result : list[int]
+    The result of the previous guesses, where each element indicates the status of each letter
+    (correct or incorrect).
+index : int
+    The current index in the guessed word being checked.</p>
+<h2 id="returns_4">Returns</h2>
+<p>bool
+    True if the letter is misplaced, False otherwise.</p>
+<h4 id="signature_5">Signature</h4>
+<pre><code class="language-python">def is_misplaced_letter(
+    self, letter: str, word: str, result: list[int], index: int
+) -&gt; bool: ...
+</code></pre>
+<h3 id="wordlestart_game">Wordle().start_game</h3>
+<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L249">Show source in wordle.py:249</a></p>
+<p>Initialize a new game by selecting a secret word and resetting the game state.</p>
+<p>This method sets the secret word to a randomly generated word from the word list,
+resets the game in progress flag to True, and clears the guesses and results lists.</p>
+<h2 id="parameters_5">Parameters</h2>
+<p>None</p>
+<h2 id="returns_5">Returns</h2>
+<p>None</p>
+<h4 id="signature_6">Signature</h4>
+<pre><code class="language-python">def start_game(self) -&gt; None: ...
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../" class="btn btn-neutral float-left" title="Wordle"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/HyPerNT/wordle_bot" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

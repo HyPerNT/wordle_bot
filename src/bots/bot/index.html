@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Bot - Wordle_bot</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Bot";
+        var mkdocs_page_input_path = "src/bots/bot.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Wordle_bot
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Wordle_bot Index</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Src</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Bots</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../">Bots</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Bot</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#wordlebot">WordleBot</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#attributes">Attributes</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature">Signature</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#wordlebotgenerate_first_guess">WordleBot().generate_first_guess</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns">Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature_1">Signature</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#wordlebotgenerate_next_guess">WordleBot().generate_next_guess</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters_1">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns_1">Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature_2">Signature</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../bot_behaviors/">BotBehaviors</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../example_bot/">ExampleBot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../util/">Util</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Common</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../common/">Common</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../common/util/">Util</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tester</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../tester/">Tester</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../tester/wordle_tester/">WordleTester</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Wordle</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../wordle/">Wordle</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../wordle/wordle/">Wordle</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Wordle_bot</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Src</li>
+          <li class="breadcrumb-item">Bots</li>
+      <li class="breadcrumb-item active">Bot</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/HyPerNT/wordle_bot/edit/master/docs/src/bots/bot.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="bot">Bot</h1>
+<p><a href="../../../#wordle_bot-index">Wordle_bot Index</a> / <code>src</code> / <a href="../#bots">Bots</a> / Bot</p>
+<blockquote>
+<p>Auto-generated documentation for <a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/bot.py">src.bots.bot</a> module.</p>
+</blockquote>
+<ul>
+<li><a href="#bot">Bot</a></li>
+<li><a href="#wordlebot">WordleBot</a><ul>
+<li><a href="#wordlebot()generate_first_guess">WordleBot().generate_first_guess</a></li>
+<li><a href="#wordlebot()generate_next_guess">WordleBot().generate_next_guess</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="wordlebot">WordleBot</h2>
+<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/bot.py#L15">Show source in bot.py:15</a></p>
+<p>A class representing a Wordle bot that generates guesses based on letter frequency and previous results.</p>
+<p>It inherits from BotBehaviors and implements methods to generate the first guess and subsequent guesses
+based on the frequency of letters and the results of previous guesses.</p>
+<h2 id="attributes">Attributes</h2>
+<p>frequency_list : str
+    A string representing the frequency of letters in the English language, ordered from most to least frequent.
+MAX_LETTERS : int
+    The maximum number of unique letters to try for in guessing.</p>
+<h4 id="signature">Signature</h4>
+<pre><code class="language-python">class WordleBot(BotBehaviors):
+    def __init__(self): ...
+</code></pre>
+<h3 id="wordlebotgenerate_first_guess">WordleBot().generate_first_guess</h3>
+<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/bot.py#L37">Show source in bot.py:37</a></p>
+<p>Generate the first guess for the Wordle game.</p>
+<h2 id="parameters">Parameters</h2>
+<p>None</p>
+<h2 id="returns">Returns</h2>
+<p>str
+    The first guess word for the bot, which is hardcoded to "GHOST".</p>
+<h4 id="signature_1">Signature</h4>
+<pre><code class="language-python">def generate_first_guess(self) -&gt; str: ...
+</code></pre>
+<h3 id="wordlebotgenerate_next_guess">WordleBot().generate_next_guess</h3>
+<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/bot.py#L52">Show source in bot.py:52</a></p>
+<p>Generate the next guess for the Wordle game based on previous guesses and results.</p>
+<p>This method filters the list of possible words based on the last guess and its result,
+and then selects the next guess based on letter frequency and uniqueness.
+Uniqueness is prioritized to avoid repeated letters in the guess.</p>
+<h2 id="parameters_1">Parameters</h2>
+<p>None</p>
+<h2 id="returns_1">Returns</h2>
+<p>str
+    The next guess word for the bot, selected from the filtered list of possible words.</p>
+<h4 id="signature_2">Signature</h4>
+<pre><code class="language-python">def generate_next_guess(self) -&gt; str: ...
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../" class="btn btn-neutral float-left" title="Bots"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../bot_behaviors/" class="btn btn-neutral float-right" title="BotBehaviors">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/HyPerNT/wordle_bot" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../bot_behaviors/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

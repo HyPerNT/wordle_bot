@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>wordle.wordle API documentation</title>
+<meta name="description" content="Class for Wordle Game Functionality …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>wordle.wordle</code></h1>
+</header>
+<section id="section-intro">
+<p>Class for Wordle Game Functionality.</p>
+<p>This module provides the Wordle game functionality.</p>
+<p>It defines the Wordle class, which contains methods for starting a game,
+making guesses, and checking results.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="wordle.wordle.Wordle"><code class="flex name class">
+<span>class <span class="ident">Wordle</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Wordle:
+    &#34;&#34;&#34;
+    A class representing a Wordle game.
+
+    It manages the game state, including the secret word, guesses, and results.
+    It provides methods to start the game, make guesses, and check for errors.
+
+    Attributes
+    ----------
+    turns_taken : int
+        The number of turns taken in the current game.
+    game_in_progress : bool
+        Indicates whether a game is currently in progress.
+    guesses : list[str]
+        A list of words guessed by the player.
+    results : list[list[int]]
+        A list of results corresponding to each guess, where each result is a list of integers
+        representing the status of each letter in the guess (correct, misplaced, or incorrect).
+    word_list : list[str]
+        A list of valid words that can be used in the game.
+    logger : logging.Logger
+        A logger instance for logging game events and errors.
+
+    Methods
+    -------
+    generate_word() -&gt; str
+        Generate a random word from the word list to be used as the secret word for the game
+    get_all_indices(list: list[int]) -&gt; list[int]
+        Returns a list of indices where the value is 1 in the given list.
+    is_misplaced_letter(letter: str, word: str, result: list[int], index: int) -&gt; bool
+        Check if a letter in the guessed word is misplaced compared to the secret word.
+    check_error_conditions(word: str) -&gt; dict
+        Check for error conditions before making a guess and returns a dictionary with the result and message.
+    guess(word: str) -&gt; dict
+        Process a guess, updates the game state, and returns the result of the guess.
+    start_game() -&gt; None
+        Initialize a new game by selecting a secret word and resetting the game state.
+    &#34;&#34;&#34;
+
+    def __init__(self) -&gt; None:
+        &#34;&#34;&#34;
+        Initialize the Wordle game instance with default values.
+
+        Sets the secret word to an empty string, initializes the number of turns taken to 0,
+        and sets the game in progress flag to False. Initialize lists for guesses and results.
+        Loads the word list from a file and sets up logging.
+        &#34;&#34;&#34;
+        self.secret_word: str = &#34;&#34;
+        self.turns_taken: int = 0
+        self.game_in_progress: bool = False
+        self.guesses: list[str] = []
+        self.results: list[list[int]] = []
+        self.word_list: list[str] = get_word_list()
+        self.logger = logging.getLogger(__name__ + &#34;.&#34; + self.__class__.__name__)
+        logging.basicConfig(
+            filename=LOG_FILE,
+            level=logging.CRITICAL,
+            format=(&#34;%(asctime)s - %(name)s - %(levelname)s - %(message)s&#34;),
+        )
+
+    def generate_word(self) -&gt; str:
+        &#34;&#34;&#34;
+        Select a random word from the word list to be used as the secret word for the game.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        str
+            A randomly selected word from the word list.
+        &#34;&#34;&#34;
+        return self.word_list[randint(0, len(self.word_list) - 1)]
+
+    def get_all_indices(self, list: list[int]) -&gt; list[int]:
+        &#34;&#34;&#34;
+        Returns a list of indices where the value is 1 in the given list.
+
+        This is used to find the positions of correct letters in the result list.
+
+        Parameters
+        ----------
+        list : list[int]
+            A list of integers where 1 indicates the presence of a correct letter.
+
+        Returns
+        -------
+        list[int]
+            A list of indices where the value is 1 in the input list.
+        &#34;&#34;&#34;
+        return [i for i, x in enumerate(list) if x == 1]
+
+    def is_misplaced_letter(
+        self, letter: str, word: str, result: list[int], index: int
+    ) -&gt; bool:
+        &#34;&#34;&#34;
+        Check if a letter in the guessed word is misplaced compared to the secret word.
+
+        A letter is considered misplaced if it exists in the secret word but is not in the correct position
+        and the number of occurrences in the secret word is greater than or equal to the number of
+        occurrences in the guessed word up to the current index.
+
+        Parameters
+        ----------
+        letter : str
+            The letter to check for being misplaced.
+        word : str
+            The guessed word.
+        result : list[int]
+            The result of the previous guesses, where each element indicates the status of each letter
+            (correct or incorrect).
+        index : int
+            The current index in the guessed word being checked.
+
+        Returns
+        -------
+        bool
+            True if the letter is misplaced, False otherwise.
+        &#34;&#34;&#34;
+        if letter not in word:
+            return False
+        occurances_in_secret_word = boolean_comprehension(self.secret_word, letter)
+        occurances_in_guess = boolean_comprehension(word, letter)
+        self.logger.info(f&#34;Checking {word} for {letter}&#34;)
+        self.logger.info(f&#34;{self.secret_word}: {occurances_in_secret_word}&#34;)
+        self.logger.info(f&#34;{word}: {occurances_in_guess}&#34;)
+        correct_indices = self.get_all_indices(
+            boolean_comprehension(result, CORRECT_LETTER)
+        )
+        letter_indices = self.get_all_indices(boolean_comprehension(word, letter))
+        secret_count = sum(occurances_in_secret_word) - sum(
+            idx in correct_indices for idx in letter_indices
+        )
+        guess_count = sum(occurances_in_guess[: index + 1])
+        self.logger.info(f&#34;S: {secret_count}\tG: {guess_count}&#34;)
+        if secret_count == 0 or secret_count &lt; guess_count:
+            return False
+        return True
+
+    def check_error_conditions(self, word: str) -&gt; dict:
+        &#34;&#34;&#34;
+        Check for error conditions before making a guess.
+
+        This method verifies if the game is in progress and if the guessed word is valid.
+
+        Parameters
+        ----------
+        word : str
+            The word to be guessed.
+
+        Returns
+        -------
+        dict
+            A dictionary containing the result and a message.
+            If there are no errors, the result is None and the message is None.
+            If there are errors, the result is None and the message describes the error.
+        &#34;&#34;&#34;
+        if not self.game_in_progress:
+            self.logger.warning(&#34;Game not started!&#34;)
+            return {RESULT: None, MSG: &#34;Game not started!&#34;}
+        if word not in self.word_list:
+            self.logger.warning(&#34;Not a valid word!&#34;)
+            return {RESULT: None, MSG: &#34;Not a valid word!&#34;}
+        return {RESULT: None, MSG: None}
+
+    def guess(self, word: str) -&gt; dict:
+        &#34;&#34;&#34;
+        Process a guess, updates the game state, and returns the result of the guess.
+
+        This method checks for error conditions, compares the guessed word with the secret word,
+        and updates the results accordingly. It also checks if the player has won or lost the game.
+
+        Parameters
+        ----------
+        word : str
+            The word guessed by the player.
+
+        Returns
+        -------
+        dict
+            A dictionary containing the result of the guess and a message.
+            If the guess is valid, the result is a list indicating the status of each letter
+            (correct, misplaced, or incorrect). If the player wins, the message indicates a win.
+            If the player loses, the message indicates a loss.
+            If there are errors, the result is None and the message describes the error.
+        &#34;&#34;&#34;
+        self.logger.debug(f&#34;Word guessed: {word}&#34;)
+        errors = self.check_error_conditions(word)
+        if errors[RESULT] is not None:
+            return errors
+        result = []
+        index = 0
+
+        for correct_letter, guessed_letter in zip(self.secret_word, word):
+            if guessed_letter == correct_letter:
+                result.append(CORRECT_LETTER)
+            else:
+                result.append(INCORRECT_LETTER)
+        index = 0
+        for correct_letter, guessed_letter, r in zip(self.secret_word, word, result):
+            if r is CORRECT_LETTER:
+                index += 1
+                continue
+            elif self.is_misplaced_letter(guessed_letter, word, result, index):
+                result[index] = MISPLACED_LETTER
+            index += 1
+        self.turns_taken += 1
+        if self.turns_taken == 6:
+            self.game_in_progress = False
+        self.guesses.append(word)
+        self.results.append(result)
+        if result == ALL_CORRECT:
+            self.logger.debug(&#34;Player won!&#34;)
+            self.game_in_progress = False
+            return {RESULT: result, MSG: &#34;You win!&#34;}
+        if not self.game_in_progress:
+            self.logger.debug(&#34;Player lost!&#34;)
+            return {RESULT: result, MSG: &#34;You lost!&#34;}
+        self.logger.debug(f&#34;Returnsing: {result}&#34;)
+        return {RESULT: result, MSG: None}
+
+    def start_game(self) -&gt; None:
+        &#34;&#34;&#34;
+        Initialize a new game by selecting a secret word and resetting the game state.
+
+        This method sets the secret word to a randomly generated word from the word list,
+        resets the game in progress flag to True, and clears the guesses and results lists.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        self.secret_word = self.generate_word()
+        self.game_in_progress = True
+        self.turns_taken = 0
+        self.guesses = []
+        self.results = []</code></pre>
+</details>
+<div class="desc"><p>A class representing a Wordle game.</p>
+<p>It manages the game state, including the secret word, guesses, and results.
+It provides methods to start the game, make guesses, and check for errors.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>turns_taken</code></strong> :&ensp;<code>int</code></dt>
+<dd>The number of turns taken in the current game.</dd>
+<dt><strong><code>game_in_progress</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Indicates whether a game is currently in progress.</dd>
+<dt><strong><code>guesses</code></strong> :&ensp;<code>list[str]</code></dt>
+<dd>A list of words guessed by the player.</dd>
+<dt><strong><code>results</code></strong> :&ensp;<code>list[list[int]]</code></dt>
+<dd>A list of results corresponding to each guess, where each result is a list of integers
+representing the status of each letter in the guess (correct, misplaced, or incorrect).</dd>
+<dt><strong><code>word_list</code></strong> :&ensp;<code>list[str]</code></dt>
+<dd>A list of valid words that can be used in the game.</dd>
+<dt><strong><code>logger</code></strong> :&ensp;<code>logging.Logger</code></dt>
+<dd>A logger instance for logging game events and errors.</dd>
+</dl>
+<h2 id="methods">Methods</h2>
+<p>generate_word() -&gt; str
+Generate a random word from the word list to be used as the secret word for the game
+get_all_indices(list: list[int]) -&gt; list[int]
+Returns a list of indices where the value is 1 in the given list.
+is_misplaced_letter(letter: str, word: str, result: list[int], index: int) -&gt; bool
+Check if a letter in the guessed word is misplaced compared to the secret word.
+check_error_conditions(word: str) -&gt; dict
+Check for error conditions before making a guess and returns a dictionary with the result and message.
+guess(word: str) -&gt; dict
+Process a guess, updates the game state, and returns the result of the guess.
+start_game() -&gt; None
+Initialize a new game by selecting a secret word and resetting the game state.</p>
+<p>Initialize the Wordle game instance with default values.</p>
+<p>Sets the secret word to an empty string, initializes the number of turns taken to 0,
+and sets the game in progress flag to False. Initialize lists for guesses and results.
+Loads the word list from a file and sets up logging.</p></div>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="tester.wordle_tester.WordleTester" href="../tester/wordle_tester.html#tester.wordle_tester.WordleTester">WordleTester</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="wordle.wordle.Wordle.check_error_conditions"><code class="name flex">
+<span>def <span class="ident">check_error_conditions</span></span>(<span>self, word: str) ‑> dict</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_error_conditions(self, word: str) -&gt; dict:
+    &#34;&#34;&#34;
+    Check for error conditions before making a guess.
+
+    This method verifies if the game is in progress and if the guessed word is valid.
+
+    Parameters
+    ----------
+    word : str
+        The word to be guessed.
+
+    Returns
+    -------
+    dict
+        A dictionary containing the result and a message.
+        If there are no errors, the result is None and the message is None.
+        If there are errors, the result is None and the message describes the error.
+    &#34;&#34;&#34;
+    if not self.game_in_progress:
+        self.logger.warning(&#34;Game not started!&#34;)
+        return {RESULT: None, MSG: &#34;Game not started!&#34;}
+    if word not in self.word_list:
+        self.logger.warning(&#34;Not a valid word!&#34;)
+        return {RESULT: None, MSG: &#34;Not a valid word!&#34;}
+    return {RESULT: None, MSG: None}</code></pre>
+</details>
+<div class="desc"><p>Check for error conditions before making a guess.</p>
+<p>This method verifies if the game is in progress and if the guessed word is valid.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>word</code></strong> :&ensp;<code>str</code></dt>
+<dd>The word to be guessed.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>A dictionary containing the result and a message.
+If there are no errors, the result is None and the message is None.
+If there are errors, the result is None and the message describes the error.</dd>
+</dl></div>
+</dd>
+<dt id="wordle.wordle.Wordle.generate_word"><code class="name flex">
+<span>def <span class="ident">generate_word</span></span>(<span>self) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generate_word(self) -&gt; str:
+    &#34;&#34;&#34;
+    Select a random word from the word list to be used as the secret word for the game.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    str
+        A randomly selected word from the word list.
+    &#34;&#34;&#34;
+    return self.word_list[randint(0, len(self.word_list) - 1)]</code></pre>
+</details>
+<div class="desc"><p>Select a random word from the word list to be used as the secret word for the game.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A randomly selected word from the word list.</dd>
+</dl></div>
+</dd>
+<dt id="wordle.wordle.Wordle.get_all_indices"><code class="name flex">
+<span>def <span class="ident">get_all_indices</span></span>(<span>self, list: list[int]) ‑> list[int]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_all_indices(self, list: list[int]) -&gt; list[int]:
+    &#34;&#34;&#34;
+    Returns a list of indices where the value is 1 in the given list.
+
+    This is used to find the positions of correct letters in the result list.
+
+    Parameters
+    ----------
+    list : list[int]
+        A list of integers where 1 indicates the presence of a correct letter.
+
+    Returns
+    -------
+    list[int]
+        A list of indices where the value is 1 in the input list.
+    &#34;&#34;&#34;
+    return [i for i, x in enumerate(list) if x == 1]</code></pre>
+</details>
+<div class="desc"><p>Returns a list of indices where the value is 1 in the given list.</p>
+<p>This is used to find the positions of correct letters in the result list.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>list</code></strong> :&ensp;<code>list[int]</code></dt>
+<dd>A list of integers where 1 indicates the presence of a correct letter.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[int]</code></dt>
+<dd>A list of indices where the value is 1 in the input list.</dd>
+</dl></div>
+</dd>
+<dt id="wordle.wordle.Wordle.guess"><code class="name flex">
+<span>def <span class="ident">guess</span></span>(<span>self, word: str) ‑> dict</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def guess(self, word: str) -&gt; dict:
+    &#34;&#34;&#34;
+    Process a guess, updates the game state, and returns the result of the guess.
+
+    This method checks for error conditions, compares the guessed word with the secret word,
+    and updates the results accordingly. It also checks if the player has won or lost the game.
+
+    Parameters
+    ----------
+    word : str
+        The word guessed by the player.
+
+    Returns
+    -------
+    dict
+        A dictionary containing the result of the guess and a message.
+        If the guess is valid, the result is a list indicating the status of each letter
+        (correct, misplaced, or incorrect). If the player wins, the message indicates a win.
+        If the player loses, the message indicates a loss.
+        If there are errors, the result is None and the message describes the error.
+    &#34;&#34;&#34;
+    self.logger.debug(f&#34;Word guessed: {word}&#34;)
+    errors = self.check_error_conditions(word)
+    if errors[RESULT] is not None:
+        return errors
+    result = []
+    index = 0
+
+    for correct_letter, guessed_letter in zip(self.secret_word, word):
+        if guessed_letter == correct_letter:
+            result.append(CORRECT_LETTER)
+        else:
+            result.append(INCORRECT_LETTER)
+    index = 0
+    for correct_letter, guessed_letter, r in zip(self.secret_word, word, result):
+        if r is CORRECT_LETTER:
+            index += 1
+            continue
+        elif self.is_misplaced_letter(guessed_letter, word, result, index):
+            result[index] = MISPLACED_LETTER
+        index += 1
+    self.turns_taken += 1
+    if self.turns_taken == 6:
+        self.game_in_progress = False
+    self.guesses.append(word)
+    self.results.append(result)
+    if result == ALL_CORRECT:
+        self.logger.debug(&#34;Player won!&#34;)
+        self.game_in_progress = False
+        return {RESULT: result, MSG: &#34;You win!&#34;}
+    if not self.game_in_progress:
+        self.logger.debug(&#34;Player lost!&#34;)
+        return {RESULT: result, MSG: &#34;You lost!&#34;}
+    self.logger.debug(f&#34;Returnsing: {result}&#34;)
+    return {RESULT: result, MSG: None}</code></pre>
+</details>
+<div class="desc"><p>Process a guess, updates the game state, and returns the result of the guess.</p>
+<p>This method checks for error conditions, compares the guessed word with the secret word,
+and updates the results accordingly. It also checks if the player has won or lost the game.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>word</code></strong> :&ensp;<code>str</code></dt>
+<dd>The word guessed by the player.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>A dictionary containing the result of the guess and a message.
+If the guess is valid, the result is a list indicating the status of each letter
+(correct, misplaced, or incorrect). If the player wins, the message indicates a win.
+If the player loses, the message indicates a loss.
+If there are errors, the result is None and the message describes the error.</dd>
+</dl></div>
+</dd>
+<dt id="wordle.wordle.Wordle.is_misplaced_letter"><code class="name flex">
+<span>def <span class="ident">is_misplaced_letter</span></span>(<span>self, letter: str, word: str, result: list[int], index: int) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_misplaced_letter(
+    self, letter: str, word: str, result: list[int], index: int
+) -&gt; bool:
+    &#34;&#34;&#34;
+    Check if a letter in the guessed word is misplaced compared to the secret word.
+
+    A letter is considered misplaced if it exists in the secret word but is not in the correct position
+    and the number of occurrences in the secret word is greater than or equal to the number of
+    occurrences in the guessed word up to the current index.
+
+    Parameters
+    ----------
+    letter : str
+        The letter to check for being misplaced.
+    word : str
+        The guessed word.
+    result : list[int]
+        The result of the previous guesses, where each element indicates the status of each letter
+        (correct or incorrect).
+    index : int
+        The current index in the guessed word being checked.
+
+    Returns
+    -------
+    bool
+        True if the letter is misplaced, False otherwise.
+    &#34;&#34;&#34;
+    if letter not in word:
+        return False
+    occurances_in_secret_word = boolean_comprehension(self.secret_word, letter)
+    occurances_in_guess = boolean_comprehension(word, letter)
+    self.logger.info(f&#34;Checking {word} for {letter}&#34;)
+    self.logger.info(f&#34;{self.secret_word}: {occurances_in_secret_word}&#34;)
+    self.logger.info(f&#34;{word}: {occurances_in_guess}&#34;)
+    correct_indices = self.get_all_indices(
+        boolean_comprehension(result, CORRECT_LETTER)
+    )
+    letter_indices = self.get_all_indices(boolean_comprehension(word, letter))
+    secret_count = sum(occurances_in_secret_word) - sum(
+        idx in correct_indices for idx in letter_indices
+    )
+    guess_count = sum(occurances_in_guess[: index + 1])
+    self.logger.info(f&#34;S: {secret_count}\tG: {guess_count}&#34;)
+    if secret_count == 0 or secret_count &lt; guess_count:
+        return False
+    return True</code></pre>
+</details>
+<div class="desc"><p>Check if a letter in the guessed word is misplaced compared to the secret word.</p>
+<p>A letter is considered misplaced if it exists in the secret word but is not in the correct position
+and the number of occurrences in the secret word is greater than or equal to the number of
+occurrences in the guessed word up to the current index.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>letter</code></strong> :&ensp;<code>str</code></dt>
+<dd>The letter to check for being misplaced.</dd>
+<dt><strong><code>word</code></strong> :&ensp;<code>str</code></dt>
+<dd>The guessed word.</dd>
+<dt><strong><code>result</code></strong> :&ensp;<code>list[int]</code></dt>
+<dd>The result of the previous guesses, where each element indicates the status of each letter
+(correct or incorrect).</dd>
+<dt><strong><code>index</code></strong> :&ensp;<code>int</code></dt>
+<dd>The current index in the guessed word being checked.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the letter is misplaced, False otherwise.</dd>
+</dl></div>
+</dd>
+<dt id="wordle.wordle.Wordle.start_game"><code class="name flex">
+<span>def <span class="ident">start_game</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start_game(self) -&gt; None:
+    &#34;&#34;&#34;
+    Initialize a new game by selecting a secret word and resetting the game state.
+
+    This method sets the secret word to a randomly generated word from the word list,
+    resets the game in progress flag to True, and clears the guesses and results lists.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
+    &#34;&#34;&#34;
+    self.secret_word = self.generate_word()
+    self.game_in_progress = True
+    self.turns_taken = 0
+    self.guesses = []
+    self.results = []</code></pre>
+</details>
+<div class="desc"><p>Initialize a new game by selecting a secret word and resetting the game state.</p>
+<p>This method sets the secret word to a randomly generated word from the word list,
+resets the game in progress flag to True, and clears the guesses and results lists.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="wordle" href="index.html">wordle</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="wordle.wordle.Wordle" href="#wordle.wordle.Wordle">Wordle</a></code></h4>
+<ul class="">
+<li><code><a title="wordle.wordle.Wordle.check_error_conditions" href="#wordle.wordle.Wordle.check_error_conditions">check_error_conditions</a></code></li>
+<li><code><a title="wordle.wordle.Wordle.generate_word" href="#wordle.wordle.Wordle.generate_word">generate_word</a></code></li>
+<li><code><a title="wordle.wordle.Wordle.get_all_indices" href="#wordle.wordle.Wordle.get_all_indices">get_all_indices</a></code></li>
+<li><code><a title="wordle.wordle.Wordle.guess" href="#wordle.wordle.Wordle.guess">guess</a></code></li>
+<li><code><a title="wordle.wordle.Wordle.is_misplaced_letter" href="#wordle.wordle.Wordle.is_misplaced_letter">is_misplaced_letter</a></code></li>
+<li><code><a title="wordle.wordle.Wordle.start_game" href="#wordle.wordle.Wordle.start_game">start_game</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

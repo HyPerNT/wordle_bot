@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Util - Wordle_bot</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Util";
+        var mkdocs_page_input_path = "src/common/util.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Wordle_bot
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Wordle_bot Index</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Src</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Bots</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../bots/">Bots</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../bots/bot/">Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../bots/bot_behaviors/">BotBehaviors</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../bots/example_bot/">ExampleBot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../bots/util/">Util</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Common</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../">Common</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Util</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#boolean_comprehension">boolean_comprehension</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns">Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature">Signature</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#get_word_list">get_word_list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters_1">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns_1">Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature_1">Signature</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#prettify_guess">prettify_guess</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters_2">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns_2">Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature_2">Signature</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#prettify_guess_no_color">prettify_guess_no_color</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters_3">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns_3">Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature_3">Signature</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tester</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../tester/">Tester</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../tester/wordle_tester/">WordleTester</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Wordle</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../wordle/">Wordle</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../wordle/wordle/">Wordle</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Wordle_bot</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Src</li>
+          <li class="breadcrumb-item">Common</li>
+      <li class="breadcrumb-item active">Util</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/HyPerNT/wordle_bot/edit/master/docs/src/common/util.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="util">Util</h1>
+<p><a href="../../../#wordle_bot-index">Wordle_bot Index</a> / <code>src</code> / <a href="../#common">Common</a> / Util</p>
+<blockquote>
+<p>Auto-generated documentation for <a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/common/util.py">src.common.util</a> module.</p>
+</blockquote>
+<ul>
+<li><a href="#util">Util</a></li>
+<li><a href="#boolean_comprehension">boolean_comprehension</a></li>
+<li><a href="#get_word_list">get_word_list</a></li>
+<li><a href="#prettify_guess">prettify_guess</a></li>
+<li><a href="#prettify_guess_no_color">prettify_guess_no_color</a></li>
+</ul>
+<h2 id="boolean_comprehension">boolean_comprehension</h2>
+<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/common/util.py#L26">Show source in util.py:26</a></p>
+<p>Returns a list of 1s and 0s where 1 indicates the value is present in the list.</p>
+<h2 id="parameters">Parameters</h2>
+<p>list : str | list[str] | list[int]
+    The list to check.
+value : str | int
+    The value to check for in the list.</p>
+<h2 id="returns">Returns</h2>
+<p>list[int]
+    A list of 1s and 0s where 1 indicates the value is present.</p>
+<h4 id="signature">Signature</h4>
+<pre><code class="language-python">def boolean_comprehension(
+    list: str | list[str] | list[int], value: str | int
+) -&gt; list[int]: ...
+</code></pre>
+<h2 id="get_word_list">get_word_list</h2>
+<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/common/util.py#L47">Show source in util.py:47</a></p>
+<p>Read a word list from a file and returns it as a list of uppercase words.</p>
+<p>The file is expected to be named "wordle_word_list.txt" and located in the same
+directory as this script.</p>
+<h2 id="parameters_1">Parameters</h2>
+<p>None</p>
+<h2 id="returns_1">Returns</h2>
+<p>list[str]
+    A list of words in uppercase.</p>
+<h4 id="signature_1">Signature</h4>
+<pre><code class="language-python">def get_word_list() -&gt; list[str]: ...
+</code></pre>
+<h2 id="prettify_guess">prettify_guess</h2>
+<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/common/util.py#L69">Show source in util.py:69</a></p>
+<p>Format a guess with ANSI color coding based on the result.</p>
+<h2 id="parameters_2">Parameters</h2>
+<p>guess : str
+    The guessed word.
+result : list[int]
+    A list of integers representing the result of the guess, where:
+    - 0 indicates an incorrect letter,
+    - 1 indicates a misplaced letter,
+    - 2 indicates a correct letter.</p>
+<h2 id="returns_2">Returns</h2>
+<p>str
+    The formatted guess with color coding.</p>
+<h4 id="signature_2">Signature</h4>
+<pre><code class="language-python">def prettify_guess(guess: str, result: list[int]) -&gt; str: ...
+</code></pre>
+<h2 id="prettify_guess_no_color">prettify_guess_no_color</h2>
+<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/common/util.py#L103">Show source in util.py:103</a></p>
+<p>Format a guess without ANSI color coding based on the result.</p>
+<h2 id="parameters_3">Parameters</h2>
+<p>guess : str
+    The guessed word.
+result : list[int]
+    A list of integers representing the result of the guess, where:
+    - 0 indicates an incorrect letter,
+    - 1 indicates a misplaced letter,
+    - 2 indicates a correct letter.</p>
+<h2 id="returns_3">Returns</h2>
+<p>str
+    The formatted guess without color coding.</p>
+<h4 id="signature_3">Signature</h4>
+<pre><code class="language-python">def prettify_guess_no_color(guess: str, result: list[int]) -&gt; str: ...
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../" class="btn btn-neutral float-left" title="Common"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../tester/" class="btn btn-neutral float-right" title="Tester">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/HyPerNT/wordle_bot" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../tester/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
