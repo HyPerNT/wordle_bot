@@ -1,21 +1,12 @@
 # Wordle
 
-[Wordle_bot Index](../../README.md#wordle_bot-index) / `src` / [Wordle](./index.md#wordle) / Wordle
+[wordle_bot Index](../../README.md#wordle_bot-index) / `src` / [Wordle](./index.md#wordle) / Wordle
 
-> Auto-generated documentation for [src.wordle.wordle](../../../src/wordle/wordle.py) module.
-
-- [Wordle](#wordle)
-  - [Wordle](#wordle-1)
-    - [Wordle().check_error_conditions](#wordle()check_error_conditions)
-    - [Wordle().generate_word](#wordle()generate_word)
-    - [Wordle().get_all_indices](#wordle()get_all_indices)
-    - [Wordle().guess](#wordle()guess)
-    - [Wordle().is_misplaced_letter](#wordle()is_misplaced_letter)
-    - [Wordle().start_game](#wordle()start_game)
+> Auto-generated documentation for [src.wordle.wordle](https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py) module.
 
 ## Wordle
 
-[Show source in wordle.py:27](../../../src/wordle/wordle.py#L27)
+[Show source in wordle.py:27](https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L27)
 
 A class representing a Wordle game.
 
@@ -62,7 +53,7 @@ class Wordle:
 
 ### Wordle().check_error_conditions
 
-[Show source in wordle.py:167](../../../src/wordle/wordle.py#L167)
+[Show source in wordle.py:167](https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L167)
 
 Check for error conditions before making a guess.
 
@@ -88,7 +79,7 @@ def check_error_conditions(self, word: str) -> dict: ...
 
 ### Wordle().generate_word
 
-[Show source in wordle.py:87](../../../src/wordle/wordle.py#L87)
+[Show source in wordle.py:87](https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L87)
 
 Select a random word from the word list to be used as the secret word for the game.
 
@@ -109,7 +100,7 @@ def generate_word(self) -> str: ...
 
 ### Wordle().get_all_indices
 
-[Show source in wordle.py:102](../../../src/wordle/wordle.py#L102)
+[Show source in wordle.py:102](https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L102)
 
 Returns a list of indices where the value is 1 in the given list.
 
@@ -133,7 +124,7 @@ def get_all_indices(self, list: list[int]) -> list[int]: ...
 
 ### Wordle().guess
 
-[Show source in wordle.py:193](../../../src/wordle/wordle.py#L193)
+[Show source in wordle.py:193](https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L193)
 
 Process a guess, updates the game state, and returns the result of the guess.
 
@@ -162,7 +153,7 @@ def guess(self, word: str) -> dict: ...
 
 ### Wordle().is_misplaced_letter
 
-[Show source in wordle.py:120](../../../src/wordle/wordle.py#L120)
+[Show source in wordle.py:120](https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L120)
 
 Check if a letter in the guessed word is misplaced compared to the secret word.
 
@@ -197,7 +188,7 @@ def is_misplaced_letter(
 
 ### Wordle().start_game
 
-[Show source in wordle.py:249](../../../src/wordle/wordle.py#L249)
+[Show source in wordle.py:249](https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L249)
 
 Initialize a new game by selecting a secret word and resetting the game state.
 

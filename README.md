@@ -25,7 +25,7 @@
   <p align="center">
     A library designed for building and testing strategies for the game Wordle.
     <br />
-    <a href="https://github.com/HyPerNT/wordle_bot/blob/main/docs"><strong>Explore the docs »</strong></a>
+    <a href="https://hypernt.github.io/wordle_bot/"><strong>Explore the docs »</strong></a>
     <br />
   </p>
 </div>

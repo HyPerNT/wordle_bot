@@ -1,18 +1,12 @@
 # Util
 
-[Wordle_bot Index](../../README.md#wordle_bot-index) / `src` / [Common](./index.md#common) / Util
+[wordle_bot Index](../../README.md#wordle_bot-index) / `src` / [Common](./index.md#common) / Util
 
-> Auto-generated documentation for [src.common.util](../../../src/common/util.py) module.
-
-- [Util](#util)
-  - [boolean_comprehension](#boolean_comprehension)
-  - [get_word_list](#get_word_list)
-  - [prettify_guess](#prettify_guess)
-  - [prettify_guess_no_color](#prettify_guess_no_color)
+> Auto-generated documentation for [src.common.util](https://github.com/HyPerNT/wordle_bot/blob/main/src/common/util.py) module.
 
 ## boolean_comprehension
 
-[Show source in util.py:26](../../../src/common/util.py#L26)
+[Show source in util.py:26](https://github.com/HyPerNT/wordle_bot/blob/main/src/common/util.py#L26)
 
 Returns a list of 1s and 0s where 1 indicates the value is present in the list.
 
@@ -40,7 +34,7 @@ def boolean_comprehension(
 
 ## get_word_list
 
-[Show source in util.py:47](../../../src/common/util.py#L47)
+[Show source in util.py:47](https://github.com/HyPerNT/wordle_bot/blob/main/src/common/util.py#L47)
 
 Read a word list from a file and returns it as a list of uppercase words.
 
@@ -66,7 +60,7 @@ def get_word_list() -> list[str]: ...
 
 ## prettify_guess
 
-[Show source in util.py:69](../../../src/common/util.py#L69)
+[Show source in util.py:69](https://github.com/HyPerNT/wordle_bot/blob/main/src/common/util.py#L69)
 
 Format a guess with ANSI color coding based on the result.
 
@@ -95,7 +89,7 @@ def prettify_guess(guess: str, result: list[int]) -> str: ...
 
 ## prettify_guess_no_color
 
-[Show source in util.py:103](../../../src/common/util.py#L103)
+[Show source in util.py:103](https://github.com/HyPerNT/wordle_bot/blob/main/src/common/util.py#L103)
 
 Format a guess without ANSI color coding based on the result.
 

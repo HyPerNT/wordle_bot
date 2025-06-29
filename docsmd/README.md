@@ -1,8 +1,8 @@
-# Wordle_bot Index
+# wordle_bot Index
 
 > Auto-generated documentation index.
 
-A full list of `Wordle_bot` project modules.
+A full list of [wordle_bot](https://github.com/HyPerNT/wordle_bot) project modules.
 
     - [Bots](src/bots/index.md#bots)
         - [Bot](src/bots/bot.md#bot)

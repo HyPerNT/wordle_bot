@@ -2,7 +2,7 @@
 
 [Wordle_bot Index](../../README.md#wordle_bot-index) / `src` / Wordle
 
-> Auto-generated documentation for [src.wordle](https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/__init__.py) module.
+> Auto-generated documentation for [src.wordle](../../../src/wordle/__init__.py) module.
 
 - [Wordle](#wordle)
   - [Modules](#modules)

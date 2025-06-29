@@ -1,17 +1,12 @@
 # Bot
 
-[Wordle_bot Index](../../README.md#wordle_bot-index) / `src` / [Bots](./index.md#bots) / Bot
+[wordle_bot Index](../../README.md#wordle_bot-index) / `src` / [Bots](./index.md#bots) / Bot
 
-> Auto-generated documentation for [src.bots.bot](../../../src/bots/bot.py) module.
-
-- [Bot](#bot)
-  - [WordleBot](#wordlebot)
-    - [WordleBot().generate_first_guess](#wordlebot()generate_first_guess)
-    - [WordleBot().generate_next_guess](#wordlebot()generate_next_guess)
+> Auto-generated documentation for [src.bots.bot](https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/bot.py) module.
 
 ## WordleBot
 
-[Show source in bot.py:15](../../../src/bots/bot.py#L15)
+[Show source in bot.py:15](https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/bot.py#L15)
 
 A class representing a Wordle bot that generates guesses based on letter frequency and previous results.
 
@@ -34,7 +29,7 @@ class WordleBot(BotBehaviors):
 
 ### WordleBot().generate_first_guess
 
-[Show source in bot.py:37](../../../src/bots/bot.py#L37)
+[Show source in bot.py:37](https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/bot.py#L37)
 
 Generate the first guess for the Wordle game.
 
@@ -55,7 +50,7 @@ def generate_first_guess(self) -> str: ...
 
 ### WordleBot().generate_next_guess
 
-[Show source in bot.py:52](../../../src/bots/bot.py#L52)
+[Show source in bot.py:52](https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/bot.py#L52)
 
 Generate the next guess for the Wordle game based on previous guesses and results.
 
