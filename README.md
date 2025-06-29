@@ -77,18 +77,19 @@ Check out the [Example Bot](https://github.com/HyPerNT/wordle_bot/blob/main/src/
 
 ### Built With
 
-* [PyTest](pytest-url)
 * [Black](black-url)
-* [Pre-commit-hooks](pch-url)
-* [Flake8](flake8-url)
-* [MyPy](mypy-url)
-* [Xenon](xenon-url)
-* [Pyroma](pyroma-url)
-* [Interrogate](int-url)
-* [Pydocstyle](pds-url)
-* [Handsdown](hd-url)
 * [Coverage](coverage-url)
 * [Coverage-badge](coverage-badge-url)
+* [Flake8](flake8-url)
+* [Handsdown](hd-url)
+* [Interrogate](int-url)
+* [MkDocs](mkdocs-url)
+* [MyPy](mypy-url)
+* [Pre-commit-hooks](pch-url)
+* [Pydocstyle](pds-url)
+* [Pyroma](pyroma-url)
+* [PyTest](pytest-url)
+* [Xenon](xenon-url)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -132,7 +133,7 @@ curl -fsSL https://pyenv.run | bash\n
    ```
 4. (Optional) Install additional python modules to support use of pre-commit hooks, tests, and coverage reports
    ```sh
-   pip3 install poetry mypy flake8 black pyroma xenon interrogate handsdown pytest coverage coverage-badge
+   pip3 install poetry mypy flake8 black pyroma xenon interrogate handsdown mkdocs pytest coverage coverage-badge
    ```
 5. Change git remote url to avoid accidental pushes to base project
    ```sh
@@ -225,3 +226,4 @@ Project Link: [https://github.com/HyPerNT/wordle_bot](https://github.com/HyPerNt
 [coverage-url]: https://coverage.readthedocs.io/en/7.9.1/
 [coverage-badge-url]: https://pypi.org/project/coverage-badge/
 [coverage-badge]: badges/coverage.svg
+[mkdocs-url]: https://www.mkdocs.org
