@@ -9,15 +9,15 @@
 -->
 [![Last Commit][last-commit-shield]][last-commit-url]
 [![Contributors][contributors-shield]][contributors-url]
-[![Coverage][coverage-shield]][coverage-url]
+<!-- [![Coverage][coverage-shield]][coverage-url] -->
 [![Unlicense License][license-shield]][license-url]
 ![Size][repo-size-shield]
 
 <br />
 <div align="center">
-  <!-- <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a> -->
+  <a href="https://github.com/HyPerNT/wordle_bot">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Wordle_Logo.svg" alt="Logo" width="80" height="80">
+  </a>
 
   <h3 align="center">Wordle Bot</h3>
 
@@ -67,7 +67,7 @@ There are three main modules included and intended for use.
 3. `wordle_tester` - The primary module used for testing Wordle bots. This is used to run a bot against the full Wordle word list and provide summary results to the command-line.
 
 The modules provided are intended to be as slim as possible so that providing additional logic or alternative strategies is as easy as possible.
-Check out the [Example Bot](https://github.com/HyPerNT/wordle_bot/src/wordle_bot/example_bot.py) to see how simple they can really be!
+Check out the [Example Bot](https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle_bot/example_bot.py) to see how simple they can really be!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -75,16 +75,16 @@ Check out the [Example Bot](https://github.com/HyPerNT/wordle_bot/src/wordle_bot
 
 ### Built With
 
-* [![PyTest][Next.js]][Next-url]
-* black
-* pre-commit-hooks
-* flake8
-* mypy
-* xenon
-* pyroma
-* interrogate
-* pydocstyle
-* pdoc
+* [PyTest](pytest-url)
+* [Black](black-url)
+* [Pre-commit-hooks](pch-url)
+* [Flake8](flake8-url)
+* [MyPy](mypy-url)
+* [Xenon](xenon-url)
+* [Pyroma](pyroma-url)
+* [Interrogate](int-url)
+* [Pydocstyle](pds-url)
+* [Pdoc](pdoc-url)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -180,12 +180,22 @@ Project Link: [https://github.com/HyPerNT/wordle_bot](https://github.com/HyPerNt
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[last-commit-shield]: https://img.shields.io/github/last-commit/HyPerNT/Student_Teacher_SR
-[last-commit-url]: https://github.com/HyPerNT/Student_Teacher_SR/commits/master/
-[contributors-shield]: https://img.shields.io/github/contributors/HyPerNT/Student_Teacher_SR
-[contributors-url]: https://github.com/HyPerNT/Student_Teacher_SR/graphs/contributors
-[license-shield]: https://img.shields.io/github/license/HyPerNT/Student_Teacher_SR
-[license-url]: https://github.com/HyPerNT/Student_Teacher_SR/blob/main/LICENSE
-[coverage-shield]: https://img.shields.io/codecov/c/github/HyPerNT/Student_Teacher_SR
-[coverage-url]: https://github.com/HyPerNT/Student_Teacher_SR/blob/main/codecov
-[repo-size-shield]: https://img.shields.io/github/languages/code-size/HyPerNT/Student_Teacher_SR
+[last-commit-shield]: https://img.shields.io/github/last-commit/HyPerNT/wordle_bot
+[last-commit-url]: https://github.com/HyPerNT/wordle_bot/commits/main/
+[contributors-shield]: https://img.shields.io/github/contributors/HyPerNT/wordle_bot
+[contributors-url]: https://github.com/HyPerNT/wordle_bot/graphs/contributors
+[license-shield]: https://img.shields.io/github/license/HyPerNT/wordle_bot
+[license-url]: https://github.com/HyPerNT/wordle_bot/blob/main/LICENSE
+<!-- [coverage-shield]: https://img.shields.io/codecov/c/github/HyPerNT/wordle_bot
+[coverage-url]: https://github.com/HyPerNT/wordle_bot/blob/main/codecov -->
+[repo-size-shield]: https://img.shields.io/github/languages/code-size/HyPerNT/wordle_bot
+[pytest-url]: https://docs.pytest.org/en/stable/
+[black-url]: https://github.com/psf/black
+[pch-url]: https://github.com/pre-commit/pre-commit-hooks
+[flake8-url]: https://flake8.pycqa.org/en/latest/
+[mypy-url]: https://mypy-lang.org
+[xenon-url]: https://pypi.org/project/xenon/
+[pyroma-url]: https://pypi.org/project/pyroma/
+[int-url]: https://interrogate.readthedocs.io/en/latest/
+[pds-url]: https://www.pydocstyle.org/en/stable/
+[pdoc-url]: https://pdoc3.github.io/pdoc/
