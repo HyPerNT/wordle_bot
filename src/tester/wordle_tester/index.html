@@ -169,7 +169,7 @@
                 <h1 id="wordletester">WordleTester</h1>
 <p><a href="../../../#wordle_bot-index">Wordle_bot Index</a> / <code>src</code> / <a href="../#tester">Tester</a> / WordleTester</p>
 <blockquote>
-<p>Auto-generated documentation for <a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py">src.tester.wordle_tester</a> module.</p>
+<p>Auto-generated documentation for <a href="../../../src/tester/wordle_tester.py">src.tester.wordle_tester</a> module.</p>
 </blockquote>
 <ul>
 <li><a href="#wordletester">WordleTester</a></li>
@@ -183,7 +183,7 @@
 </li>
 </ul>
 <h2 id="wordletester_1">WordleTester</h2>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L29">Show source in wordle_tester.py:29</a></p>
+<p><a href="../../../src/tester/wordle_tester.py#L29">Show source in wordle_tester.py:29</a></p>
 <p>A class to test a Wordle bot against a list of words.</p>
 <p>It inherits from the Wordle class and provides methods to run tests,
 collect results, and analyze the performance of the bot.</p>
@@ -201,7 +201,7 @@ logger : logging.Logger
     def __init__(self) -&gt; None: ...
 </code></pre>
 <h3 id="wordletesterget_failure_str">WordleTester().get_failure_str</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L170">Show source in wordle_tester.py:170</a></p>
+<p><a href="../../../src/tester/wordle_tester.py#L170">Show source in wordle_tester.py:170</a></p>
 <p>Generate a formatted string for a single failure, including the word, the guesses made, and the results of those guesses.</p>
 <h2 id="parameters">Parameters</h2>
 <p>r : dict
@@ -217,7 +217,7 @@ color : bool, optional
 <pre><code class="language-python">def get_failure_str(self, r: dict, color: bool = True) -&gt; str: ...
 </code></pre>
 <h3 id="wordletesterget_failures_str">WordleTester().get_failures_str</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L144">Show source in wordle_tester.py:144</a></p>
+<p><a href="../../../src/tester/wordle_tester.py#L144">Show source in wordle_tester.py:144</a></p>
 <p>Generate a detailed string of the failures encountered during the tests.</p>
 <p>This includes the words that were not guessed correctly, the guesses made,
 and the results of those guesses.</p>
@@ -233,7 +233,7 @@ and the results of those guesses.</p>
 <pre><code class="language-python">def get_failures_str(self, color: bool = True) -&gt; str: ...
 </code></pre>
 <h3 id="wordletesterget_results_str">WordleTester().get_results_str</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L103">Show source in wordle_tester.py:103</a></p>
+<p><a href="../../../src/tester/wordle_tester.py#L103">Show source in wordle_tester.py:103</a></p>
 <p>Generate a summary string of the test results, including the number of correct and incorrect guesses, success rates, and failure details.</p>
 <h2 id="returns_2">Returns</h2>
 <p>str
@@ -243,7 +243,7 @@ and the results of those guesses.</p>
 <pre><code class="language-python">def get_results_str(self) -&gt; str: ...
 </code></pre>
 <h3 id="wordletesterget_wacky_failures_string">WordleTester().get_wacky_failures_string</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L194">Show source in wordle_tester.py:194</a></p>
+<p><a href="../../../src/tester/wordle_tester.py#L194">Show source in wordle_tester.py:194</a></p>
 <p>Generate a string containing details of failures that include misplaced letters.</p>
 <p>This method filters the test results to include only those where the last result
 contains misplaced letters, and formats the output accordingly.</p>
@@ -259,7 +259,7 @@ contains misplaced letters, and formats the output accordingly.</p>
 <pre><code class="language-python">def get_wacky_failures_string(self, color: bool = True) -&gt; str: ...
 </code></pre>
 <h3 id="wordletestertest">WordleTester().test</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L60">Show source in wordle_tester.py:60</a></p>
+<p><a href="../../../src/tester/wordle_tester.py#L60">Show source in wordle_tester.py:60</a></p>
 <p>Runs tests on the bot using a predefined list of words.</p>
 <p>It iterates through each word in the word list, starts a new game,
 sets the secret word, and allows the bot to make guesses until the game is over.

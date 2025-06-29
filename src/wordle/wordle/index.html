@@ -185,7 +185,7 @@
                 <h1 id="wordle">Wordle</h1>
 <p><a href="../../../#wordle_bot-index">Wordle_bot Index</a> / <code>src</code> / <a href="../#wordle">Wordle</a> / Wordle</p>
 <blockquote>
-<p>Auto-generated documentation for <a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py">src.wordle.wordle</a> module.</p>
+<p>Auto-generated documentation for <a href="../../../src/wordle/wordle.py">src.wordle.wordle</a> module.</p>
 </blockquote>
 <ul>
 <li><a href="#wordle">Wordle</a></li>
@@ -200,7 +200,7 @@
 </li>
 </ul>
 <h2 id="wordle_1">Wordle</h2>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L27">Show source in wordle.py:27</a></p>
+<p><a href="../../../src/wordle/wordle.py#L27">Show source in wordle.py:27</a></p>
 <p>A class representing a Wordle game.</p>
 <p>It manages the game state, including the secret word, guesses, and results.
 It provides methods to start the game, make guesses, and check for errors.</p>
@@ -236,7 +236,7 @@ start_game() -&gt; None
     def __init__(self) -&gt; None: ...
 </code></pre>
 <h3 id="wordlecheck_error_conditions">Wordle().check_error_conditions</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L167">Show source in wordle.py:167</a></p>
+<p><a href="../../../src/wordle/wordle.py#L167">Show source in wordle.py:167</a></p>
 <p>Check for error conditions before making a guess.</p>
 <p>This method verifies if the game is in progress and if the guessed word is valid.</p>
 <h2 id="parameters">Parameters</h2>
@@ -251,7 +251,7 @@ start_game() -&gt; None
 <pre><code class="language-python">def check_error_conditions(self, word: str) -&gt; dict: ...
 </code></pre>
 <h3 id="wordlegenerate_word">Wordle().generate_word</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L87">Show source in wordle.py:87</a></p>
+<p><a href="../../../src/wordle/wordle.py#L87">Show source in wordle.py:87</a></p>
 <p>Select a random word from the word list to be used as the secret word for the game.</p>
 <h2 id="parameters_1">Parameters</h2>
 <p>None</p>
@@ -262,7 +262,7 @@ start_game() -&gt; None
 <pre><code class="language-python">def generate_word(self) -&gt; str: ...
 </code></pre>
 <h3 id="wordleget_all_indices">Wordle().get_all_indices</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L102">Show source in wordle.py:102</a></p>
+<p><a href="../../../src/wordle/wordle.py#L102">Show source in wordle.py:102</a></p>
 <p>Returns a list of indices where the value is 1 in the given list.</p>
 <p>This is used to find the positions of correct letters in the result list.</p>
 <h2 id="parameters_2">Parameters</h2>
@@ -275,7 +275,7 @@ start_game() -&gt; None
 <pre><code class="language-python">def get_all_indices(self, list: list[int]) -&gt; list[int]: ...
 </code></pre>
 <h3 id="wordleguess">Wordle().guess</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L193">Show source in wordle.py:193</a></p>
+<p><a href="../../../src/wordle/wordle.py#L193">Show source in wordle.py:193</a></p>
 <p>Process a guess, updates the game state, and returns the result of the guess.</p>
 <p>This method checks for error conditions, compares the guessed word with the secret word,
 and updates the results accordingly. It also checks if the player has won or lost the game.</p>
@@ -293,7 +293,7 @@ and updates the results accordingly. It also checks if the player has won or los
 <pre><code class="language-python">def guess(self, word: str) -&gt; dict: ...
 </code></pre>
 <h3 id="wordleis_misplaced_letter">Wordle().is_misplaced_letter</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L120">Show source in wordle.py:120</a></p>
+<p><a href="../../../src/wordle/wordle.py#L120">Show source in wordle.py:120</a></p>
 <p>Check if a letter in the guessed word is misplaced compared to the secret word.</p>
 <p>A letter is considered misplaced if it exists in the secret word but is not in the correct position
 and the number of occurrences in the secret word is greater than or equal to the number of
@@ -317,7 +317,7 @@ index : int
 ) -&gt; bool: ...
 </code></pre>
 <h3 id="wordlestart_game">Wordle().start_game</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/wordle/wordle.py#L249">Show source in wordle.py:249</a></p>
+<p><a href="../../../src/wordle/wordle.py#L249">Show source in wordle.py:249</a></p>
 <p>Initialize a new game by selecting a secret word and resetting the game state.</p>
 <p>This method sets the secret word to a randomly generated word from the word list,
 resets the game in progress flag to True, and clears the guesses and results lists.</p>

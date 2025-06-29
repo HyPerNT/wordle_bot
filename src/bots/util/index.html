@@ -223,7 +223,7 @@
                 <h1 id="util">Util</h1>
 <p><a href="../../../#wordle_bot-index">Wordle_bot Index</a> / <code>src</code> / <a href="../#bots">Bots</a> / Util</p>
 <blockquote>
-<p>Auto-generated documentation for <a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/util.py">src.bots.util</a> module.</p>
+<p>Auto-generated documentation for <a href="../../../src/bots/util.py">src.bots.util</a> module.</p>
 </blockquote>
 <ul>
 <li><a href="#util">Util</a></li>
@@ -242,7 +242,7 @@
 </li>
 </ul>
 <h2 id="filter">Filter</h2>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/util.py#L25">Show source in util.py:25</a></p>
+<p><a href="../../../src/bots/util.py#L25">Show source in util.py:25</a></p>
 <p>A class that provides various filtering methods for word lists used in Wordle games.</p>
 <p>It includes methods to check for unique letters, filter words based on letter presence,
 and filter words based on previous guesses and results.</p>
@@ -258,7 +258,7 @@ all_unique_words : list[str]
     def __init__(self) -&gt; None: ...
 </code></pre>
 <h3 id="filterfilter_compatible_with_guess">Filter().filter_compatible_with_guess</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/util.py#L189">Show source in util.py:189</a></p>
+<p><a href="../../../src/bots/util.py#L189">Show source in util.py:189</a></p>
 <p>Filter a list of words based on a guess and the result of that guess.</p>
 <p>The result is expected to be a dictionary with a key 'result' that contains a list of responses
 corresponding to each letter in the guess. The responses can be:
@@ -282,7 +282,7 @@ result : dict
 ) -&gt; list[str]: ...
 </code></pre>
 <h3 id="filterfilter_compatible_with_past_guesses">Filter().filter_compatible_with_past_guesses</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/util.py#L236">Show source in util.py:236</a></p>
+<p><a href="../../../src/bots/util.py#L236">Show source in util.py:236</a></p>
 <p>Filter a list of words based on multiple past guesses and their results.</p>
 <p>This method iterates through all past guesses and their corresponding results,
 filtering the list of words to retain only those that are compatible with all guesses.</p>
@@ -302,7 +302,7 @@ guesses : dict
 ) -&gt; list[str]: ...
 </code></pre>
 <h3 id="filterfilter_containing_letter">Filter().filter_containing_letter</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/util.py#L109">Show source in util.py:109</a></p>
+<p><a href="../../../src/bots/util.py#L109">Show source in util.py:109</a></p>
 <p>Filter a list of words to include only those that contain a specific letter.</p>
 <h2 id="parameters_2">Parameters</h2>
 <p>words : list[str]
@@ -316,7 +316,7 @@ letter : str
 <pre><code class="language-python">def filter_containing_letter(self, words: list[str], letter: str) -&gt; list[str]: ...
 </code></pre>
 <h3 id="filterfilter_containing_letter_at">Filter().filter_containing_letter_at</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/util.py#L145">Show source in util.py:145</a></p>
+<p><a href="../../../src/bots/util.py#L145">Show source in util.py:145</a></p>
 <p>Filter a list of words to include only those that contain a specific letter at a specific index.</p>
 <h2 id="parameters_3">Parameters</h2>
 <p>words : list[str]
@@ -334,7 +334,7 @@ index : int
 ) -&gt; list[str]: ...
 </code></pre>
 <h3 id="filterfilter_not_containing_letter">Filter().filter_not_containing_letter</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/util.py#L127">Show source in util.py:127</a></p>
+<p><a href="../../../src/bots/util.py#L127">Show source in util.py:127</a></p>
 <p>Filter a list of words to exclude those that contain a specific letter.</p>
 <h2 id="parameters_4">Parameters</h2>
 <p>words : list[str]
@@ -348,7 +348,7 @@ letter : str
 <pre><code class="language-python">def filter_not_containing_letter(self, words: list[str], letter: str) -&gt; list[str]: ...
 </code></pre>
 <h3 id="filterfilter_not_containing_letter_at">Filter().filter_not_containing_letter_at</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/util.py#L167">Show source in util.py:167</a></p>
+<p><a href="../../../src/bots/util.py#L167">Show source in util.py:167</a></p>
 <p>Filter a list of words to exclude those that contain a specific letter at a specific index.</p>
 <h2 id="parameters_5">Parameters</h2>
 <p>words : list[str]
@@ -366,7 +366,7 @@ index : int
 ) -&gt; list[str]: ...
 </code></pre>
 <h3 id="filterfilter_unique_letters">Filter().filter_unique_letters</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/util.py#L263">Show source in util.py:263</a></p>
+<p><a href="../../../src/bots/util.py#L263">Show source in util.py:263</a></p>
 <p>Filter a list of words to include only those that have all unique letters.</p>
 <h2 id="parameters_6">Parameters</h2>
 <p>words : list[str]
@@ -378,7 +378,7 @@ index : int
 <pre><code class="language-python">def filter_unique_letters(self, words: list[str]) -&gt; list[str]: ...
 </code></pre>
 <h3 id="filterhas_all_unique_letters">Filter().has_all_unique_letters</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/util.py#L54">Show source in util.py:54</a></p>
+<p><a href="../../../src/bots/util.py#L54">Show source in util.py:54</a></p>
 <p>Check if a word contains all unique letters.</p>
 <p>A word is considered to have all unique letters if no letter appears more than once.</p>
 <h2 id="parameters_7">Parameters</h2>
@@ -391,7 +391,7 @@ index : int
 <pre><code class="language-python">def has_all_unique_letters(self, word: str) -&gt; bool: ...
 </code></pre>
 <h3 id="filteris_letter_possible">Filter().is_letter_possible</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/util.py#L75">Show source in util.py:75</a></p>
+<p><a href="../../../src/bots/util.py#L75">Show source in util.py:75</a></p>
 <p>Check if a letter is present in any of the words in the list.</p>
 <h2 id="parameters_8">Parameters</h2>
 <p>words : list[str]
@@ -405,7 +405,7 @@ letter : str
 <pre><code class="language-python">def is_letter_possible(self, words: list[str], letter: str) -&gt; bool: ...
 </code></pre>
 <h3 id="filteris_valid_word">Filter().is_valid_word</h3>
-<p><a href="https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/util.py#L93">Show source in util.py:93</a></p>
+<p><a href="../../../src/bots/util.py#L93">Show source in util.py:93</a></p>
 <p>Check if a word is valid by verifying its presence in the word list.</p>
 <h2 id="parameters_9">Parameters</h2>
 <p>word : str
