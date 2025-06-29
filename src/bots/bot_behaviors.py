@@ -10,7 +10,7 @@ from .util import Filter, GUESSES, RESULTS
 from common import RESULT, MSG
 import logging
 
-# file: wordle_bot/bot_behaviors.py
+# file: bots/bot_behaviors.py
 
 
 class BotBehaviors:
@@ -64,7 +64,7 @@ class BotBehaviors:
         str
             The first guess word for the bot.
         """
-        pass
+        ...
 
     def generate_next_guess(self) -> str:  # type: ignore[empty-body]
         """
@@ -77,7 +77,7 @@ class BotBehaviors:
         str
             The next guess word for the bot.
         """
-        pass
+        ...
 
     def generate_guess(self) -> str:
         """
@@ -110,7 +110,7 @@ class BotBehaviors:
         ----------
         result : dict
             A dictionary containing the result of the guess, with keys RESULT and MSG.
-            RESULT is expected to be None if the game is still ongoing, or a win/loss indication.
+            RESULT is expected to be a list of numbers if the game is still ongoing, or None in a win/loss indication.
             MSG can contain additional messages or information about the result.
 
         Returns
@@ -119,7 +119,7 @@ class BotBehaviors:
         """
         if result[RESULT] is None:
             return
-        elif result[MSG] is not None:
-            self.reset()
         self.guesses[RESULTS].append(result)
+        if result[MSG] is not None:
+            self.reset()
         self.logger.info(f"Received: {result}")

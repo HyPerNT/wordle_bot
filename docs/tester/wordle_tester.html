@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 <meta name="generator" content="pdoc3 0.11.6">
-<title>wordle_tester.tester API documentation</title>
+<title>tester.wordle_tester API documentation</title>
 <meta name="description" content="Tester for Wordle Bot Functionality …">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
@@ -33,11 +33,11 @@ el.replaceWith(d);
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>wordle_tester.tester</code></h1>
+<h1 class="title">Module <code>tester.wordle_tester</code></h1>
 </header>
 <section id="section-intro">
 <p>Tester for Wordle Bot Functionality.</p>
-<p>This module defines the Tester class, which is used to test a Wordle bot against a list of words.</p>
+<p>This module defines the WordleTester class, which is used to test a Wordle bot against a list of words.</p>
 <p>It inherits from the Wordle class and provides methods to run tests, collect results, and analyze
 the performance of the bot.</p>
 </section>
@@ -50,15 +50,15 @@ the performance of the bot.</p>
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="wordle_tester.tester.Tester"><code class="flex name class">
-<span>class <span class="ident">Tester</span></span>
+<dt id="tester.wordle_tester.WordleTester"><code class="flex name class">
+<span>class <span class="ident">WordleTester</span></span>
 </code></dt>
 <dd>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class Tester(Wordle):
+<pre><code class="python">class WordleTester(Wordle):
     &#34;&#34;&#34;
     A class to test a Wordle bot against a list of words.
 
@@ -79,7 +79,7 @@ the performance of the bot.</p>
 
     def __init__(self) -&gt; None:
         &#34;&#34;&#34;
-        Initialize the Tester instance by calling the parent class constructor and setting up the initial state for testing.
+        Initialize the WordleTester instance by calling the parent class constructor and setting up the initial state for testing.
 
         Sets up the test results, successes, failures, and logger.
         &#34;&#34;&#34;
@@ -89,7 +89,7 @@ the performance of the bot.</p>
         self.failures: list[str] = []
         self.logger = logging.getLogger(__name__ + &#34;.&#34; + self.__class__.__name__)
 
-    def test(self, bot: BotBehaviors) -&gt; None:
+    def test(self, bot: BotBehaviors, print_results: bool = True) -&gt; None:
         &#34;&#34;&#34;
         Runs tests on the bot using a predefined list of words.
 
@@ -102,10 +102,14 @@ the performance of the bot.</p>
         bot : BotBehaviors
             An instance of a bot that inherits from BotBehaviors.
             This bot will generate guesses and accept results based on the game&#39;s feedback.
+        print_results : bool, optional
+            If True, the results of the tests will be printed to the console.
+            Defaults to True.
         &#34;&#34;&#34;
-        print(&#34;Running tests&#34;)
+        if print_results:
+            print(&#34;Running tests&#34;)
         for word in tqdm(self.word_list):
-            self.logger.warning(f&#34;Testing {word}&#34;)
+            self.logger.debug(f&#34;Testing {word}&#34;)
             self.start_game()
             self.secret_word = word
             while self.game_in_progress:
@@ -118,13 +122,15 @@ the performance of the bot.</p>
                     &#34;guesses&#34;: self.guesses,
                 }
             )
-            self.logger.warning(f&#34;Result: {self.test_results[-1]}&#34;)
+            self.logger.debug(f&#34;Result: {self.test_results[-1]}&#34;)
             if self.results[-1] == ALL_CORRECT:
                 self.successes.append(self.secret_word)
             else:
                 self.failures.append(self.secret_word)
-        print(self.get_results_str())
-        # print(self.get_failures_str())
+        if print_results:
+            print(self.get_results_str())
+            print(self.get_failures_str())
+            print(self.get_wacky_failures_string())
 
     def get_results_str(self) -&gt; str:
         &#34;&#34;&#34;
@@ -261,7 +267,7 @@ collect results, and analyze the performance of the bot.</p>
 <dt><strong><code>logger</code></strong> :&ensp;<code>logging.Logger</code></dt>
 <dd>A logger instance for logging test events and errors.</dd>
 </dl>
-<p>Initialize the Tester instance by calling the parent class constructor and setting up the initial state for testing.</p>
+<p>Initialize the WordleTester instance by calling the parent class constructor and setting up the initial state for testing.</p>
 <p>Sets up the test results, successes, failures, and logger.</p></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -269,7 +275,7 @@ collect results, and analyze the performance of the bot.</p>
 </ul>
 <h3>Methods</h3>
 <dl>
-<dt id="wordle_tester.tester.Tester.get_failure_str"><code class="name flex">
+<dt id="tester.wordle_tester.WordleTester.get_failure_str"><code class="name flex">
 <span>def <span class="ident">get_failure_str</span></span>(<span>self, r: dict, color: bool = True) ‑> str</span>
 </code></dt>
 <dd>
@@ -317,7 +323,7 @@ Defaults to True.</dd>
 guesses, and results.</dd>
 </dl></div>
 </dd>
-<dt id="wordle_tester.tester.Tester.get_failures_str"><code class="name flex">
+<dt id="tester.wordle_tester.WordleTester.get_failures_str"><code class="name flex">
 <span>def <span class="ident">get_failures_str</span></span>(<span>self, color: bool = True) ‑> str</span>
 </code></dt>
 <dd>
@@ -367,7 +373,7 @@ Defaults to True.</dd>
 guesses, and results.</dd>
 </dl></div>
 </dd>
-<dt id="wordle_tester.tester.Tester.get_results_str"><code class="name flex">
+<dt id="tester.wordle_tester.WordleTester.get_results_str"><code class="name flex">
 <span>def <span class="ident">get_results_str</span></span>(<span>self) ‑> str</span>
 </code></dt>
 <dd>
@@ -424,7 +430,7 @@ guesses, and results.</dd>
 average guesses per success, and details of incorrect guesses.</dd>
 </dl></div>
 </dd>
-<dt id="wordle_tester.tester.Tester.get_wacky_failures_string"><code class="name flex">
+<dt id="tester.wordle_tester.WordleTester.get_wacky_failures_string"><code class="name flex">
 <span>def <span class="ident">get_wacky_failures_string</span></span>(<span>self, color: bool = True) ‑> str</span>
 </code></dt>
 <dd>
@@ -478,15 +484,15 @@ Defaults to True.</dd>
 including the words, guesses, and results.</dd>
 </dl></div>
 </dd>
-<dt id="wordle_tester.tester.Tester.test"><code class="name flex">
-<span>def <span class="ident">test</span></span>(<span>self,<br>bot: <a title="wordle_bot.bot_behaviors.BotBehaviors" href="../wordle_bot/bot_behaviors.html#wordle_bot.bot_behaviors.BotBehaviors">BotBehaviors</a>) ‑> None</span>
+<dt id="tester.wordle_tester.WordleTester.test"><code class="name flex">
+<span>def <span class="ident">test</span></span>(<span>self,<br>bot: <a title="bots.bot_behaviors.BotBehaviors" href="../bots/bot_behaviors.html#bots.bot_behaviors.BotBehaviors">BotBehaviors</a>,<br>print_results: bool = True) ‑> None</span>
 </code></dt>
 <dd>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def test(self, bot: BotBehaviors) -&gt; None:
+<pre><code class="python">def test(self, bot: BotBehaviors, print_results: bool = True) -&gt; None:
     &#34;&#34;&#34;
     Runs tests on the bot using a predefined list of words.
 
@@ -499,10 +505,14 @@ including the words, guesses, and results.</dd>
     bot : BotBehaviors
         An instance of a bot that inherits from BotBehaviors.
         This bot will generate guesses and accept results based on the game&#39;s feedback.
+    print_results : bool, optional
+        If True, the results of the tests will be printed to the console.
+        Defaults to True.
     &#34;&#34;&#34;
-    print(&#34;Running tests&#34;)
+    if print_results:
+        print(&#34;Running tests&#34;)
     for word in tqdm(self.word_list):
-        self.logger.warning(f&#34;Testing {word}&#34;)
+        self.logger.debug(f&#34;Testing {word}&#34;)
         self.start_game()
         self.secret_word = word
         while self.game_in_progress:
@@ -515,13 +525,15 @@ including the words, guesses, and results.</dd>
                 &#34;guesses&#34;: self.guesses,
             }
         )
-        self.logger.warning(f&#34;Result: {self.test_results[-1]}&#34;)
+        self.logger.debug(f&#34;Result: {self.test_results[-1]}&#34;)
         if self.results[-1] == ALL_CORRECT:
             self.successes.append(self.secret_word)
         else:
             self.failures.append(self.secret_word)
-    print(self.get_results_str())
-    # print(self.get_failures_str())</code></pre>
+    if print_results:
+        print(self.get_results_str())
+        print(self.get_failures_str())
+        print(self.get_wacky_failures_string())</code></pre>
 </details>
 <div class="desc"><p>Runs tests on the bot using a predefined list of words.</p>
 <p>It iterates through each word in the word list, starts a new game,
@@ -532,6 +544,9 @@ The results of each test are collected and stored in the test_results list.</p>
 <dt><strong><code>bot</code></strong> :&ensp;<code>BotBehaviors</code></dt>
 <dd>An instance of a bot that inherits from BotBehaviors.
 This bot will generate guesses and accept results based on the game's feedback.</dd>
+<dt><strong><code>print_results</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>If True, the results of the tests will be printed to the console.
+Defaults to True.</dd>
 </dl></div>
 </dd>
 </dl>
@@ -559,19 +574,19 @@ This bot will generate guesses and accept results based on the game's feedback.<
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="wordle_tester" href="index.html">wordle_tester</a></code></li>
+<li><code><a title="tester" href="index.html">tester</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="wordle_tester.tester.Tester" href="#wordle_tester.tester.Tester">Tester</a></code></h4>
+<h4><code><a title="tester.wordle_tester.WordleTester" href="#tester.wordle_tester.WordleTester">WordleTester</a></code></h4>
 <ul class="">
-<li><code><a title="wordle_tester.tester.Tester.get_failure_str" href="#wordle_tester.tester.Tester.get_failure_str">get_failure_str</a></code></li>
-<li><code><a title="wordle_tester.tester.Tester.get_failures_str" href="#wordle_tester.tester.Tester.get_failures_str">get_failures_str</a></code></li>
-<li><code><a title="wordle_tester.tester.Tester.get_results_str" href="#wordle_tester.tester.Tester.get_results_str">get_results_str</a></code></li>
-<li><code><a title="wordle_tester.tester.Tester.get_wacky_failures_string" href="#wordle_tester.tester.Tester.get_wacky_failures_string">get_wacky_failures_string</a></code></li>
-<li><code><a title="wordle_tester.tester.Tester.test" href="#wordle_tester.tester.Tester.test">test</a></code></li>
+<li><code><a title="tester.wordle_tester.WordleTester.get_failure_str" href="#tester.wordle_tester.WordleTester.get_failure_str">get_failure_str</a></code></li>
+<li><code><a title="tester.wordle_tester.WordleTester.get_failures_str" href="#tester.wordle_tester.WordleTester.get_failures_str">get_failures_str</a></code></li>
+<li><code><a title="tester.wordle_tester.WordleTester.get_results_str" href="#tester.wordle_tester.WordleTester.get_results_str">get_results_str</a></code></li>
+<li><code><a title="tester.wordle_tester.WordleTester.get_wacky_failures_string" href="#tester.wordle_tester.WordleTester.get_wacky_failures_string">get_wacky_failures_string</a></code></li>
+<li><code><a title="tester.wordle_tester.WordleTester.test" href="#tester.wordle_tester.WordleTester.test">test</a></code></li>
 </ul>
 </li>
 </ul>

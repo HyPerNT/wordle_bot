@@ -16,7 +16,7 @@ from common import (
 )
 import logging
 
-# file: wordle_bot/util.py
+# file: bots/util.py
 
 GUESSES = "words"
 RESULTS = "results"

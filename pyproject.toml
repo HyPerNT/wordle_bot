@@ -1,38 +1,3 @@
-[flake8]
-max-line-length = 150
-
-[tool.interrogate]
-ignore-init-module = true
-
-[tool.pytest.ini_options]
-addopts = [
-    "--import-mode=importlib",
-]
-
-[tool.poetry]
-name = "wordle_bot"
-packages = [
-    { include = "common", from = "src" },
-    { include = "wordle", from = "src" },
-    { include = "wordle_bot", from = "src" },
-    { include = "wordle_tester", from = "src" },
-]
-version = "0.1.0"
-description = "A small package for playing Wordle automatically"
-authors = ["HyPerNT <brentoncandelaria@gmail.com>"]
-readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.11"
-tqdm = "^4.67.1"
-
-[tool.poetry.group.dev.dependencies]
-pre-commit = "^4.2.0"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
 [project]
 name = "wordle_bot"
 version = "0.1.0"
@@ -78,3 +43,43 @@ classifiers = [
 
 [project.urls]
 Homepage = "https://github.com/HyPerNT/wordle_bot"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "wordle_bot"
+packages = [
+    { include = "common", from = "src" },
+    { include = "wordle", from = "src" },
+    { include = "bot", from = "src" },
+    { include = "tester", from = "src" },
+]
+version = "0.1.0"
+description = "A small package for playing Wordle automatically"
+authors = ["HyPerNT <brentoncandelaria@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+tqdm = "^4.67.1"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^4.2.0"
+
+[flake8]
+max-line-length = 150
+
+[tool.interrogate]
+ignore-init-module = true
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+pythonpath = "src"
+testpaths = [
+    "tests",
+]
