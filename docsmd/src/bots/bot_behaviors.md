@@ -1,20 +1,12 @@
 # BotBehaviors
 
-[Wordle_bot Index](../../README.md#wordle_bot-index) / `src` / [Bots](./index.md#bots) / BotBehaviors
+[wordle_bot Index](../../README.md#wordle_bot-index) / `src` / [Bots](./index.md#bots) / BotBehaviors
 
-> Auto-generated documentation for [src.bots.bot_behaviors](../../../src/bots/bot_behaviors.py) module.
-
-- [BotBehaviors](#botbehaviors)
-  - [BotBehaviors](#botbehaviors-1)
-    - [BotBehaviors().accept_result](#botbehaviors()accept_result)
-    - [BotBehaviors().generate_first_guess](#botbehaviors()generate_first_guess)
-    - [BotBehaviors().generate_guess](#botbehaviors()generate_guess)
-    - [BotBehaviors().generate_next_guess](#botbehaviors()generate_next_guess)
-    - [BotBehaviors().reset](#botbehaviors()reset)
+> Auto-generated documentation for [src.bots.bot_behaviors](https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/bot_behaviors.py) module.
 
 ## BotBehaviors
 
-[Show source in bot_behaviors.py:16](../../../src/bots/bot_behaviors.py#L16)
+[Show source in bot_behaviors.py:16](https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/bot_behaviors.py#L16)
 
 A class representing the behaviors of a Wordle bot.
 
@@ -41,7 +33,7 @@ class BotBehaviors:
 
 ### BotBehaviors().accept_result
 
-[Show source in bot_behaviors.py:102](../../../src/bots/bot_behaviors.py#L102)
+[Show source in bot_behaviors.py:102](https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/bot_behaviors.py#L102)
 
 Accept the result of a guess and updates the bot's state accordingly.
 
@@ -67,7 +59,7 @@ def accept_result(self, result: dict): ...
 
 ### BotBehaviors().generate_first_guess
 
-[Show source in bot_behaviors.py:56](../../../src/bots/bot_behaviors.py#L56)
+[Show source in bot_behaviors.py:56](https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/bot_behaviors.py#L56)
 
 Code to generate the first guess.
 
@@ -86,7 +78,7 @@ def generate_first_guess(self: ignore[empty - body]) -> str: ...
 
 ### BotBehaviors().generate_guess
 
-[Show source in bot_behaviors.py:82](../../../src/bots/bot_behaviors.py#L82)
+[Show source in bot_behaviors.py:82](https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/bot_behaviors.py#L82)
 
 Generate a guess for the bot based on the current state of guesses.
 
@@ -106,7 +98,7 @@ def generate_guess(self) -> str: ...
 
 ### BotBehaviors().generate_next_guess
 
-[Show source in bot_behaviors.py:69](../../../src/bots/bot_behaviors.py#L69)
+[Show source in bot_behaviors.py:69](https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/bot_behaviors.py#L69)
 
 Code to generate the next guess.
 
@@ -125,7 +117,7 @@ def generate_next_guess(self: ignore[empty - body]) -> str: ...
 
 ### BotBehaviors().reset
 
-[Show source in bot_behaviors.py:46](../../../src/bots/bot_behaviors.py#L46)
+[Show source in bot_behaviors.py:46](https://github.com/HyPerNT/wordle_bot/blob/main/src/bots/bot_behaviors.py#L46)
 
 Reset the bot's guesses and results.
 
