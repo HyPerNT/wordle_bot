@@ -86,7 +86,7 @@ Check out the [Example Bot](https://github.com/HyPerNT/wordle_bot/blob/main/src/
 * [Pyroma](pyroma-url)
 * [Interrogate](int-url)
 * [Pydocstyle](pds-url)
-* [Pdoc](pdoc-url)
+* [Handsdown](hd-url)
 * [Coverage](coverage-url)
 * [Coverage-badge](coverage-badge-url)
 
@@ -132,7 +132,7 @@ curl -fsSL https://pyenv.run | bash\n
    ```
 4. (Optional) Install additional python modules to support use of pre-commit hooks, tests, and coverage reports
    ```sh
-   pip3 install poetry mypy flake8 black pyroma xenon interrogate pdoc3 pytest coverage coverage-badge
+   pip3 install poetry mypy flake8 black pyroma xenon interrogate handsdown pytest coverage coverage-badge
    ```
 5. Change git remote url to avoid accidental pushes to base project
    ```sh
@@ -221,7 +221,7 @@ Project Link: [https://github.com/HyPerNT/wordle_bot](https://github.com/HyPerNt
 [pyroma-url]: https://pypi.org/project/pyroma/
 [int-url]: https://interrogate.readthedocs.io/en/latest/
 [pds-url]: https://www.pydocstyle.org/en/stable/
-[pdoc-url]: https://pdoc3.github.io/pdoc/
+[hd-url]: https://github.com/vemel/handsdown
 [coverage-url]: https://coverage.readthedocs.io/en/7.9.1/
 [coverage-badge-url]: https://pypi.org/project/coverage-badge/
 [coverage-badge]: badges/coverage.svg
