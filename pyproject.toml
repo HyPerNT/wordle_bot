@@ -1,0 +1,80 @@
+[flake8]
+max-line-length = 150
+
+[tool.interrogate]
+ignore-init-module = true
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+
+[tool.poetry]
+name = "wordle_bot"
+packages = [
+    { include = "common", from = "src" },
+    { include = "wordle", from = "src" },
+    { include = "wordle_bot", from = "src" },
+    { include = "wordle_tester", from = "src" },
+]
+version = "0.1.0"
+description = "A small package for playing Wordle automatically"
+authors = ["HyPerNT <brentoncandelaria@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+tqdm = "^4.67.1"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^4.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "wordle_bot"
+version = "0.1.0"
+description = "A small package for playing Wordle automatically"
+long_description = """
+    Provides a set of tools for playing Wordle automatically, the game itself, and a testing framework for Wordle bots.
+    This package is designed to be used as a library for creating Wordle bots, and includes a simple command-line interface for playing the game.
+    It also includes a testing framework for Wordle bots, allowing users to test their bots against a set of predefined scenarios.
+    The package is designed to be easy to use and extend, with a focus on providing a simple and intuitive interface for creating and testing Wordle bots.
+    The package is written in Python and is compatible with Python 3.11 and later.
+    It is designed to be used as a library, but also includes a simple command-line interface for playing the game.
+    """
+dependencies = [
+    "tqdm>=4.67.1"
+]
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    {name = "Brenton Candelaria", email = "brentoncandelaria@gmail.com"}
+]
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = [
+    "wordle",
+    "bot",
+    "automation",
+    "testing",
+    "game"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Framework :: Pytest",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Games/Entertainment :: Puzzle Games",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/HyPerNT/wordle_bot"

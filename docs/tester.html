@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>tester API documentation</title>
+<meta name="description" content="Tester for Wordle Bot Functionality …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>tester</code></h1>
+</header>
+<section id="section-intro">
+<p>Tester for Wordle Bot Functionality.</p>
+<p>This module defines the Tester class, which is used to test a Wordle bot against a list of words.</p>
+<p>It inherits from the Wordle class and provides methods to run tests, collect results, and analyze
+the performance of the bot.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="tester.Tester"><code class="flex name class">
+<span>class <span class="ident">Tester</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Tester(Wordle):
+    &#34;&#34;&#34;
+    A class to test a Wordle bot against a list of words.
+
+    It inherits from the Wordle class and provides methods to run tests,
+    collect results, and analyze the performance of the bot.
+
+    Attributes
+    ----------
+    test_results : list[dict]
+        A list to store the results of each test, including the word, result, and guesses.
+    successes : list[str]
+        A list to store the words that were guessed correctly by the bot.
+    failures : list[str]
+        A list to store the words that were not guessed correctly by the bot.
+    logger : logging.Logger
+        A logger instance for logging test events and errors.
+    &#34;&#34;&#34;
+
+    def __init__(self) -&gt; None:
+        &#34;&#34;&#34;
+        Initialize the Tester instance by calling the parent class constructor and setting up the initial state for testing.
+
+        Sets up the test results, successes, failures, and logger.
+        &#34;&#34;&#34;
+        super().__init__()
+        self.test_results: list[dict] = []
+        self.successes: list[str] = []
+        self.failures: list[str] = []
+        self.logger = logging.getLogger(__name__ + &#34;.&#34; + self.__class__.__name__)
+
+    def test(self, bot: BotBehaviors) -&gt; None:
+        &#34;&#34;&#34;
+        Runs tests on the bot using a predefined list of words.
+
+        It iterates through each word in the word list, starts a new game,
+        sets the secret word, and allows the bot to make guesses until the game is over.
+        The results of each test are collected and stored in the test_results list.
+
+        Parameters
+        ----------
+        bot : BotBehaviors
+            An instance of a bot that inherits from BotBehaviors.
+            This bot will generate guesses and accept results based on the game&#39;s feedback.
+        &#34;&#34;&#34;
+        print(&#34;Running tests&#34;)
+        for word in tqdm(self.word_list):
+            self.logger.warning(f&#34;Testing {word}&#34;)
+            self.start_game()
+            self.secret_word = word
+            while self.game_in_progress:
+                result = self.guess(bot.generate_guess())
+                bot.accept_result(result)
+            self.test_results.append(
+                {
+                    &#34;word&#34;: self.secret_word,
+                    &#34;result&#34;: self.results,
+                    &#34;guesses&#34;: self.guesses,
+                }
+            )
+            self.logger.warning(f&#34;Result: {self.test_results[-1]}&#34;)
+            if self.results[-1] == ALL_CORRECT:
+                self.successes.append(self.secret_word)
+            else:
+                self.failures.append(self.secret_word)
+        print(self.get_results_str())
+        print(self.get_failures_str())
+
+    def get_results_str(self) -&gt; str:
+        &#34;&#34;&#34;
+        Generate a summary string of the test results, including the number of correct and incorrect guesses, success rates, and failure details.
+
+        Returns
+        -------
+        str
+            A formatted string summarizing the test results, including success and failure rates,
+            average guesses per success, and details of incorrect guesses.
+        &#34;&#34;&#34;
+        string = f&#34;Correct guesses: {len(self.successes)}/{len(self.word_list)} ({100 * len(self.successes)/len(self.word_list):.2f}%)\n&#34;
+        string += f&#34;Incorrect guesses: {len(self.failures)}/{len(self.word_list)} ({100 * len(self.failures)/len(self.word_list):.2f}%)\n&#34;
+        guess_counts = [0 for _ in range(6)]
+        size = 0
+        for r in self.test_results:
+            if r[&#34;result&#34;][-1] != ALL_CORRECT:
+                continue
+            count = len(r[&#34;result&#34;])
+            size += count
+            guess_counts[count - 1] += 1
+        string += &#34;Success rate:\n&#34;
+        for i in range(6):
+            string += f&#34;\t{i+1} guesses: {guess_counts[i]} ({100 * guess_counts[i]/len(self.successes):.2f}%)\n&#34;
+        string += f&#34;\tAvg: {size / len(self.successes):.3f}\n&#34;
+        string += &#34;Failure details:\n&#34;
+        correct_letters = 0
+        incorrect_letters = 0
+        for r in self.test_results:
+            if r[&#34;result&#34;][-1] == ALL_CORRECT:
+                continue
+            correct_letters += sum(
+                boolean_comprehension(r[&#34;result&#34;][-1], CORRECT_LETTER)
+            )
+            incorrect_letters += sum(
+                boolean_comprehension(r[&#34;result&#34;][-1], INCORRECT_LETTER)
+            )
+        string += f&#34;\tAverage correct letters on loss: {correct_letters / len(self.failures):.3f}\n&#34;
+        string += f&#34;\tAverage incorrect letters on loss: {incorrect_letters / len(self.failures):.3f}\n&#34;
+        string += f&#34;\tAverage misplaced letters on loss: {(5 * len(self.failures) - correct_letters - incorrect_letters) / len(self.failures):.3f}\n&#34;
+        return string
+
+    def get_failures_str(self, color: bool = True) -&gt; str:
+        &#34;&#34;&#34;
+        Generate a detailed string of the failures encountered during the tests.
+
+        This includes the words that were not guessed correctly, the guesses made,
+        and the results of those guesses.
+
+        Parameters
+        ----------
+        color : bool, optional
+            If True, the output will be formatted with colors for better readability.
+            Defaults to True.
+
+        Returns
+        -------
+        str
+            A formatted string containing details of the failures, including the words,
+            guesses, and results.
+        &#34;&#34;&#34;
+        string = &#34;Additional failure details:\n&#34;
+        for r in self.test_results:
+            if r[&#34;result&#34;][-1] == ALL_CORRECT:
+                continue
+            string += self.get_failure_str(r, color)
+        return string
+
+    def get_failure_str(self, r: dict, color: bool = True) -&gt; str:
+        &#34;&#34;&#34;
+        Generate a formatted string for a single failure, including the word, the guesses made, and the results of those guesses.
+
+        Parameters
+        ----------
+        r : dict
+            A dictionary containing the word, guesses, and results for a single test.
+        color : bool, optional
+            If True, the output will be formatted with colors for better readability.
+            Defaults to True.
+
+        Returns
+        -------
+        str
+            A formatted string containing the details of the failure, including the word,
+            guesses, and results.
+        &#34;&#34;&#34;
+        string = f&#34;\t{r[&#39;word&#39;]}\n&#34;
+        prettify_guess_fn = prettify_guess_no_color if not color else prettify_guess
+        for word, result in zip(r[&#34;guesses&#34;], r[&#34;result&#34;]):
+            string += f&#34;\t\t{prettify_guess_fn(word, result)}\n&#34;
+        return string
+
+    def get_wacky_failures_string(self, color: bool = True) -&gt; str:
+        &#34;&#34;&#34;
+        Generate a string containing details of failures that include misplaced letters.
+
+        This method filters the test results to include only those where the last result
+        contains misplaced letters, and formats the output accordingly.
+
+        Parameters
+        ----------
+        color : bool, optional
+            If True, the output will be formatted with colors for better readability.
+            Defaults to True.
+
+        Returns
+        -------
+        str
+            A formatted string containing details of failures with misplaced letters,
+            including the words, guesses, and results.
+        &#34;&#34;&#34;
+        string = &#34;Failure details:\n&#34;
+        prettify_guess_fn = prettify_guess_no_color if not color else prettify_guess
+        for r in self.test_results:
+            if r[&#34;result&#34;][-1] == ALL_CORRECT:
+                continue
+            if MISPLACED_LETTER in r[&#34;result&#34;][-1]:
+                string += f&#34;\t{r[&#39;word&#39;]}\n&#34;
+                for word, result in zip(r[&#34;guesses&#34;], r[&#34;result&#34;]):
+                    string += f&#34;\t\t{prettify_guess_fn(word, result)}\n&#34;
+        return string</code></pre>
+</details>
+<div class="desc"><p>A class to test a Wordle bot against a list of words.</p>
+<p>It inherits from the Wordle class and provides methods to run tests,
+collect results, and analyze the performance of the bot.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>test_results</code></strong> :&ensp;<code>list[dict]</code></dt>
+<dd>A list to store the results of each test, including the word, result, and guesses.</dd>
+<dt><strong><code>successes</code></strong> :&ensp;<code>list[str]</code></dt>
+<dd>A list to store the words that were guessed correctly by the bot.</dd>
+<dt><strong><code>failures</code></strong> :&ensp;<code>list[str]</code></dt>
+<dd>A list to store the words that were not guessed correctly by the bot.</dd>
+<dt><strong><code>logger</code></strong> :&ensp;<code>logging.Logger</code></dt>
+<dd>A logger instance for logging test events and errors.</dd>
+</dl>
+<p>Initialize the Tester instance by calling the parent class constructor and setting up the initial state for testing.</p>
+<p>Sets up the test results, successes, failures, and logger.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="wordle.wordle.Wordle" href="wordle/wordle.html#wordle.wordle.Wordle">Wordle</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="tester.Tester.get_failure_str"><code class="name flex">
+<span>def <span class="ident">get_failure_str</span></span>(<span>self, r: dict, color: bool = True) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_failure_str(self, r: dict, color: bool = True) -&gt; str:
+    &#34;&#34;&#34;
+    Generate a formatted string for a single failure, including the word, the guesses made, and the results of those guesses.
+
+    Parameters
+    ----------
+    r : dict
+        A dictionary containing the word, guesses, and results for a single test.
+    color : bool, optional
+        If True, the output will be formatted with colors for better readability.
+        Defaults to True.
+
+    Returns
+    -------
+    str
+        A formatted string containing the details of the failure, including the word,
+        guesses, and results.
+    &#34;&#34;&#34;
+    string = f&#34;\t{r[&#39;word&#39;]}\n&#34;
+    prettify_guess_fn = prettify_guess_no_color if not color else prettify_guess
+    for word, result in zip(r[&#34;guesses&#34;], r[&#34;result&#34;]):
+        string += f&#34;\t\t{prettify_guess_fn(word, result)}\n&#34;
+    return string</code></pre>
+</details>
+<div class="desc"><p>Generate a formatted string for a single failure, including the word, the guesses made, and the results of those guesses.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>r</code></strong> :&ensp;<code>dict</code></dt>
+<dd>A dictionary containing the word, guesses, and results for a single test.</dd>
+<dt><strong><code>color</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>If True, the output will be formatted with colors for better readability.
+Defaults to True.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A formatted string containing the details of the failure, including the word,
+guesses, and results.</dd>
+</dl></div>
+</dd>
+<dt id="tester.Tester.get_failures_str"><code class="name flex">
+<span>def <span class="ident">get_failures_str</span></span>(<span>self, color: bool = True) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_failures_str(self, color: bool = True) -&gt; str:
+    &#34;&#34;&#34;
+    Generate a detailed string of the failures encountered during the tests.
+
+    This includes the words that were not guessed correctly, the guesses made,
+    and the results of those guesses.
+
+    Parameters
+    ----------
+    color : bool, optional
+        If True, the output will be formatted with colors for better readability.
+        Defaults to True.
+
+    Returns
+    -------
+    str
+        A formatted string containing details of the failures, including the words,
+        guesses, and results.
+    &#34;&#34;&#34;
+    string = &#34;Additional failure details:\n&#34;
+    for r in self.test_results:
+        if r[&#34;result&#34;][-1] == ALL_CORRECT:
+            continue
+        string += self.get_failure_str(r, color)
+    return string</code></pre>
+</details>
+<div class="desc"><p>Generate a detailed string of the failures encountered during the tests.</p>
+<p>This includes the words that were not guessed correctly, the guesses made,
+and the results of those guesses.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>color</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>If True, the output will be formatted with colors for better readability.
+Defaults to True.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A formatted string containing details of the failures, including the words,
+guesses, and results.</dd>
+</dl></div>
+</dd>
+<dt id="tester.Tester.get_results_str"><code class="name flex">
+<span>def <span class="ident">get_results_str</span></span>(<span>self) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_results_str(self) -&gt; str:
+    &#34;&#34;&#34;
+    Generate a summary string of the test results, including the number of correct and incorrect guesses, success rates, and failure details.
+
+    Returns
+    -------
+    str
+        A formatted string summarizing the test results, including success and failure rates,
+        average guesses per success, and details of incorrect guesses.
+    &#34;&#34;&#34;
+    string = f&#34;Correct guesses: {len(self.successes)}/{len(self.word_list)} ({100 * len(self.successes)/len(self.word_list):.2f}%)\n&#34;
+    string += f&#34;Incorrect guesses: {len(self.failures)}/{len(self.word_list)} ({100 * len(self.failures)/len(self.word_list):.2f}%)\n&#34;
+    guess_counts = [0 for _ in range(6)]
+    size = 0
+    for r in self.test_results:
+        if r[&#34;result&#34;][-1] != ALL_CORRECT:
+            continue
+        count = len(r[&#34;result&#34;])
+        size += count
+        guess_counts[count - 1] += 1
+    string += &#34;Success rate:\n&#34;
+    for i in range(6):
+        string += f&#34;\t{i+1} guesses: {guess_counts[i]} ({100 * guess_counts[i]/len(self.successes):.2f}%)\n&#34;
+    string += f&#34;\tAvg: {size / len(self.successes):.3f}\n&#34;
+    string += &#34;Failure details:\n&#34;
+    correct_letters = 0
+    incorrect_letters = 0
+    for r in self.test_results:
+        if r[&#34;result&#34;][-1] == ALL_CORRECT:
+            continue
+        correct_letters += sum(
+            boolean_comprehension(r[&#34;result&#34;][-1], CORRECT_LETTER)
+        )
+        incorrect_letters += sum(
+            boolean_comprehension(r[&#34;result&#34;][-1], INCORRECT_LETTER)
+        )
+    string += f&#34;\tAverage correct letters on loss: {correct_letters / len(self.failures):.3f}\n&#34;
+    string += f&#34;\tAverage incorrect letters on loss: {incorrect_letters / len(self.failures):.3f}\n&#34;
+    string += f&#34;\tAverage misplaced letters on loss: {(5 * len(self.failures) - correct_letters - incorrect_letters) / len(self.failures):.3f}\n&#34;
+    return string</code></pre>
+</details>
+<div class="desc"><p>Generate a summary string of the test results, including the number of correct and incorrect guesses, success rates, and failure details.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A formatted string summarizing the test results, including success and failure rates,
+average guesses per success, and details of incorrect guesses.</dd>
+</dl></div>
+</dd>
+<dt id="tester.Tester.get_wacky_failures_string"><code class="name flex">
+<span>def <span class="ident">get_wacky_failures_string</span></span>(<span>self, color: bool = True) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_wacky_failures_string(self, color: bool = True) -&gt; str:
+    &#34;&#34;&#34;
+    Generate a string containing details of failures that include misplaced letters.
+
+    This method filters the test results to include only those where the last result
+    contains misplaced letters, and formats the output accordingly.
+
+    Parameters
+    ----------
+    color : bool, optional
+        If True, the output will be formatted with colors for better readability.
+        Defaults to True.
+
+    Returns
+    -------
+    str
+        A formatted string containing details of failures with misplaced letters,
+        including the words, guesses, and results.
+    &#34;&#34;&#34;
+    string = &#34;Failure details:\n&#34;
+    prettify_guess_fn = prettify_guess_no_color if not color else prettify_guess
+    for r in self.test_results:
+        if r[&#34;result&#34;][-1] == ALL_CORRECT:
+            continue
+        if MISPLACED_LETTER in r[&#34;result&#34;][-1]:
+            string += f&#34;\t{r[&#39;word&#39;]}\n&#34;
+            for word, result in zip(r[&#34;guesses&#34;], r[&#34;result&#34;]):
+                string += f&#34;\t\t{prettify_guess_fn(word, result)}\n&#34;
+    return string</code></pre>
+</details>
+<div class="desc"><p>Generate a string containing details of failures that include misplaced letters.</p>
+<p>This method filters the test results to include only those where the last result
+contains misplaced letters, and formats the output accordingly.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>color</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>If True, the output will be formatted with colors for better readability.
+Defaults to True.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A formatted string containing details of failures with misplaced letters,
+including the words, guesses, and results.</dd>
+</dl></div>
+</dd>
+<dt id="tester.Tester.test"><code class="name flex">
+<span>def <span class="ident">test</span></span>(<span>self,<br>bot: <a title="wordle_bot.bot_behaviors.BotBehaviors" href="wordle_bot/bot_behaviors.html#wordle_bot.bot_behaviors.BotBehaviors">BotBehaviors</a>) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test(self, bot: BotBehaviors) -&gt; None:
+    &#34;&#34;&#34;
+    Runs tests on the bot using a predefined list of words.
+
+    It iterates through each word in the word list, starts a new game,
+    sets the secret word, and allows the bot to make guesses until the game is over.
+    The results of each test are collected and stored in the test_results list.
+
+    Parameters
+    ----------
+    bot : BotBehaviors
+        An instance of a bot that inherits from BotBehaviors.
+        This bot will generate guesses and accept results based on the game&#39;s feedback.
+    &#34;&#34;&#34;
+    print(&#34;Running tests&#34;)
+    for word in tqdm(self.word_list):
+        self.logger.warning(f&#34;Testing {word}&#34;)
+        self.start_game()
+        self.secret_word = word
+        while self.game_in_progress:
+            result = self.guess(bot.generate_guess())
+            bot.accept_result(result)
+        self.test_results.append(
+            {
+                &#34;word&#34;: self.secret_word,
+                &#34;result&#34;: self.results,
+                &#34;guesses&#34;: self.guesses,
+            }
+        )
+        self.logger.warning(f&#34;Result: {self.test_results[-1]}&#34;)
+        if self.results[-1] == ALL_CORRECT:
+            self.successes.append(self.secret_word)
+        else:
+            self.failures.append(self.secret_word)
+    print(self.get_results_str())
+    print(self.get_failures_str())</code></pre>
+</details>
+<div class="desc"><p>Runs tests on the bot using a predefined list of words.</p>
+<p>It iterates through each word in the word list, starts a new game,
+sets the secret word, and allows the bot to make guesses until the game is over.
+The results of each test are collected and stored in the test_results list.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>bot</code></strong> :&ensp;<code>BotBehaviors</code></dt>
+<dd>An instance of a bot that inherits from BotBehaviors.
+This bot will generate guesses and accept results based on the game's feedback.</dd>
+</dl></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="wordle.wordle.Wordle" href="wordle/wordle.html#wordle.wordle.Wordle">Wordle</a></b></code>:
+<ul class="hlist">
+<li><code><a title="wordle.wordle.Wordle.check_error_conditions" href="wordle/wordle.html#wordle.wordle.Wordle.check_error_conditions">check_error_conditions</a></code></li>
+<li><code><a title="wordle.wordle.Wordle.generate_word" href="wordle/wordle.html#wordle.wordle.Wordle.generate_word">generate_word</a></code></li>
+<li><code><a title="wordle.wordle.Wordle.get_all_indices" href="wordle/wordle.html#wordle.wordle.Wordle.get_all_indices">get_all_indices</a></code></li>
+<li><code><a title="wordle.wordle.Wordle.guess" href="wordle/wordle.html#wordle.wordle.Wordle.guess">guess</a></code></li>
+<li><code><a title="wordle.wordle.Wordle.is_misplaced_letter" href="wordle/wordle.html#wordle.wordle.Wordle.is_misplaced_letter">is_misplaced_letter</a></code></li>
+<li><code><a title="wordle.wordle.Wordle.start_game" href="wordle/wordle.html#wordle.wordle.Wordle.start_game">start_game</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="tester.Tester" href="#tester.Tester">Tester</a></code></h4>
+<ul class="">
+<li><code><a title="tester.Tester.get_failure_str" href="#tester.Tester.get_failure_str">get_failure_str</a></code></li>
+<li><code><a title="tester.Tester.get_failures_str" href="#tester.Tester.get_failures_str">get_failures_str</a></code></li>
+<li><code><a title="tester.Tester.get_results_str" href="#tester.Tester.get_results_str">get_results_str</a></code></li>
+<li><code><a title="tester.Tester.get_wacky_failures_string" href="#tester.Tester.get_wacky_failures_string">get_wacky_failures_string</a></code></li>
+<li><code><a title="tester.Tester.test" href="#tester.Tester.test">test</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

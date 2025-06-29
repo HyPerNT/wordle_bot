@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>util API documentation</title>
+<meta name="description" content="Common Utilities for Wordle Bot …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>util</code></h1>
+</header>
+<section id="section-intro">
+<p>Common Utilities for Wordle Bot.</p>
+<p>This module provides various utility functions and constants used throughout the Wordle bot application.</p>
+<p>It includes functions for reading a word list, formatting guesses with ANSI color coding,
+and generating boolean comprehensions for lists.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="util.Filter"><code class="flex name class">
+<span>class <span class="ident">Filter</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Filter:
+    &#34;&#34;&#34;
+    A class that provides various filtering methods for word lists used in Wordle games.
+
+    It includes methods to check for unique letters, filter words based on letter presence,
+    and filter words based on previous guesses and results.
+
+    Attributes
+    ----------
+    logger : logging.Logger
+        A logger instance for logging filtering events and errors.
+    word_list : list[str]
+        A list of valid words that can be used in the game.
+    all_unique_words : list[str]
+        A list of words that contain all unique letters, derived from the word list.
+    &#34;&#34;&#34;
+
+    def __init__(self) -&gt; None:
+        &#34;&#34;&#34;
+        Initialize the Filter instance with a word list and sets up logging.
+
+        Loads the word list from a file and filters it to find words with all unique letters.
+        &#34;&#34;&#34;
+        self.logger = logging.getLogger(__name__ + &#34;.&#34; + self.__class__.__name__)
+        self.word_list = get_word_list()
+        self.all_unique_words = [
+            word for word in self.word_list if self.has_all_unique_letters(word)
+        ]
+
+    def has_all_unique_letters(self, word: str) -&gt; bool:
+        &#34;&#34;&#34;
+        Check if a word contains all unique letters.
+
+        A word is considered to have all unique letters if no letter appears more than once.
+
+        Parameters
+        ----------
+        word : str
+            The word to check for unique letters.
+
+        Returns
+        -------
+        bool
+            True if the word has all unique letters, False otherwise.
+        &#34;&#34;&#34;
+        for c in word:
+            if word.count(c) &gt; 1:
+                return False
+        return True
+
+    def is_letter_possible(self, words: list[str], letter: str) -&gt; bool:
+        &#34;&#34;&#34;
+        Check if a letter is present in any of the words in the list.
+
+        Parameters
+        ----------
+        words : list[str]
+            A list of words to check.
+        letter : str
+            The letter to check for presence in the words.
+
+        Returns
+        -------
+        bool
+            True if the letter is present in any of the words, False otherwise.
+        &#34;&#34;&#34;
+        return any(letter in word for word in words)
+
+    def is_valid_word(self, word: str) -&gt; bool:
+        &#34;&#34;&#34;
+        Check if a word is valid by verifying its presence in the word list.
+
+        Parameters
+        ----------
+        word : str
+            The word to check for validity.
+
+        Returns
+        -------
+        bool
+            True if the word is in the word list, False otherwise.
+        &#34;&#34;&#34;
+        return word in self.word_list
+
+    def filter_containing_letter(self, words: list[str], letter: str) -&gt; list[str]:
+        &#34;&#34;&#34;
+        Filter a list of words to include only those that contain a specific letter.
+
+        Parameters
+        ----------
+        words : list[str]
+            A list of words to filter.
+        letter : str
+            The letter to check for in the words.
+
+        Returns
+        -------
+        list[str]
+            A list of words that contain the specified letter.
+        &#34;&#34;&#34;
+        return [word for word in words if letter in word]
+
+    def filter_not_containing_letter(self, words: list[str], letter: str) -&gt; list[str]:
+        &#34;&#34;&#34;
+        Filter a list of words to exclude those that contain a specific letter.
+
+        Parameters
+        ----------
+        words : list[str]
+            A list of words to filter.
+        letter : str
+            The letter to check for in the words.
+
+        Returns
+        -------
+        list[str]
+            A list of words that do not contain the specified letter.
+        &#34;&#34;&#34;
+        return [word for word in words if letter not in word]
+
+    def filter_containing_letter_at(
+        self, words: list[str], letter: str, index: int
+    ) -&gt; list[str]:
+        &#34;&#34;&#34;
+        Filter a list of words to include only those that contain a specific letter at a specific index.
+
+        Parameters
+        ----------
+        words : list[str]
+            A list of words to filter.
+        letter : str
+            The letter to check for in the words.
+        index : int
+            The index at which the letter should be present in the words.
+
+        Returns
+        -------
+        list[str]
+            A list of words that contain the specified letter at the specified index.
+        &#34;&#34;&#34;
+        return [word for word in words if word[index] == letter]
+
+    def filter_not_containing_letter_at(
+        self, words: list[str], letter: str, index: int
+    ) -&gt; list[str]:
+        &#34;&#34;&#34;
+        Filter a list of words to exclude those that contain a specific letter at a specific index.
+
+        Parameters
+        ----------
+        words : list[str]
+            A list of words to filter.
+        letter : str
+            The letter to check for in the words.
+        index : int
+            The index at which the letter should not be present in the words.
+
+        Returns
+        -------
+        list[str]
+            A list of words that do not contain the specified letter at the specified index.
+        &#34;&#34;&#34;
+        return [word for word in words if word[index] is not letter]
+
+    def filter_compatible_with_guess(
+        self, words: list[str], guess: str, result: dict
+    ) -&gt; list[str]:
+        &#34;&#34;&#34;
+        Filter a list of words based on a guess and the result of that guess.
+
+        The result is expected to be a dictionary with a key &#39;result&#39; that contains a list of responses
+        corresponding to each letter in the guess. The responses can be:
+        - CORRECT_LETTER: The letter is in the correct position.
+        - MISPLACED_LETTER: The letter is in the word but in the wrong position.
+        - INCORRECT_LETTER: The letter is not in the word at all
+
+        Parameters
+        ----------
+        words : list[str]
+            A list of words to filter based on the guess and result.
+        guess : str
+            The guessed word to compare against the words in the list.
+        result : dict
+            A dictionary containing the result of the guess, with a key &#39;result&#39; that holds a
+            list of responses for each letter in the guess.
+
+        Returns
+        -------
+        list[str]
+            A list of words that are compatible with the guess and result.
+        &#34;&#34;&#34;
+        index = 0
+        self.logger.debug(f&#34;Currently {len(words)} words&#34;)
+        self.logger.debug(f&#34;Filtering {guess} / {result[RESULT]}&#34;)
+        for letter, response in zip(guess, result[RESULT]):
+            if response is CORRECT_LETTER:
+                words = self.filter_containing_letter_at(words, letter, index)
+            elif response is INCORRECT_LETTER:
+                if guess.count(letter) &gt; 1:
+                    words = self.filter_not_containing_letter_at(words, letter, index)
+                else:
+                    words = self.filter_not_containing_letter(words, letter)
+            elif response is MISPLACED_LETTER:
+                filtered_words = self.filter_not_containing_letter_at(
+                    words, letter, index
+                )
+                words = self.filter_containing_letter(filtered_words, letter)
+            index += 1
+        self.logger.debug(f&#34;Filtered to {len(words)} words&#34;)
+        return words
+
+    def filter_compatible_with_past_guesses(
+        self, words: list[str], guesses: dict
+    ) -&gt; list[str]:
+        &#34;&#34;&#34;
+        Filter a list of words based on multiple past guesses and their results.
+
+        This method iterates through all past guesses and their corresponding results,
+        filtering the list of words to retain only those that are compatible with all guesses.
+
+        Parameters
+        ----------
+        words : list[str]
+            A list of words to filter based on the past guesses and results.
+        guesses : dict
+            A dictionary containing past guesses and their results, with keys &#39;words&#39; and &#39;results&#39;.
+            &#39;words&#39; is a list of guessed words, and &#39;results&#39; is a list of dictionaries containing
+            the result for each guess.
+
+        Returns
+        -------
+        list[str]
+            A list of words that are compatible with all past guesses and results.
+        &#34;&#34;&#34;
+        for guess, result in zip(guesses[GUESSES], guesses[RESULTS]):
+            words = self.filter_compatible_with_guess(words, guess, result)
+        return words
+
+    def filter_unique_letters(self, words: list[str]) -&gt; list[str]:
+        &#34;&#34;&#34;
+        Filter a list of words to include only those that have all unique letters.
+
+        Parameters
+        ----------
+        words : list[str]
+            A list of words to filter.
+
+        Returns
+        -------
+        list[str]
+            A list of words that contain all unique letters.
+        &#34;&#34;&#34;
+        return [word for word in words if self.has_all_unique_letters(word)]</code></pre>
+</details>
+<div class="desc"><p>A class that provides various filtering methods for word lists used in Wordle games.</p>
+<p>It includes methods to check for unique letters, filter words based on letter presence,
+and filter words based on previous guesses and results.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>logger</code></strong> :&ensp;<code>logging.Logger</code></dt>
+<dd>A logger instance for logging filtering events and errors.</dd>
+<dt><strong><code>word_list</code></strong> :&ensp;<code>list[str]</code></dt>
+<dd>A list of valid words that can be used in the game.</dd>
+<dt><strong><code>all_unique_words</code></strong> :&ensp;<code>list[str]</code></dt>
+<dd>A list of words that contain all unique letters, derived from the word list.</dd>
+</dl>
+<p>Initialize the Filter instance with a word list and sets up logging.</p>
+<p>Loads the word list from a file and filters it to find words with all unique letters.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="util.Filter.filter_compatible_with_guess"><code class="name flex">
+<span>def <span class="ident">filter_compatible_with_guess</span></span>(<span>self, words: list[str], guess: str, result: dict) ‑> list[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def filter_compatible_with_guess(
+    self, words: list[str], guess: str, result: dict
+) -&gt; list[str]:
+    &#34;&#34;&#34;
+    Filter a list of words based on a guess and the result of that guess.
+
+    The result is expected to be a dictionary with a key &#39;result&#39; that contains a list of responses
+    corresponding to each letter in the guess. The responses can be:
+    - CORRECT_LETTER: The letter is in the correct position.
+    - MISPLACED_LETTER: The letter is in the word but in the wrong position.
+    - INCORRECT_LETTER: The letter is not in the word at all
+
+    Parameters
+    ----------
+    words : list[str]
+        A list of words to filter based on the guess and result.
+    guess : str
+        The guessed word to compare against the words in the list.
+    result : dict
+        A dictionary containing the result of the guess, with a key &#39;result&#39; that holds a
+        list of responses for each letter in the guess.
+
+    Returns
+    -------
+    list[str]
+        A list of words that are compatible with the guess and result.
+    &#34;&#34;&#34;
+    index = 0
+    self.logger.debug(f&#34;Currently {len(words)} words&#34;)
+    self.logger.debug(f&#34;Filtering {guess} / {result[RESULT]}&#34;)
+    for letter, response in zip(guess, result[RESULT]):
+        if response is CORRECT_LETTER:
+            words = self.filter_containing_letter_at(words, letter, index)
+        elif response is INCORRECT_LETTER:
+            if guess.count(letter) &gt; 1:
+                words = self.filter_not_containing_letter_at(words, letter, index)
+            else:
+                words = self.filter_not_containing_letter(words, letter)
+        elif response is MISPLACED_LETTER:
+            filtered_words = self.filter_not_containing_letter_at(
+                words, letter, index
+            )
+            words = self.filter_containing_letter(filtered_words, letter)
+        index += 1
+    self.logger.debug(f&#34;Filtered to {len(words)} words&#34;)
+    return words</code></pre>
+</details>
+<div class="desc"><p>Filter a list of words based on a guess and the result of that guess.</p>
+<p>The result is expected to be a dictionary with a key 'result' that contains a list of responses
+corresponding to each letter in the guess. The responses can be:
+- CORRECT_LETTER: The letter is in the correct position.
+- MISPLACED_LETTER: The letter is in the word but in the wrong position.
+- INCORRECT_LETTER: The letter is not in the word at all</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>words</code></strong> :&ensp;<code>list[str]</code></dt>
+<dd>A list of words to filter based on the guess and result.</dd>
+<dt><strong><code>guess</code></strong> :&ensp;<code>str</code></dt>
+<dd>The guessed word to compare against the words in the list.</dd>
+<dt><strong><code>result</code></strong> :&ensp;<code>dict</code></dt>
+<dd>A dictionary containing the result of the guess, with a key 'result' that holds a
+list of responses for each letter in the guess.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[str]</code></dt>
+<dd>A list of words that are compatible with the guess and result.</dd>
+</dl></div>
+</dd>
+<dt id="util.Filter.filter_compatible_with_past_guesses"><code class="name flex">
+<span>def <span class="ident">filter_compatible_with_past_guesses</span></span>(<span>self, words: list[str], guesses: dict) ‑> list[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def filter_compatible_with_past_guesses(
+    self, words: list[str], guesses: dict
+) -&gt; list[str]:
+    &#34;&#34;&#34;
+    Filter a list of words based on multiple past guesses and their results.
+
+    This method iterates through all past guesses and their corresponding results,
+    filtering the list of words to retain only those that are compatible with all guesses.
+
+    Parameters
+    ----------
+    words : list[str]
+        A list of words to filter based on the past guesses and results.
+    guesses : dict
+        A dictionary containing past guesses and their results, with keys &#39;words&#39; and &#39;results&#39;.
+        &#39;words&#39; is a list of guessed words, and &#39;results&#39; is a list of dictionaries containing
+        the result for each guess.
+
+    Returns
+    -------
+    list[str]
+        A list of words that are compatible with all past guesses and results.
+    &#34;&#34;&#34;
+    for guess, result in zip(guesses[GUESSES], guesses[RESULTS]):
+        words = self.filter_compatible_with_guess(words, guess, result)
+    return words</code></pre>
+</details>
+<div class="desc"><p>Filter a list of words based on multiple past guesses and their results.</p>
+<p>This method iterates through all past guesses and their corresponding results,
+filtering the list of words to retain only those that are compatible with all guesses.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>words</code></strong> :&ensp;<code>list[str]</code></dt>
+<dd>A list of words to filter based on the past guesses and results.</dd>
+<dt><strong><code>guesses</code></strong> :&ensp;<code>dict</code></dt>
+<dd>A dictionary containing past guesses and their results, with keys 'words' and 'results'.
+'words' is a list of guessed words, and 'results' is a list of dictionaries containing
+the result for each guess.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[str]</code></dt>
+<dd>A list of words that are compatible with all past guesses and results.</dd>
+</dl></div>
+</dd>
+<dt id="util.Filter.filter_containing_letter"><code class="name flex">
+<span>def <span class="ident">filter_containing_letter</span></span>(<span>self, words: list[str], letter: str) ‑> list[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def filter_containing_letter(self, words: list[str], letter: str) -&gt; list[str]:
+    &#34;&#34;&#34;
+    Filter a list of words to include only those that contain a specific letter.
+
+    Parameters
+    ----------
+    words : list[str]
+        A list of words to filter.
+    letter : str
+        The letter to check for in the words.
+
+    Returns
+    -------
+    list[str]
+        A list of words that contain the specified letter.
+    &#34;&#34;&#34;
+    return [word for word in words if letter in word]</code></pre>
+</details>
+<div class="desc"><p>Filter a list of words to include only those that contain a specific letter.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>words</code></strong> :&ensp;<code>list[str]</code></dt>
+<dd>A list of words to filter.</dd>
+<dt><strong><code>letter</code></strong> :&ensp;<code>str</code></dt>
+<dd>The letter to check for in the words.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[str]</code></dt>
+<dd>A list of words that contain the specified letter.</dd>
+</dl></div>
+</dd>
+<dt id="util.Filter.filter_containing_letter_at"><code class="name flex">
+<span>def <span class="ident">filter_containing_letter_at</span></span>(<span>self, words: list[str], letter: str, index: int) ‑> list[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def filter_containing_letter_at(
+    self, words: list[str], letter: str, index: int
+) -&gt; list[str]:
+    &#34;&#34;&#34;
+    Filter a list of words to include only those that contain a specific letter at a specific index.
+
+    Parameters
+    ----------
+    words : list[str]
+        A list of words to filter.
+    letter : str
+        The letter to check for in the words.
+    index : int
+        The index at which the letter should be present in the words.
+
+    Returns
+    -------
+    list[str]
+        A list of words that contain the specified letter at the specified index.
+    &#34;&#34;&#34;
+    return [word for word in words if word[index] == letter]</code></pre>
+</details>
+<div class="desc"><p>Filter a list of words to include only those that contain a specific letter at a specific index.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>words</code></strong> :&ensp;<code>list[str]</code></dt>
+<dd>A list of words to filter.</dd>
+<dt><strong><code>letter</code></strong> :&ensp;<code>str</code></dt>
+<dd>The letter to check for in the words.</dd>
+<dt><strong><code>index</code></strong> :&ensp;<code>int</code></dt>
+<dd>The index at which the letter should be present in the words.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[str]</code></dt>
+<dd>A list of words that contain the specified letter at the specified index.</dd>
+</dl></div>
+</dd>
+<dt id="util.Filter.filter_not_containing_letter"><code class="name flex">
+<span>def <span class="ident">filter_not_containing_letter</span></span>(<span>self, words: list[str], letter: str) ‑> list[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def filter_not_containing_letter(self, words: list[str], letter: str) -&gt; list[str]:
+    &#34;&#34;&#34;
+    Filter a list of words to exclude those that contain a specific letter.
+
+    Parameters
+    ----------
+    words : list[str]
+        A list of words to filter.
+    letter : str
+        The letter to check for in the words.
+
+    Returns
+    -------
+    list[str]
+        A list of words that do not contain the specified letter.
+    &#34;&#34;&#34;
+    return [word for word in words if letter not in word]</code></pre>
+</details>
+<div class="desc"><p>Filter a list of words to exclude those that contain a specific letter.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>words</code></strong> :&ensp;<code>list[str]</code></dt>
+<dd>A list of words to filter.</dd>
+<dt><strong><code>letter</code></strong> :&ensp;<code>str</code></dt>
+<dd>The letter to check for in the words.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[str]</code></dt>
+<dd>A list of words that do not contain the specified letter.</dd>
+</dl></div>
+</dd>
+<dt id="util.Filter.filter_not_containing_letter_at"><code class="name flex">
+<span>def <span class="ident">filter_not_containing_letter_at</span></span>(<span>self, words: list[str], letter: str, index: int) ‑> list[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def filter_not_containing_letter_at(
+    self, words: list[str], letter: str, index: int
+) -&gt; list[str]:
+    &#34;&#34;&#34;
+    Filter a list of words to exclude those that contain a specific letter at a specific index.
+
+    Parameters
+    ----------
+    words : list[str]
+        A list of words to filter.
+    letter : str
+        The letter to check for in the words.
+    index : int
+        The index at which the letter should not be present in the words.
+
+    Returns
+    -------
+    list[str]
+        A list of words that do not contain the specified letter at the specified index.
+    &#34;&#34;&#34;
+    return [word for word in words if word[index] is not letter]</code></pre>
+</details>
+<div class="desc"><p>Filter a list of words to exclude those that contain a specific letter at a specific index.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>words</code></strong> :&ensp;<code>list[str]</code></dt>
+<dd>A list of words to filter.</dd>
+<dt><strong><code>letter</code></strong> :&ensp;<code>str</code></dt>
+<dd>The letter to check for in the words.</dd>
+<dt><strong><code>index</code></strong> :&ensp;<code>int</code></dt>
+<dd>The index at which the letter should not be present in the words.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[str]</code></dt>
+<dd>A list of words that do not contain the specified letter at the specified index.</dd>
+</dl></div>
+</dd>
+<dt id="util.Filter.filter_unique_letters"><code class="name flex">
+<span>def <span class="ident">filter_unique_letters</span></span>(<span>self, words: list[str]) ‑> list[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def filter_unique_letters(self, words: list[str]) -&gt; list[str]:
+    &#34;&#34;&#34;
+    Filter a list of words to include only those that have all unique letters.
+
+    Parameters
+    ----------
+    words : list[str]
+        A list of words to filter.
+
+    Returns
+    -------
+    list[str]
+        A list of words that contain all unique letters.
+    &#34;&#34;&#34;
+    return [word for word in words if self.has_all_unique_letters(word)]</code></pre>
+</details>
+<div class="desc"><p>Filter a list of words to include only those that have all unique letters.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>words</code></strong> :&ensp;<code>list[str]</code></dt>
+<dd>A list of words to filter.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[str]</code></dt>
+<dd>A list of words that contain all unique letters.</dd>
+</dl></div>
+</dd>
+<dt id="util.Filter.has_all_unique_letters"><code class="name flex">
+<span>def <span class="ident">has_all_unique_letters</span></span>(<span>self, word: str) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def has_all_unique_letters(self, word: str) -&gt; bool:
+    &#34;&#34;&#34;
+    Check if a word contains all unique letters.
+
+    A word is considered to have all unique letters if no letter appears more than once.
+
+    Parameters
+    ----------
+    word : str
+        The word to check for unique letters.
+
+    Returns
+    -------
+    bool
+        True if the word has all unique letters, False otherwise.
+    &#34;&#34;&#34;
+    for c in word:
+        if word.count(c) &gt; 1:
+            return False
+    return True</code></pre>
+</details>
+<div class="desc"><p>Check if a word contains all unique letters.</p>
+<p>A word is considered to have all unique letters if no letter appears more than once.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>word</code></strong> :&ensp;<code>str</code></dt>
+<dd>The word to check for unique letters.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the word has all unique letters, False otherwise.</dd>
+</dl></div>
+</dd>
+<dt id="util.Filter.is_letter_possible"><code class="name flex">
+<span>def <span class="ident">is_letter_possible</span></span>(<span>self, words: list[str], letter: str) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_letter_possible(self, words: list[str], letter: str) -&gt; bool:
+    &#34;&#34;&#34;
+    Check if a letter is present in any of the words in the list.
+
+    Parameters
+    ----------
+    words : list[str]
+        A list of words to check.
+    letter : str
+        The letter to check for presence in the words.
+
+    Returns
+    -------
+    bool
+        True if the letter is present in any of the words, False otherwise.
+    &#34;&#34;&#34;
+    return any(letter in word for word in words)</code></pre>
+</details>
+<div class="desc"><p>Check if a letter is present in any of the words in the list.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>words</code></strong> :&ensp;<code>list[str]</code></dt>
+<dd>A list of words to check.</dd>
+<dt><strong><code>letter</code></strong> :&ensp;<code>str</code></dt>
+<dd>The letter to check for presence in the words.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the letter is present in any of the words, False otherwise.</dd>
+</dl></div>
+</dd>
+<dt id="util.Filter.is_valid_word"><code class="name flex">
+<span>def <span class="ident">is_valid_word</span></span>(<span>self, word: str) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_valid_word(self, word: str) -&gt; bool:
+    &#34;&#34;&#34;
+    Check if a word is valid by verifying its presence in the word list.
+
+    Parameters
+    ----------
+    word : str
+        The word to check for validity.
+
+    Returns
+    -------
+    bool
+        True if the word is in the word list, False otherwise.
+    &#34;&#34;&#34;
+    return word in self.word_list</code></pre>
+</details>
+<div class="desc"><p>Check if a word is valid by verifying its presence in the word list.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>word</code></strong> :&ensp;<code>str</code></dt>
+<dd>The word to check for validity.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the word is in the word list, False otherwise.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="util.Filter" href="#util.Filter">Filter</a></code></h4>
+<ul class="">
+<li><code><a title="util.Filter.filter_compatible_with_guess" href="#util.Filter.filter_compatible_with_guess">filter_compatible_with_guess</a></code></li>
+<li><code><a title="util.Filter.filter_compatible_with_past_guesses" href="#util.Filter.filter_compatible_with_past_guesses">filter_compatible_with_past_guesses</a></code></li>
+<li><code><a title="util.Filter.filter_containing_letter" href="#util.Filter.filter_containing_letter">filter_containing_letter</a></code></li>
+<li><code><a title="util.Filter.filter_containing_letter_at" href="#util.Filter.filter_containing_letter_at">filter_containing_letter_at</a></code></li>
+<li><code><a title="util.Filter.filter_not_containing_letter" href="#util.Filter.filter_not_containing_letter">filter_not_containing_letter</a></code></li>
+<li><code><a title="util.Filter.filter_not_containing_letter_at" href="#util.Filter.filter_not_containing_letter_at">filter_not_containing_letter_at</a></code></li>
+<li><code><a title="util.Filter.filter_unique_letters" href="#util.Filter.filter_unique_letters">filter_unique_letters</a></code></li>
+<li><code><a title="util.Filter.has_all_unique_letters" href="#util.Filter.has_all_unique_letters">has_all_unique_letters</a></code></li>
+<li><code><a title="util.Filter.is_letter_possible" href="#util.Filter.is_letter_possible">is_letter_possible</a></code></li>
+<li><code><a title="util.Filter.is_valid_word" href="#util.Filter.is_valid_word">is_valid_word</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
