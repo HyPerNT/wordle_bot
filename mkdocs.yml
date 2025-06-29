@@ -1,0 +1,8 @@
+site_name: "Wordle_bot"
+repo_url: "https://github.com/HyPerNT/wordle_bot"
+site_dir: "site"
+docs_dir: "docs"
+
+theme:
+  name: readthedocs
+  include_sidebar: true
