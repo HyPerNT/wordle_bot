@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Cli - Wordle_bot</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Cli";
+        var mkdocs_page_input_path = "src/cli/cli.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Wordle_bot
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Wordle_bot Index</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Src</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Bots</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../bots/">Bots</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../bots/bot/">Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../bots/bot_behaviors/">BotBehaviors</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../bots/example_bot/">ExampleBot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../bots/util/">Util</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Cli</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../">Cli</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Cli</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#cli_1">Cli</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature">Signature</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cliaccept_guess">Cli().accept_guess</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cliaccept_result">Cli().accept_result</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cligame_in_progress">Cli().game_in_progress</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns">Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature_3">Signature</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cliget_valid_word">Cli().get_valid_word</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cliinit_bot">Cli().init_bot</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cliinit_session">Cli().init_session</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cliplay">Cli().play</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cliplay_automatically">Cli().play_automatically</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cliplay_interactively">Cli().play_interactively</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cliprovide_guess">Cli().provide_guess</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../util/">Util</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Common</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../common/">Common</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../common/util/">Util</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Tester</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../tester/">Tester</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../tester/wordle_tester/">WordleTester</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Wordle</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../wordle/">Wordle</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../wordle/wordle/">Wordle</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Wordle_bot</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Src</li>
+          <li class="breadcrumb-item">Cli</li>
+      <li class="breadcrumb-item active">Cli</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/HyPerNT/wordle_bot/edit/master/docs/src/cli/cli.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="cli">Cli</h1>
+<p><a href="../../../#wordle_bot-index">Wordle_bot Index</a> / <code>src</code> / <a href="../#cli">Cli</a> / Cli</p>
+<blockquote>
+<p>Auto-generated documentation for <a href="../../../src/cli/cli.py">src.cli.cli</a> module.</p>
+</blockquote>
+<ul>
+<li><a href="#cli">Cli</a></li>
+<li><a href="#cli-1">Cli</a><ul>
+<li><a href="#cli()accept_guess">Cli().accept_guess</a></li>
+<li><a href="#cli()accept_result">Cli().accept_result</a></li>
+<li><a href="#cli()game_in_progress">Cli().game_in_progress</a></li>
+<li><a href="#cli()get_valid_word">Cli().get_valid_word</a></li>
+<li><a href="#cli()init_bot">Cli().init_bot</a></li>
+<li><a href="#cli()init_session">Cli().init_session</a></li>
+<li><a href="#cli()play">Cli().play</a></li>
+<li><a href="#cli()play_automatically">Cli().play_automatically</a></li>
+<li><a href="#cli()play_interactively">Cli().play_interactively</a></li>
+<li><a href="#cli()provide_guess">Cli().provide_guess</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="cli_1">Cli</h2>
+<p><a href="../../../src/cli/cli.py#L24">Show source in cli.py:24</a></p>
+<p>Command-line interface for Wordle bots.</p>
+<p>This class manages user interaction for playing Wordle with different bot behaviors.
+It handles bot selection, game flow, user guesses, and result input.</p>
+<h4 id="signature">Signature</h4>
+<pre><code class="language-python">class Cli:
+    def __init__(self): ...
+</code></pre>
+<h3 id="cliaccept_guess">Cli().accept_guess</h3>
+<p><a href="../../../src/cli/cli.py#L130">Show source in cli.py:130</a></p>
+<p>Accept a guess from the user, validate, and update bot state.</p>
+<h4 id="signature_1">Signature</h4>
+<pre><code class="language-python">def accept_guess(self): ...
+</code></pre>
+<h3 id="cliaccept_result">Cli().accept_result</h3>
+<p><a href="../../../src/cli/cli.py#L147">Show source in cli.py:147</a></p>
+<p>Prompt user for result of guess and update bot state.</p>
+<h4 id="signature_2">Signature</h4>
+<pre><code class="language-python">def accept_result(self): ...
+</code></pre>
+<h3 id="cligame_in_progress">Cli().game_in_progress</h3>
+<p><a href="../../../src/cli/cli.py#L38">Show source in cli.py:38</a></p>
+<p>Determine whether a game is in progress.</p>
+<h2 id="returns">Returns</h2>
+<p>bool
+    False if the game is over, True otherwise</p>
+<h4 id="signature_3">Signature</h4>
+<pre><code class="language-python">def game_in_progress(self) -&gt; bool: ...
+</code></pre>
+<h3 id="cliget_valid_word">Cli().get_valid_word</h3>
+<p><a href="../../../src/cli/cli.py#L135">Show source in cli.py:135</a></p>
+<p>Accept a word from the user, testing if it is valid before returning.</p>
+<h4 id="signature_4">Signature</h4>
+<pre><code class="language-python">def get_valid_word(self) -&gt; str: ...
+</code></pre>
+<h3 id="cliinit_bot">Cli().init_bot</h3>
+<p><a href="../../../src/cli/cli.py#L53">Show source in cli.py:53</a></p>
+<p>Prompt user for bot to use and set class instance to that selection.</p>
+<h4 id="signature_5">Signature</h4>
+<pre><code class="language-python">def init_bot(self) -&gt; None: ...
+</code></pre>
+<h3 id="cliinit_session">Cli().init_session</h3>
+<p><a href="../../../src/cli/cli.py#L115">Show source in cli.py:115</a></p>
+<p>Initialize a new game session.</p>
+<h4 id="signature_6">Signature</h4>
+<pre><code class="language-python">def init_session(self) -&gt; None: ...
+</code></pre>
+<h3 id="cliplay">Cli().play</h3>
+<p><a href="../../../src/cli/cli.py#L79">Show source in cli.py:79</a></p>
+<p>Play a game with the user, repeatedly prompting for new games or new bots.</p>
+<h4 id="signature_7">Signature</h4>
+<pre><code class="language-python">def play(self) -&gt; None: ...
+</code></pre>
+<h3 id="cliplay_automatically">Cli().play_automatically</h3>
+<p><a href="../../../src/cli/cli.py#L68">Show source in cli.py:68</a></p>
+<p>Play a game a automatically with the user, prompting for a secret word and running the game.</p>
+<h4 id="signature_8">Signature</h4>
+<pre><code class="language-python">def play_automatically(self) -&gt; None: ...
+</code></pre>
+<h3 id="cliplay_interactively">Cli().play_interactively</h3>
+<p><a href="../../../src/cli/cli.py#L59">Show source in cli.py:59</a></p>
+<p>Play a game interactively with the user, prompting for guesses and results.</p>
+<h4 id="signature_9">Signature</h4>
+<pre><code class="language-python">def play_interactively(self) -&gt; None: ...
+</code></pre>
+<h3 id="cliprovide_guess">Cli().provide_guess</h3>
+<p><a href="../../../src/cli/cli.py#L120">Show source in cli.py:120</a></p>
+<p>Provide the bot's next guess to the user.</p>
+<h4 id="signature_10">Signature</h4>
+<pre><code class="language-python">def provide_guess(self): ...
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../" class="btn btn-neutral float-left" title="Cli"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../util/" class="btn btn-neutral float-right" title="Util">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/HyPerNT/wordle_bot" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../util/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

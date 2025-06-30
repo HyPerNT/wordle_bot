@@ -59,6 +59,16 @@
                 </li>
     </ul>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" >Cli</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../cli/">Cli</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../cli/cli/">Cli</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../cli/util/">Util</a>
+                </li>
+    </ul>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" >Common</a>
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../../common/">Common</a>
@@ -236,7 +246,7 @@ start_game() -&gt; None
     def __init__(self) -&gt; None: ...
 </code></pre>
 <h3 id="wordlecheck_error_conditions">Wordle().check_error_conditions</h3>
-<p><a href="../../../src/wordle/wordle.py#L167">Show source in wordle.py:167</a></p>
+<p><a href="../../../src/wordle/wordle.py#L165">Show source in wordle.py:165</a></p>
 <p>Check for error conditions before making a guess.</p>
 <p>This method verifies if the game is in progress and if the guessed word is valid.</p>
 <h2 id="parameters">Parameters</h2>
@@ -275,7 +285,7 @@ start_game() -&gt; None
 <pre><code class="language-python">def get_all_indices(self, list: list[int]) -&gt; list[int]: ...
 </code></pre>
 <h3 id="wordleguess">Wordle().guess</h3>
-<p><a href="../../../src/wordle/wordle.py#L193">Show source in wordle.py:193</a></p>
+<p><a href="../../../src/wordle/wordle.py#L191">Show source in wordle.py:191</a></p>
 <p>Process a guess, updates the game state, and returns the result of the guess.</p>
 <p>This method checks for error conditions, compares the guessed word with the secret word,
 and updates the results accordingly. It also checks if the player has won or lost the game.</p>
@@ -317,7 +327,7 @@ index : int
 ) -&gt; bool: ...
 </code></pre>
 <h3 id="wordlestart_game">Wordle().start_game</h3>
-<p><a href="../../../src/wordle/wordle.py#L249">Show source in wordle.py:249</a></p>
+<p><a href="../../../src/wordle/wordle.py#L247">Show source in wordle.py:247</a></p>
 <p>Initialize a new game by selecting a secret word and resetting the game state.</p>
 <p>This method sets the secret word to a randomly generated word from the word list,
 resets the game in progress flag to True, and clears the guesses and results lists.</p>
