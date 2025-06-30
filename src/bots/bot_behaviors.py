@@ -51,7 +51,7 @@ class BotBehaviors:
         to the complete word list.
         """
         self.guesses = {GUESSES: [], RESULTS: []}
-        self.possible_words = self.filter.word_list
+        self.possible_words: list[str] = self.filter.word_list
 
     def generate_first_guess(self) -> str:  # type: ignore[empty-body]
         """

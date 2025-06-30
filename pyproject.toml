@@ -51,10 +51,11 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry]
 name = "wordle_bot"
 packages = [
+    { include = "cli", from = "src" },
     { include = "common", from = "src" },
-    { include = "wordle", from = "src" },
-    { include = "bot", from = "src" },
+    { include = "bots", from = "src" },
     { include = "tester", from = "src" },
+    { include = "wordle", from = "src" },
 ]
 version = "0.1.0"
 description = "A small package for playing Wordle automatically"

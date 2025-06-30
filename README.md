@@ -166,9 +166,13 @@ For code coverage:
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-The example bot can be run using `python3 src/main.py`, and additional bots can be run using the tester by following that example script.
+You can access the features of the interactive CLI by running `python3 src/main.py`.
+From that script, you can choose to run the automated tester on a bot of your choice:
+![Demo of tests run on the ExampleBot](images/tester_demo.gif)
 
-![Screenshot of results from src/main.py](images/main_screenshot.png)
+Or play a game using a bot of your choice, setting a secret word for it to guess.
+![Demo of ExampleBot trying to guess "MUSIC"](images/word_guess_demo.gif)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

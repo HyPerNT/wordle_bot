@@ -32,6 +32,6 @@ If applicable, add screenshots or other details to help explain your problem.
 Add any other context about the problem here.
 
 **Acceptance criteria**
-[ ] Bug fixed
-[ ] UTs added that exercise the bug condition (if possible)
-[ ] Documentation updated
+- [ ] Bug fixed
+- [ ] UTs added that exercise the bug condition (if possible)
+- [ ] Documentation updated

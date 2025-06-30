@@ -62,7 +62,7 @@ class Wordle:
 
 ### Wordle().check_error_conditions
 
-[Show source in wordle.py:167](../../../src/wordle/wordle.py#L167)
+[Show source in wordle.py:165](../../../src/wordle/wordle.py#L165)
 
 Check for error conditions before making a guess.
 
@@ -133,7 +133,7 @@ def get_all_indices(self, list: list[int]) -> list[int]: ...
 
 ### Wordle().guess
 
-[Show source in wordle.py:193](../../../src/wordle/wordle.py#L193)
+[Show source in wordle.py:191](../../../src/wordle/wordle.py#L191)
 
 Process a guess, updates the game state, and returns the result of the guess.
 
@@ -197,7 +197,7 @@ def is_misplaced_letter(
 
 ### Wordle().start_game
 
-[Show source in wordle.py:249](../../../src/wordle/wordle.py#L249)
+[Show source in wordle.py:247](../../../src/wordle/wordle.py#L247)
 
 Initialize a new game by selecting a secret word and resetting the game state.
 

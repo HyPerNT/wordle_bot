@@ -7,6 +7,7 @@ It inherits from the Wordle class and provides methods to run tests, collect res
 the performance of the bot.
 """
 
+from common.util import RESULT
 from wordle import Wordle
 from common import (
     ALL_CORRECT,
@@ -57,7 +58,9 @@ class WordleTester(Wordle):
         self.failures: list[str] = []
         self.logger = logging.getLogger(__name__ + "." + self.__class__.__name__)
 
-    def test(self, bot: BotBehaviors, print_results: bool = True) -> None:
+    def test(
+        self, bot: BotBehaviors, print_results: bool = True, print_failures=False
+    ) -> None:
         """
         Runs tests on the bot using a predefined list of words.
 
@@ -73,6 +76,9 @@ class WordleTester(Wordle):
         print_results : bool, optional
             If True, the results of the tests will be printed to the console.
             Defaults to True.
+        print_failures : bool, optional
+            If True, additionally prints out failed words in the style of Wordle.
+            Defaults to False.
         """
         if print_results:
             print("Running tests")
@@ -86,7 +92,7 @@ class WordleTester(Wordle):
             self.test_results.append(
                 {
                     "word": self.secret_word,
-                    "result": self.results,
+                    RESULT: self.results,
                     "guesses": self.guesses,
                 }
             )
@@ -97,8 +103,9 @@ class WordleTester(Wordle):
                 self.failures.append(self.secret_word)
         if print_results:
             print(self.get_results_str())
-            print(self.get_failures_str())
-            print(self.get_wacky_failures_string())
+            if print_failures:
+                print(self.get_failures_str())
+                print(self.get_wacky_failures_string())
 
     def get_results_str(self) -> str:
         """
@@ -115,9 +122,9 @@ class WordleTester(Wordle):
         guess_counts = [0 for _ in range(6)]
         size = 0
         for r in self.test_results:
-            if r["result"][-1] != ALL_CORRECT:
+            if r[RESULT][-1] != ALL_CORRECT:
                 continue
-            count = len(r["result"])
+            count = len(r[RESULT])
             size += count
             guess_counts[count - 1] += 1
         string += "Success rate:\n"
@@ -128,13 +135,11 @@ class WordleTester(Wordle):
         correct_letters = 0
         incorrect_letters = 0
         for r in self.test_results:
-            if r["result"][-1] == ALL_CORRECT:
+            if r[RESULT][-1] == ALL_CORRECT:
                 continue
-            correct_letters += sum(
-                boolean_comprehension(r["result"][-1], CORRECT_LETTER)
-            )
+            correct_letters += sum(boolean_comprehension(r[RESULT][-1], CORRECT_LETTER))
             incorrect_letters += sum(
-                boolean_comprehension(r["result"][-1], INCORRECT_LETTER)
+                boolean_comprehension(r[RESULT][-1], INCORRECT_LETTER)
             )
         string += f"\tAverage correct letters on loss: {correct_letters / len(self.failures):.3f}\n"
         string += f"\tAverage incorrect letters on loss: {incorrect_letters / len(self.failures):.3f}\n"
@@ -162,7 +167,7 @@ class WordleTester(Wordle):
         """
         string = "Additional failure details:\n"
         for r in self.test_results:
-            if r["result"][-1] == ALL_CORRECT:
+            if r[RESULT][-1] == ALL_CORRECT:
                 continue
             string += self.get_failure_str(r, color)
         return string
@@ -187,7 +192,7 @@ class WordleTester(Wordle):
         """
         string = f"\t{r['word']}\n"
         prettify_guess_fn = prettify_guess_no_color if not color else prettify_guess
-        for word, result in zip(r["guesses"], r["result"]):
+        for word, result in zip(r["guesses"], r[RESULT]):
             string += f"\t\t{prettify_guess_fn(word, result)}\n"
         return string
 
@@ -213,10 +218,10 @@ class WordleTester(Wordle):
         string = "Failure details:\n"
         prettify_guess_fn = prettify_guess_no_color if not color else prettify_guess
         for r in self.test_results:
-            if r["result"][-1] == ALL_CORRECT:
+            if r[RESULT][-1] == ALL_CORRECT:
                 continue
-            if MISPLACED_LETTER in r["result"][-1]:
+            if MISPLACED_LETTER in r[RESULT][-1]:
                 string += f"\t{r['word']}\n"
-                for word, result in zip(r["guesses"], r["result"]):
+                for word, result in zip(r["guesses"], r[RESULT]):
                     string += f"\t\t{prettify_guess_fn(word, result)}\n"
         return string

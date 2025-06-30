@@ -66,8 +66,8 @@ class WordleBot(BotBehaviors):
         str
             The next guess word for the bot, selected from the filtered list of possible words.
         """
-        self.possible_words = self.filter.filter_compatible_with_guess(
-            self.possible_words, self.guesses[GUESSES][-1], self.guesses[RESULTS][-1]
+        self.possible_words = self.filter.filter_compatible_with_past_guesses(
+            self.possible_words, self.guesses
         )
         num_possible = len(self.possible_words)
         if num_possible == 1:
