@@ -19,9 +19,9 @@ from common import (
     MISPLACED_LETTER,
     ALL_CORRECT,
 )
+import logging
 
 # File: wordle/wordle.py
-import logging
 
 
 class Wordle:
@@ -144,8 +144,6 @@ class Wordle:
         bool
             True if the letter is misplaced, False otherwise.
         """
-        if letter not in word:
-            return False
         occurances_in_secret_word = boolean_comprehension(self.secret_word, letter)
         occurances_in_guess = boolean_comprehension(word, letter)
         self.logger.info(f"Checking {word} for {letter}")

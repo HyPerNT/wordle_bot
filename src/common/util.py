@@ -120,3 +120,28 @@ def prettify_guess_no_color(guess: str, result: list[int]) -> str:
         The formatted guess without color coding.
     """
     return f"{guess}\t{result}"
+
+
+def get_all_subclasses(clazz: type):
+    """
+    Generate a list of subclasses of clazz dynamically.
+
+    Parameters
+    ----------
+    clazz : type
+        The base class.
+
+    Returns
+    -------
+    list[type]
+        A list of all subclasses of clazz
+    """
+    subclasses = set()
+    work = [clazz]
+    while work:
+        parent = work.pop()
+        for child in parent.__subclasses__():
+            if child not in subclasses:
+                subclasses.add(child)
+                work.append(child)
+    return list(subclasses)
