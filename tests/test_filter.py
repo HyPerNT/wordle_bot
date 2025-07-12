@@ -12,6 +12,13 @@ from bots.util import GUESSES, RESULTS  # type: ignore
 
 
 class TestFilter:
+    """
+    Unit tests for the Filter class.
+
+    This class tests the core functionality of the Filter class,
+    ensuring that all provided methods behave as expected.
+    """
+
     def test_filter(self):
         """Test the Filter class."""
         filter_instance = Filter()

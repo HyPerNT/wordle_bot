@@ -11,6 +11,13 @@ from wordle import Wordle  # type: ignore
 
 
 class TestWordle:
+    """
+    Unit tests for the Wordle class.
+
+    This class tests the core functionality of the Wordle class/game,
+    incliding game progress and that the correct state of the game is maintained.
+    """
+
     def test_wordle_start(self):
         """Test the Wordle class initialization and methods."""
         wordle = Wordle()

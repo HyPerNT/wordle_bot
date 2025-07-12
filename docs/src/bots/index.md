@@ -9,7 +9,7 @@
 
 ## Modules
 
-- [Bot](./bot.md)
+- [BayesianBot](./bayesian_bot.md)
 - [BotBehaviors](./bot_behaviors.md)
 - [ExampleBot](./example_bot.md)
 - [Util](./util.md)
