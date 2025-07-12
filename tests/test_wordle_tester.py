@@ -12,6 +12,13 @@ from bots.example_bot import ExampleBot  # type: ignore
 
 
 class TestWordleTester:
+    """
+    Unit tests for the WordleTester class.
+
+    This class tests the core functionality of the WordleTester class,
+    checking that it can correctly simulate many games and exercise bots.
+    """
+
     def test_wordle_tester(self):
         """
         Test the test method of the Tester class.

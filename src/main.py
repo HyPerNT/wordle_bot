@@ -49,7 +49,9 @@ def run_tests() -> None:
             os.remove(LOG_FILE)
         bots = get_all_subclasses(BotBehaviors)
         selection: int = get_bot_selection(bots)
-        WordleTester().test(bots[selection]())
+        choice: int = get_choice_from_prompt("Print failures?", ["No", "Yes"])
+        print_failures: bool = choice == 1
+        WordleTester().test(bots[selection](), print_failures=print_failures)
         print("Run another test? (y/N)")
         again = input("> ").strip().lower()
         if again != "y":

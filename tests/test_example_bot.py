@@ -12,6 +12,12 @@ from bots.util import GUESSES  # type: ignore
 
 
 class TestExampleBot:
+    """
+    Unit tests for the ExampleBot class.
+
+    This class tests the ExampleBot class, ensuring it maintains consistent behavior.
+    """
+
     def test_generate_first_guess(self):
         """Test the first guess generation."""
         bot = ExampleBot()

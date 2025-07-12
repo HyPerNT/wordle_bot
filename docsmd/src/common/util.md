@@ -32,6 +32,30 @@ def boolean_comprehension(
 
 
 
+## get_all_subclasses
+
+[Show source in util.py:125](https://github.com/HyPerNT/wordle_bot/blob/main/src/common/util.py#L125)
+
+Generate a list of subclasses of clazz dynamically.
+
+Parameters
+----------
+clazz : type
+    The base class.
+
+Returns
+-------
+list[type]
+    A list of all subclasses of clazz
+
+#### Signature
+
+```python
+def get_all_subclasses(clazz: type): ...
+```
+
+
+
 ## get_word_list
 
 [Show source in util.py:47](https://github.com/HyPerNT/wordle_bot/blob/main/src/common/util.py#L47)

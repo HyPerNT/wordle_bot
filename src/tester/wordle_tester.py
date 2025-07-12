@@ -89,6 +89,10 @@ class WordleTester(Wordle):
             while self.game_in_progress:
                 result = self.guess(bot.generate_guess())
                 bot.accept_result(result)
+                if self.secret_word not in bot.possible_words:
+                    print(
+                        f"Bot erroneously eliminated {self.secret_word} from possible word list"
+                    )
             self.test_results.append(
                 {
                     "word": self.secret_word,

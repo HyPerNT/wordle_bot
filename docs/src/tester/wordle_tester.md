@@ -41,7 +41,7 @@ class WordleTester(Wordle):
 
 ### WordleTester().get_failure_str
 
-[Show source in wordle_tester.py:175](../../../src/tester/wordle_tester.py#L175)
+[Show source in wordle_tester.py:179](../../../src/tester/wordle_tester.py#L179)
 
 Generate a formatted string for a single failure, including the word, the guesses made, and the results of those guesses.
 
@@ -67,7 +67,7 @@ def get_failure_str(self, r: dict, color: bool = True) -> str: ...
 
 ### WordleTester().get_failures_str
 
-[Show source in wordle_tester.py:149](../../../src/tester/wordle_tester.py#L149)
+[Show source in wordle_tester.py:153](../../../src/tester/wordle_tester.py#L153)
 
 Generate a detailed string of the failures encountered during the tests.
 
@@ -94,7 +94,7 @@ def get_failures_str(self, color: bool = True) -> str: ...
 
 ### WordleTester().get_results_str
 
-[Show source in wordle_tester.py:110](../../../src/tester/wordle_tester.py#L110)
+[Show source in wordle_tester.py:114](../../../src/tester/wordle_tester.py#L114)
 
 Generate a summary string of the test results, including the number of correct and incorrect guesses, success rates, and failure details.
 
@@ -112,7 +112,7 @@ def get_results_str(self) -> str: ...
 
 ### WordleTester().get_wacky_failures_string
 
-[Show source in wordle_tester.py:199](../../../src/tester/wordle_tester.py#L199)
+[Show source in wordle_tester.py:203](../../../src/tester/wordle_tester.py#L203)
 
 Generate a string containing details of failures that include misplaced letters.
 

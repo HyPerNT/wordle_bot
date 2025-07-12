@@ -5,7 +5,7 @@
 A full list of `Wordle_bot` project modules.
 
     - [Bots](src/bots/index.md#bots)
-        - [Bot](src/bots/bot.md#bot)
+        - [BayesianBot](src/bots/bayesian_bot.md#bayesianbot)
         - [BotBehaviors](src/bots/bot_behaviors.md#botbehaviors)
         - [ExampleBot](src/bots/example_bot.md#examplebot)
         - [Util](src/bots/util.md#util)

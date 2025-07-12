@@ -10,6 +10,13 @@ from bots.util import GUESSES, RESULTS  # type: ignore
 
 
 class TestBotBehaviors:
+    """
+    Unit tests for the BotBehaviors class.
+
+    This class tests the core functionality of the BotBehaviors class,
+    to ensure that subclasses can expect correct behavior.
+    """
+
     def test_bot_behaviors(self):
         """Test the BotBehaviors class."""
         bot_behaviors = BotBehaviors()

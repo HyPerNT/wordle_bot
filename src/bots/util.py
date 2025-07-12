@@ -275,3 +275,54 @@ class Filter:
             A list of words that contain all unique letters.
         """
         return [word for word in words if self.has_all_unique_letters(word)]
+
+    def get_letter_count(self, words: list[str]) -> dict[str, int]:
+        """
+        Generate a dictionary of letters to integers that represents the count of each letter in the given word list.
+
+        Parameters
+        ----------
+        words: list[str]
+            A list of words to count.
+
+        Returns
+        -------
+        dict[str, int]
+            A dictionary keyed by letter to counts.
+        """
+        dict = {}
+        for word in words:
+            for letter in word:
+                if letter not in dict:
+                    dict[letter] = 0
+                dict[letter] += 1
+        return dict
+
+    def get_sorted_letters(self, totals_dict: dict[str, int]) -> str:
+        """
+        Return a string that represents the ordering of letters from most to least common.
+
+        Parameters
+        ----------
+        totals_dict : dict[str, int]
+            Dictionary of letter-count pairs.
+
+        Returns
+        -------
+        str
+            String representing letters sorted from most to least common.
+        """
+        sorted_letters: str = ""
+        sorting: bool = True
+        while sorting:
+            maximum: int = -1
+            letter: str = ""
+            for k, v in totals_dict.items():
+                if v >= maximum:
+                    maximum = v
+                    letter = k
+                if maximum == -1:
+                    sorting = False
+            sorted_letters += letter
+            totals_dict[letter] = -1
+        return sorted_letters

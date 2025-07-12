@@ -13,6 +13,8 @@
     - [Filter().filter_not_containing_letter](#filter()filter_not_containing_letter)
     - [Filter().filter_not_containing_letter_at](#filter()filter_not_containing_letter_at)
     - [Filter().filter_unique_letters](#filter()filter_unique_letters)
+    - [Filter().get_letter_count](#filter()get_letter_count)
+    - [Filter().get_sorted_letters](#filter()get_sorted_letters)
     - [Filter().has_all_unique_letters](#filter()has_all_unique_letters)
     - [Filter().is_letter_possible](#filter()is_letter_possible)
     - [Filter().is_valid_word](#filter()is_valid_word)
@@ -232,6 +234,50 @@ list[str]
 
 ```python
 def filter_unique_letters(self, words: list[str]) -> list[str]: ...
+```
+
+### Filter().get_letter_count
+
+[Show source in util.py:279](../../../src/bots/util.py#L279)
+
+Generate a dictionary of letters to integers that represents the count of each letter in the given word list.
+
+Parameters
+----------
+words: list[str]
+    A list of words to count.
+
+Returns
+-------
+dict[str, int]
+    A dictionary keyed by letter to counts.
+
+#### Signature
+
+```python
+def get_letter_count(self, words: list[str]) -> dict[str, int]: ...
+```
+
+### Filter().get_sorted_letters
+
+[Show source in util.py:301](../../../src/bots/util.py#L301)
+
+Return a string that represents the ordering of letters from most to least common.
+
+Parameters
+----------
+totals_dict : dict[str, int]
+    Dictionary of letter-count pairs.
+
+Returns
+-------
+str
+    String representing letters sorted from most to least common.
+
+#### Signature
+
+```python
+def get_sorted_letters(self, totals_dict: dict[str, int]) -> str: ...
 ```
 
 ### Filter().has_all_unique_letters

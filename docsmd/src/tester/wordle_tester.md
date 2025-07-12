@@ -6,7 +6,7 @@
 
 ## WordleTester
 
-[Show source in wordle_tester.py:29](https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L29)
+[Show source in wordle_tester.py:30](https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L30)
 
 A class to test a Wordle bot against a list of words.
 
@@ -33,7 +33,7 @@ class WordleTester(Wordle):
 
 ### WordleTester().get_failure_str
 
-[Show source in wordle_tester.py:170](https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L170)
+[Show source in wordle_tester.py:175](https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L175)
 
 Generate a formatted string for a single failure, including the word, the guesses made, and the results of those guesses.
 
@@ -59,7 +59,7 @@ def get_failure_str(self, r: dict, color: bool = True) -> str: ...
 
 ### WordleTester().get_failures_str
 
-[Show source in wordle_tester.py:144](https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L144)
+[Show source in wordle_tester.py:149](https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L149)
 
 Generate a detailed string of the failures encountered during the tests.
 
@@ -86,7 +86,7 @@ def get_failures_str(self, color: bool = True) -> str: ...
 
 ### WordleTester().get_results_str
 
-[Show source in wordle_tester.py:103](https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L103)
+[Show source in wordle_tester.py:110](https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L110)
 
 Generate a summary string of the test results, including the number of correct and incorrect guesses, success rates, and failure details.
 
@@ -104,7 +104,7 @@ def get_results_str(self) -> str: ...
 
 ### WordleTester().get_wacky_failures_string
 
-[Show source in wordle_tester.py:194](https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L194)
+[Show source in wordle_tester.py:199](https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L199)
 
 Generate a string containing details of failures that include misplaced letters.
 
@@ -131,7 +131,7 @@ def get_wacky_failures_string(self, color: bool = True) -> str: ...
 
 ### WordleTester().test
 
-[Show source in wordle_tester.py:60](https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L60)
+[Show source in wordle_tester.py:61](https://github.com/HyPerNT/wordle_bot/blob/main/src/tester/wordle_tester.py#L61)
 
 Runs tests on the bot using a predefined list of words.
 
@@ -147,9 +147,14 @@ bot : BotBehaviors
 print_results : bool, optional
     If True, the results of the tests will be printed to the console.
     Defaults to True.
+print_failures : bool, optional
+    If True, additionally prints out failed words in the style of Wordle.
+    Defaults to False.
 
 #### Signature
 
 ```python
-def test(self, bot: BotBehaviors, print_results: bool = True) -> None: ...
+def test(
+    self, bot: BotBehaviors, print_results: bool = True, print_failures=False
+) -> None: ...
 ```
