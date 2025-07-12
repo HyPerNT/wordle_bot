@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../../img/favicon.ico" />
-    <title>Bot - Wordle_bot</title>
+    <title>BayesianBot - Wordle_bot</title>
     <link rel="stylesheet" href="../../../css/theme.css" />
     <link rel="stylesheet" href="../../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Bot";
-        var mkdocs_page_input_path = "src/bots/bot.md";
+        var mkdocs_page_name = "BayesianBot";
+        var mkdocs_page_input_path = "src/bots/bayesian_bot.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -49,17 +49,15 @@
     <ul class="current">
                 <li class="toctree-l2"><a class="reference internal" href="../">Bots</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../bayesian_bot/">BayesianBot</a>
-                </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="#">Bot</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">BayesianBot</a>
     <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#wordlebot">WordleBot</a>
+    <li class="toctree-l3"><a class="reference internal" href="#bayesianbot_1">BayesianBot</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#attributes">Attributes</a>
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#signature">Signature</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#wordlebotgenerate_first_guess">WordleBot().generate_first_guess</a>
+    <li class="toctree-l4"><a class="reference internal" href="#bayesianbotgenerate_first_guess">BayesianBot().generate_first_guess</a>
     </li>
         </ul>
     </li>
@@ -69,7 +67,7 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#signature_1">Signature</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#wordlebotgenerate_next_guess">WordleBot().generate_next_guess</a>
+    <li class="toctree-l4"><a class="reference internal" href="#bayesianbotgenerate_next_guess">BayesianBot().generate_next_guess</a>
     </li>
         </ul>
     </li>
@@ -79,9 +77,33 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#signature_2">Signature</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#bayesianbotget_number_of_guesses">BayesianBot().get_number_of_guesses</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns_2">Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature_3">Signature</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#bayesianbotguess_most_probable_from_list">BayesianBot().guess_most_probable_from_list</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters_2">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns_3">Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature_4">Signature</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#bayesianbotuse_bayesian_strategy">BayesianBot().use_bayesian_strategy</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#bayesianbotuse_greedy_strategy">BayesianBot().use_greedy_strategy</a>
+    </li>
         </ul>
     </li>
     </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../bot/">Bot</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../bot_behaviors/">BotBehaviors</a>
                 </li>
@@ -142,9 +164,9 @@
     <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Src</li>
           <li class="breadcrumb-item">Bots</li>
-      <li class="breadcrumb-item active">Bot</li>
+      <li class="breadcrumb-item active">BayesianBot</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/HyPerNT/wordle_bot/edit/master/docs/src/bots/bot.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/HyPerNT/wordle_bot/edit/master/docs/src/bots/bayesian_bot.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -152,46 +174,56 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="bot">Bot</h1>
-<p><a href="../../../#wordle_bot-index">Wordle_bot Index</a> / <code>src</code> / <a href="../#bots">Bots</a> / Bot</p>
+                <h1 id="bayesianbot">BayesianBot</h1>
+<p><a href="../../../#wordle_bot-index">Wordle_bot Index</a> / <code>src</code> / <a href="../#bots">Bots</a> / BayesianBot</p>
 <blockquote>
-<p>Auto-generated documentation for <a href="../../../src/bots/bot.py">src.bots.bot</a> module.</p>
+<p>Auto-generated documentation for <a href="../../../src/bots/bayesian_bot.py">src.bots.bayesian_bot</a> module.</p>
 </blockquote>
 <ul>
-<li><a href="#bot">Bot</a></li>
-<li><a href="#wordlebot">WordleBot</a><ul>
-<li><a href="#wordlebot()generate_first_guess">WordleBot().generate_first_guess</a></li>
-<li><a href="#wordlebot()generate_next_guess">WordleBot().generate_next_guess</a></li>
+<li><a href="#bayesianbot">BayesianBot</a></li>
+<li><a href="#bayesianbot-1">BayesianBot</a><ul>
+<li><a href="#bayesianbot()generate_first_guess">BayesianBot().generate_first_guess</a></li>
+<li><a href="#bayesianbot()generate_next_guess">BayesianBot().generate_next_guess</a></li>
+<li><a href="#bayesianbot()get_number_of_guesses">BayesianBot().get_number_of_guesses</a></li>
+<li><a href="#bayesianbot()guess_most_probable_from_list">BayesianBot().guess_most_probable_from_list</a></li>
+<li><a href="#bayesianbot()use_bayesian_strategy">BayesianBot().use_bayesian_strategy</a></li>
+<li><a href="#bayesianbot()use_greedy_strategy">BayesianBot().use_greedy_strategy</a></li>
 </ul>
 </li>
 </ul>
-<h2 id="wordlebot">WordleBot</h2>
-<p><a href="../../../src/bots/bot.py#L15">Show source in bot.py:15</a></p>
+<h2 id="bayesianbot_1">BayesianBot</h2>
+<p><a href="../../../src/bots/bayesian_bot.py#L15">Show source in bayesian_bot.py:15</a></p>
 <p>A class representing a Wordle bot that generates guesses based on letter frequency and previous results.</p>
 <p>It inherits from BotBehaviors and implements methods to generate the first guess and subsequent guesses
 based on the frequency of letters and the results of previous guesses.</p>
 <h2 id="attributes">Attributes</h2>
 <p>frequency_list : str
     A string representing the frequency of letters in the English language, ordered from most to least frequent.
-MAX_LETTERS : int
-    The maximum number of unique letters to try for in guessing.</p>
+MAX_WORDS : int
+    The maximum number of words to allow in the search space before BayesianBot switches away from the greedy strategy.
+BAYES_MIN_TURNS : int
+    The minimum number of turns before BayesianBot uses the Bayesian strategy.
+unique_words_set : list[str]
+    The word set of the 20 most common letters in English, as disjoint and legal Wordle words.
+GREEDY_MAX_TURNS : int
+    The maximum number of turns the Greedy strategy will pbe played for, set to the size of the unique_words_set.</p>
 <h4 id="signature">Signature</h4>
-<pre><code class="language-python">class WordleBot(BotBehaviors):
+<pre><code class="language-python">class BayesianBot(BotBehaviors):
     def __init__(self): ...
 </code></pre>
-<h3 id="wordlebotgenerate_first_guess">WordleBot().generate_first_guess</h3>
-<p><a href="../../../src/bots/bot.py#L37">Show source in bot.py:37</a></p>
+<h3 id="bayesianbotgenerate_first_guess">BayesianBot().generate_first_guess</h3>
+<p><a href="../../../src/bots/bayesian_bot.py#L46">Show source in bayesian_bot.py:46</a></p>
 <p>Generate the first guess for the Wordle game.</p>
 <h2 id="parameters">Parameters</h2>
 <p>None</p>
 <h2 id="returns">Returns</h2>
 <p>str
-    The first guess word for the bot, which is hardcoded to "GHOST".</p>
+    The first guess word for the bot, which is hardcoded to "CAGEY".</p>
 <h4 id="signature_1">Signature</h4>
 <pre><code class="language-python">def generate_first_guess(self) -&gt; str: ...
 </code></pre>
-<h3 id="wordlebotgenerate_next_guess">WordleBot().generate_next_guess</h3>
-<p><a href="../../../src/bots/bot.py#L52">Show source in bot.py:52</a></p>
+<h3 id="bayesianbotgenerate_next_guess">BayesianBot().generate_next_guess</h3>
+<p><a href="../../../src/bots/bayesian_bot.py#L114">Show source in bayesian_bot.py:114</a></p>
 <p>Generate the next guess for the Wordle game based on previous guesses and results.</p>
 <p>This method filters the list of possible words based on the last guess and its result,
 and then selects the next guess based on letter frequency and uniqueness.
@@ -204,12 +236,49 @@ Uniqueness is prioritized to avoid repeated letters in the guess.</p>
 <h4 id="signature_2">Signature</h4>
 <pre><code class="language-python">def generate_next_guess(self) -&gt; str: ...
 </code></pre>
+<h3 id="bayesianbotget_number_of_guesses">BayesianBot().get_number_of_guesses</h3>
+<p><a href="../../../src/bots/bayesian_bot.py#L91">Show source in bayesian_bot.py:91</a></p>
+<p>Get number of guesses made.</p>
+<h2 id="returns_2">Returns</h2>
+<p>int
+    Number of guesses made in this game.</p>
+<h4 id="signature_3">Signature</h4>
+<pre><code class="language-python">def get_number_of_guesses(self) -&gt; int: ...
+</code></pre>
+<h3 id="bayesianbotguess_most_probable_from_list">BayesianBot().guess_most_probable_from_list</h3>
+<p><a href="../../../src/bots/bayesian_bot.py#L61">Show source in bayesian_bot.py:61</a></p>
+<p>Filter a given candidate word list based on a letter frequency list and returns first result.</p>
+<h2 id="parameters_2">Parameters</h2>
+<p>candidates : list[str]
+    A candidate word list.
+frequency_list : str
+    A string representing the order of letters to prioritize.</p>
+<h2 id="returns_3">Returns</h2>
+<p>str
+    The first word from the candidate list with optimum frequency.</p>
+<h4 id="signature_4">Signature</h4>
+<pre><code class="language-python">def guess_most_probable_from_list(
+    self, candidates: list[str], frequency_list: str
+) -&gt; str: ...
+</code></pre>
+<h3 id="bayesianbotuse_bayesian_strategy">BayesianBot().use_bayesian_strategy</h3>
+<p><a href="../../../src/bots/bayesian_bot.py#L108">Show source in bayesian_bot.py:108</a></p>
+<p>Use the Bayesian strategy.</p>
+<h4 id="signature_5">Signature</h4>
+<pre><code class="language-python">def use_bayesian_strategy(self) -&gt; bool: ...
+</code></pre>
+<h3 id="bayesianbotuse_greedy_strategy">BayesianBot().use_greedy_strategy</h3>
+<p><a href="../../../src/bots/bayesian_bot.py#L102">Show source in bayesian_bot.py:102</a></p>
+<p>Use the greedy strategy.</p>
+<h4 id="signature_6">Signature</h4>
+<pre><code class="language-python">def use_greedy_strategy(self) -&gt; bool: ...
+</code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../bayesian_bot/" class="btn btn-neutral float-left" title="BayesianBot"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../bot_behaviors/" class="btn btn-neutral float-right" title="BotBehaviors">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../" class="btn btn-neutral float-left" title="Bots"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../bot/" class="btn btn-neutral float-right" title="Bot">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -236,10 +305,10 @@ Uniqueness is prioritized to avoid repeated letters in the guess.</p>
         </span>
     
     
-      <span><a href="../bayesian_bot/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../bot_behaviors/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../bot/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

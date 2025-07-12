@@ -49,6 +49,8 @@
     <ul class="current">
                 <li class="toctree-l2"><a class="reference internal" href="../">Bots</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="../bayesian_bot/">BayesianBot</a>
+                </li>
                 <li class="toctree-l2"><a class="reference internal" href="../bot/">Bot</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../bot_behaviors/">BotBehaviors</a>
@@ -133,7 +135,7 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#signature_7">Signature</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#filterhas_all_unique_letters">Filter().has_all_unique_letters</a>
+    <li class="toctree-l4"><a class="reference internal" href="#filterget_letter_count">Filter().get_letter_count</a>
     </li>
         </ul>
     </li>
@@ -143,7 +145,7 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#signature_8">Signature</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#filteris_letter_possible">Filter().is_letter_possible</a>
+    <li class="toctree-l4"><a class="reference internal" href="#filterget_sorted_letters">Filter().get_sorted_letters</a>
     </li>
         </ul>
     </li>
@@ -153,7 +155,7 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#signature_9">Signature</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#filteris_valid_word">Filter().is_valid_word</a>
+    <li class="toctree-l4"><a class="reference internal" href="#filterhas_all_unique_letters">Filter().has_all_unique_letters</a>
     </li>
         </ul>
     </li>
@@ -162,6 +164,26 @@
     <li class="toctree-l3"><a class="reference internal" href="#returns_9">Returns</a>
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#signature_10">Signature</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#filteris_letter_possible">Filter().is_letter_possible</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters_10">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns_10">Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature_11">Signature</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#filteris_valid_word">Filter().is_valid_word</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters_11">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns_11">Returns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#signature_12">Signature</a>
     </li>
         </ul>
     </li>
@@ -245,6 +267,8 @@
 <li><a href="#filter()filter_not_containing_letter">Filter().filter_not_containing_letter</a></li>
 <li><a href="#filter()filter_not_containing_letter_at">Filter().filter_not_containing_letter_at</a></li>
 <li><a href="#filter()filter_unique_letters">Filter().filter_unique_letters</a></li>
+<li><a href="#filter()get_letter_count">Filter().get_letter_count</a></li>
+<li><a href="#filter()get_sorted_letters">Filter().get_sorted_letters</a></li>
 <li><a href="#filter()has_all_unique_letters">Filter().has_all_unique_letters</a></li>
 <li><a href="#filter()is_letter_possible">Filter().is_letter_possible</a></li>
 <li><a href="#filter()is_valid_word">Filter().is_valid_word</a></li>
@@ -387,43 +411,67 @@ index : int
 <h4 id="signature_7">Signature</h4>
 <pre><code class="language-python">def filter_unique_letters(self, words: list[str]) -&gt; list[str]: ...
 </code></pre>
+<h3 id="filterget_letter_count">Filter().get_letter_count</h3>
+<p><a href="../../../src/bots/util.py#L279">Show source in util.py:279</a></p>
+<p>Generate a dictionary of letters to integers that represents the count of each letter in the given word list.</p>
+<h2 id="parameters_7">Parameters</h2>
+<p>words: list[str]
+    A list of words to count.</p>
+<h2 id="returns_7">Returns</h2>
+<p>dict[str, int]
+    A dictionary keyed by letter to counts.</p>
+<h4 id="signature_8">Signature</h4>
+<pre><code class="language-python">def get_letter_count(self, words: list[str]) -&gt; dict[str, int]: ...
+</code></pre>
+<h3 id="filterget_sorted_letters">Filter().get_sorted_letters</h3>
+<p><a href="../../../src/bots/util.py#L301">Show source in util.py:301</a></p>
+<p>Return a string that represents the ordering of letters from most to least common.</p>
+<h2 id="parameters_8">Parameters</h2>
+<p>totals_dict : dict[str, int]
+    Dictionary of letter-count pairs.</p>
+<h2 id="returns_8">Returns</h2>
+<p>str
+    String representing letters sorted from most to least common.</p>
+<h4 id="signature_9">Signature</h4>
+<pre><code class="language-python">def get_sorted_letters(self, totals_dict: dict[str, int]) -&gt; str: ...
+</code></pre>
 <h3 id="filterhas_all_unique_letters">Filter().has_all_unique_letters</h3>
 <p><a href="../../../src/bots/util.py#L54">Show source in util.py:54</a></p>
 <p>Check if a word contains all unique letters.</p>
 <p>A word is considered to have all unique letters if no letter appears more than once.</p>
-<h2 id="parameters_7">Parameters</h2>
+<h2 id="parameters_9">Parameters</h2>
 <p>word : str
     The word to check for unique letters.</p>
-<h2 id="returns_7">Returns</h2>
+<h2 id="returns_9">Returns</h2>
 <p>bool
     True if the word has all unique letters, False otherwise.</p>
-<h4 id="signature_8">Signature</h4>
+<h4 id="signature_10">Signature</h4>
 <pre><code class="language-python">def has_all_unique_letters(self, word: str) -&gt; bool: ...
 </code></pre>
 <h3 id="filteris_letter_possible">Filter().is_letter_possible</h3>
 <p><a href="../../../src/bots/util.py#L75">Show source in util.py:75</a></p>
 <p>Check if a letter is present in any of the words in the list.</p>
-<h2 id="parameters_8">Parameters</h2>
+<h2 id="parameters_10">Parameters</h2>
 <p>words : list[str]
     A list of words to check.
 letter : str
     The letter to check for presence in the words.</p>
-<h2 id="returns_8">Returns</h2>
+<h2 id="returns_10">Returns</h2>
 <p>bool
     True if the letter is present in any of the words, False otherwise.</p>
-<h4 id="signature_9">Signature</h4>
+<h4 id="signature_11">Signature</h4>
 <pre><code class="language-python">def is_letter_possible(self, words: list[str], letter: str) -&gt; bool: ...
 </code></pre>
 <h3 id="filteris_valid_word">Filter().is_valid_word</h3>
 <p><a href="../../../src/bots/util.py#L93">Show source in util.py:93</a></p>
 <p>Check if a word is valid by verifying its presence in the word list.</p>
-<h2 id="parameters_9">Parameters</h2>
+<h2 id="parameters_11">Parameters</h2>
 <p>word : str
     The word to check for validity.</p>
-<h2 id="returns_9">Returns</h2>
+<h2 id="returns_11">Returns</h2>
 <p>bool
     True if the word is in the word list, False otherwise.</p>
-<h4 id="signature_10">Signature</h4>
+<h4 id="signature_12">Signature</h4>
 <pre><code class="language-python">def is_valid_word(self, word: str) -&gt; bool: ...
 </code></pre>
               
